@@ -65,6 +65,7 @@ h1, h2, h3, h4 {
 
 h1 {
     font-size: 2.2em;
+    line-height: 1.7em;
 }
 
 h2 {
@@ -99,4 +100,12 @@ div#contents-container:after {
 
 div#contents-container p {
     margin: 1.1em 0;
+}
+
+div#contents-container>div>p:nth-child(2) {
+    margin: 0 0 1.1em 0;
+}
+
+ul#links>li {
+    display: inline;
 }
