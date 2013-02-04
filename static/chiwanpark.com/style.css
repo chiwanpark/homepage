@@ -98,7 +98,7 @@ div#contents-container:after {
     clear: both;
 }
 
-div#contents-container p {
+div#contents-container>div>p {
     margin: 1.1em 0;
 }
 
@@ -108,4 +108,36 @@ div#contents-container>div>p:nth-child(2) {
 
 ul#links>li {
     display: inline;
+}
+
+ul#links {
+    padding: 0;
+}
+
+ul {
+    padding: 10px;
+}
+
+dl {
+    padding: 10px;
+}
+
+dd {
+    padding: 10px;
+}
+
+dd small {
+    font-size: 0.9em;
+}
+
+ul>li>span.title {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+span.me {
+    font-weight: bold;
 }
