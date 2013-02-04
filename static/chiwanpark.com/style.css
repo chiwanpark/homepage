@@ -48,12 +48,15 @@ table {
 }
 
 /* chiwanpark.com style start */
+html {
+    font-size: 87.5%;
+}
+
 body {
     font-family: AppleSDGothicNeo, "Malgun Gothic", Gulim, Dotum, sans;
-    font-size: 11pt;
     font-weight: normal;
     color: #2f343b;
-    line-height: 1.4em;
+    line-height: 1.5em;
     border-top: 7px solid #703030;
     padding: 20px;
 }
@@ -90,7 +93,7 @@ div#photo {
 
 div#contents-container {
     width: 720px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 div#contents-container:after {
@@ -140,4 +143,12 @@ em {
 
 span.me {
     font-weight: bold;
+}
+
+a, a:visited, a:active {
+    color: #703030;
+}
+
+a:hover {
+    color: #2f343b;
 }
