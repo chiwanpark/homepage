@@ -49,7 +49,7 @@ body#index>div#contents-container {
     float: left;
 }
 
-body#index div#photo {
+body#index div#photo, body#wiki div#sidebar {
     margin-left: -230px;
     width: 200px;
     position: relative;
