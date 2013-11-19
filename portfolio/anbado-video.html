@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>anbado video solution - Portfolio - Chiwan Park</title>
+
+    <link href="/static/less/portfolio.less" rel="stylesheet/less" type="text/css"/>
+    <link href="/static/less/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <script type="text/javascript" src="/static/js/less-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/static/js/chiwanpark.portfolio-fancybox.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Portfolio
+        <small>&lt;anbado video solution&gt;</small>
+    </h1>
+    <div id="screenshot-wrapper">
+        <h2>Screenshot</h2>
+
+        <p>클릭하면 크게 볼 수 있습니다.</p>
+
+        <div id="screenshot-list">
+            <ul>
+                <li>
+                    <a href="/static/images/portfolio/anbado-video/screenshot01.png"
+                       class="fancybox"><img
+                            src="/static/images/portfolio/anbado-video/thumbnail01.png"
+                            alt="Logo of anbado video"/></a>
+                </li>
+                <li>
+                    <a href="/static/images/portfolio/anbado-video/screenshot02.png"
+                       class="fancybox"><img
+                            src="/static/images/portfolio/anbado-video/thumbnail02.png"
+                            alt="Design of Prototype"/></a>
+                </li>
+                <li>
+                    <a href="/static/images/portfolio/anbado-video/screenshot03.png"
+                       class="fancybox"><img
+                            src="/static/images/portfolio/anbado-video/thumbnail03.png"
+                            alt="Application of anbado video solution (modac.TV)"/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="description">
+        <h2>Description</h2>
+
+        <p>anbado video solution은 온라인 비디오의 각 감상 시점에서 자신들이 원하는 의견, 감정 등을 함께 남기고 공유할 수 있는 비디오 플레이어와
+            플레이어를 통해 사용자가 남긴 내용을 바탕으로 사용자들의 시청 참여 패턴을 분석하는 분석 시스템으로 구성된 솔루션입니다. 이를 통해 사용자에게는 &quot;참여,
+            공유, 시청 지속성&quot;의 경험을 제공하며, 콘텐츠 제공자에게는 사용자의 시청 참여 패턴을 분석할 수 있는 도구를 제공하는 것이 목표입니다.</p>
+    </div>
+    <div id="roles">
+        <h2>Roles</h2>
+        <ul>
+            <li>anbado video solution의 Python Back-end 구축을 담당하였습니다.
+                <ul>
+                    <li>Flask, SQLAlchemy를 통해 기본적인 Back-end를 구축했습니다.</li>
+                    <li>gevent-socketio 패키지를 활용해 socket.io 프로토콜 위에서 실시간으로 의견, 감정 등을 남기고 공유할 수 있도록
+                        설계했습니다.
+                    </li>
+                </ul>
+            </li>
+            <li>분석을 위한 알고리즘 설계와 Framework 구축을 담당하고 있습니다.
+                <ul>
+                    <li>사용자가 남긴 생각과 감정은 Redis를 거쳐 Apache Flume를 통해 HDFS에 저장됩니다.</li>
+                    <li>HDFS에 저장된 로그는 MapReduce로 구현된 알고리즘과 Apache Mahout등의 라이브러리를 통해 분석되고 그 결과가
+                        Database에 저장됩니다.
+                    </li>
+                </ul>
+            </li>
+            <li>anbado video solution의 오픈 소스 리포지토리 관리를 맡아 진행할 예정입니다.</li>
+        </ul>
+    </div>
+    <div id="outsite-links">
+        <h2>Links</h2>
+        <ul>
+            <li><i class="fa fa-home"></i> <a href="http://anbado.com" target="_blank">anbado video
+                homepage</a></li>
+            <li><i class="fa fa-github-alt"></i> <a
+                    href="https://github.com/anbadovideo/anbado-video" target="_blank">Github
+                Repository</a></li>
+            <li><i class="fa fa-tasks"></i> <a href="http://anbadojira.atlassian.net"
+                                               target="_blank">Atlassian JIRA Issue Tracker</a></li>
+            <li><i class="fa fa-caret-square-o-right"></i> <a href="http://modac.tv"
+                                                              target="_blank">modac.TV</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
