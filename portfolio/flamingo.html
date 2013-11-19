@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>anbado video solution - Portfolio - Chiwan Park</title>
+
+    <link href="/static/less/portfolio.less" rel="stylesheet/less" type="text/css"/>
+    <link href="/static/less/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/static/js/less-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/static/js/chiwanpark.portfolio-fancybox.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Portfolio <small>&lt;Flamingo Project&gt;</small></h1>
+    <div id="screenshot-wrapper">
+        <h2>Screenshot</h2>
+        <p>클릭하면 크게 볼 수 있습니다.</p>
+        <div id="screenshot-list">
+            <ul>
+                <li><a href="/static/images/portfolio/flamingo/screenshot01.png" class="fancybox"><img src="/static/images/portfolio/flamingo/thumbnail01.png" alt="Logo of Flamingo Project"/></a></li>
+                <li><a href="/static/images/portfolio/flamingo/screenshot02.jpg" class="fancybox"><img src="/static/images/portfolio/flamingo/thumbnail02.jpg" alt="Screenshot of Desktop Environment"/></a></li>
+                <li><a href="/static/images/portfolio/flamingo/screenshot03.jpg" class="fancybox"><img src="/static/images/portfolio/flamingo/thumbnail03.jpg" alt="GUI-based Workflow Designer"/></a></li>
+                <li><a href="/static/images/portfolio/flamingo/screenshot04.jpg" class="fancybox"><img src="/static/images/portfolio/flamingo/thumbnail04.jpg" alt="Web-based Hive Ad-hoc Query Editor"/></a></li>
+                <li><a href="/static/images/portfolio/flamingo/screenshot05.jpg" class="fancybox"><img src="/static/images/portfolio/flamingo/thumbnail05.jpg" alt="HDFS Browser"/></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="description">
+        <h2>Description</h2>
+
+        <p>빅 데이터 분석은 실체가 쉽게 보이지 않고, 요구사항이 자주 변하는 형태가 주를 이룹니다. 따라서 잦은 설계의 변경과 많은 PoC가 수반되어야 합니다. 또한, 하나의 결과를 얻기 위해 다수의 분석 작업이 Workflow를 이루어 수행되는 특징이 있습니다.</p>
+        <p>Apache Hadoop은 대용량의 데이터를 저비용으로 처리할 수 있다는 장점이 있지만, Hadoop Ecosystem에 익숙하지 않으면 다루기 어렵고 MapReduce 구조로 인해 프로그래밍에 익숙하지 않으면 다루기 힘들다는 단점이 있습니다. 또한, Hadoop Ecosystem에 적용되는 많은 sub-project들은 제각기 작동해 통합적으로 관리하기가 어려우며 서로 다른 sub-project 사이의 Workflow 관리도 힘듭니다.</p>
+        <p>Flamingo Project는 이러한 문제를 해결하기 위해, Hadoop Ecosystem 위에서 빅 데이터 분석, 개발, 운영 환경을 제공하는 오픈 소스 프로젝트입니다. GUI 기반으로 Workflow를 작성할 수 있으며, 웹 기반으로 인터넷이 되면 빅 데이터 분석을 수행할 수 있게 구성되어있습니다. 현재 삼성전자, 네오위즈 등에서 Flamingo Project를 기반으로 자사 빅 데이터 분석 플랫폼을 구축하고 있습니다.</p>
+    </div>
+    <div id="roles">
+        <h2>Roles</h2>
+        <ul>
+            <li>Flamingo Hadoop Manager에서 Apache Hive를 다루는 기능을 담당하고 있습니다.
+                <ul>
+                    <li>Apache Thrift를 통해 원격으로 Hive Cluster를 제어하는 기능을 지원합니다.
+                        <ul>
+                            <li>Web-based Hive Ad-hoc Query Editor 기능 제공</li>
+                            <li>Remote Hive Query Execution 기능 제공</li>
+                            <li>Hive Query Execution History Management 기능 제공</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Flamingo Hadoop Manager의 사용자 인증, 사용자 별 권한 관리 모듈을 담당할 예정입니다.
+                <ul>
+                    <li>웹에서 HDFS의 사용자 구조를 그대로 구현하여, 사용자 별 접근 가능한 파일을 제어할 수 있도록 합니다.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="outsite-links">
+        <h2>Links</h2>
+        <ul>
+            <li><i class="fa fa-home"></i> <a href="http://openflamingo.org" target="_blank">Flamingo Project Homepage</a></li>
+            <li><i class="fa fa-hdd-o"></i> <a href="http://sourceforge.net/projects/hadoop-manager/" target="_blank">Sourceforge Project Page</a></li>
+            <li><i class="fa fa-tasks"></i> <a href="http://jira.opencloudengine.org" target="_blank">Atlassian JIRA Issue Tracker</a></li>
+            <li><i class="fa fa-caret-square-o-right"></i> <a href="http://flamingo.opencloudengine.org" target="_blank">Flamingo Project Demo</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
