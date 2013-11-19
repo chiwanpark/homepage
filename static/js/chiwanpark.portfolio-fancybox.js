@@ -6,4 +6,12 @@ jQuery(function ($) {
             this.title = alt;
         }
     });
+
+    $('.fancybox-media').fancybox({
+        openEffect: 'none',
+        closeEffect: 'none',
+        helpers: {
+            media: {}
+        }
+    });
 });
