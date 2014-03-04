@@ -164,7 +164,7 @@ header {
       span:last-child {
         background-color: #9a9ef6;
         box-shadow: -3px 0px 7px -3px rgba(68, 68, 68, 0.5);
-        margin-left: -3px !important;
+        margin-left: -5px !important;
         padding-left: 7px;
       }
     }
@@ -179,6 +179,39 @@ header {
         font-size: 1em;
       }
     }
+
+    .skills {
+      ul {
+        padding: 0;
+        list-style: none;
+
+        li {
+          .box(6px 9px) !important;
+          display: inline-block;
+          margin-right: 5px;
+          border-left: 3px solid #9b9b9b;;
+        }
+      }
+    }
+
+    .assets {
+      text-align: right;
+      margin-right: -15px;
+
+      a {
+        font-size: 1.4em;
+        color: #9b9b9b;
+        text-decoration: none;
+        padding: 5px 15px;
+        outline: 0;
+        border-top: 2px solid #9a9ef6;
+
+        &:hover {
+          background-color: #9a9ef6;
+          color: #ffffff;
+        }
+      }
+    }
   }
 }
 
@@ -191,5 +224,9 @@ header {
 }
 
 #awards {
+  .default-section;
+}
+
+#projects {
   .default-section;
 }
