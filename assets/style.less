@@ -1,23 +1,28 @@
 @charset "utf-8";
 
 @import url(http://fonts.googleapis.com/css?family=Gudea:400,700,400italic);
-@import "font-awesome/less/font-awesome.less";
+@import "font-awesome/font-awesome.less";
 @import "pure/grids-min.less";
 
 .font-hack {
   font-family: "Gudea", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
-body {
+html, body {
   background-color: #f7f7f7;
+  font-size: 1em;
 }
 
 #wrapper {
   .pure-g;
+
+  max-width: 890px;
+  margin: 30px auto;
+  padding: 10px;
 }
 
 header {
-  .pure-g;
+  .pure-g-r;
   .pure-u-1;
 
   .font-hack;
@@ -46,5 +51,30 @@ header {
 
   h1 {
     .pure-u-1;
+  }
+}
+
+.box(@padd: 25px) {
+  box-shadow: 0px 3px 3px -3px #ccc;
+  border-left: 10px solid #7b80f3;
+  background-color: #fefefe;
+  padding: @padd;
+}
+
+#bio {
+  .pure-g-r;
+  .pure-u-1;
+
+  .font-hack;
+
+  h2 > i {
+     margin-right: 0.4em;
+  }
+
+  div.content {
+    .box(10px 25px);
+    p {
+      text-indent: 0.85em;
+    }
   }
 }
