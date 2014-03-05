@@ -4,6 +4,9 @@
 @import "font-awesome/font-awesome.less";
 @import "pure/grids-min.less";
 
+@color-dark: #540e26;
+@color-light: #a21348;
+
 .font-hack {
   font-family: "Gudea", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   letter-spacing: -0.05em;
@@ -110,11 +113,11 @@ header {
         position: relative;
         box-shadow: 0px 2px 6px -3px rgba(68, 68, 68, 0.5);
         z-index: 3;
-        background-color: #9a9ef6;
+        background-color: @color-light;
       }
 
       span:last-child {
-        background-color: #7b80f3;
+        background-color: @color-dark;
       }
     }
 
@@ -148,7 +151,7 @@ header {
 
   li {
     .box(10px 25px);
-    border-left: 10px solid #7b80f3;
+    border-left: 10px solid @color-dark;
     position: relative;
     margin-bottom: 15px;
 
@@ -161,12 +164,12 @@ header {
         padding: 7px 10px 7px 18px;
         line-height: 30px;
         margin: 0;
-        background-color: #7b80f3;
+        background-color: @color-dark;
         color: #ffffff;
       }
 
       span:last-child {
-        background-color: #9a9ef6;
+        background-color: @color-light;
         box-shadow: -3px 0px 7px -3px rgba(68, 68, 68, 0.5);
         margin-left: -5px !important;
         padding-left: 7px;
@@ -207,10 +210,10 @@ header {
         text-decoration: none;
         padding: 5px 15px;
         outline: 0;
-        border-top: 2px solid #9a9ef6;
+        border-top: 2px solid @color-light;
 
         &:hover {
-          background-color: #9a9ef6;
+          background-color: @color-light;
           color: #ffffff;
         }
       }
@@ -218,22 +221,6 @@ header {
   }
 }
 
-#bio {
-  .default-section;
-}
-
-#education {
-  .default-section;
-}
-
-#awards {
-  .default-section;
-}
-
-#projects {
-  .default-section;
-}
-
-#experience {
+#bio, #education, #awards, #projects, #experience {
   .default-section;
 }
