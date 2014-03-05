@@ -1,0 +1,260 @@
+@charset "utf-8";
+
+@import url(http://fonts.googleapis.com/css?family=Gudea:400,700,400italic);
+@import "font-awesome/font-awesome.less";
+@import "pure/grids-min.less";
+
+@color-dark: #540e26;
+@color-light: #a21348;
+
+.font-hack {
+  font-family: "Gudea", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  letter-spacing: -0.05em;
+}
+
+html, body {
+  background-color: #f7f7f7;
+  color: #333333;
+  font-size: 0.98em;
+}
+
+a {
+  color: #9b9b9b;
+}
+
+#wrapper {
+  .pure-g;
+
+  max-width: 890px;
+  margin: 30px auto;
+  padding: 10px;
+}
+
+header {
+  .pure-g-r;
+  .pure-u-1;
+
+  .font-hack;
+
+  text-align: center;
+
+  #portrait-holder {
+    .pure-u-1;
+
+    margin: 15px auto;
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+    max-width: 180px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+
+    img {
+      margin: 0 auto;
+      max-width: 180px;
+      width: 100%;
+      border-radius: 50%;
+      zoom: 1;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  h1 {
+    .pure-u-1;
+  }
+
+  .links {
+    .pure-u-1;
+    .font-hack;
+
+    font-size: 2em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 10px;
+
+      a {
+        color: @color-dark;
+      }
+    }
+  }
+}
+
+.box(@padd: 25px) {
+  box-shadow: 0px 3px 3px -3px #ccc;
+  background-color: #fefefe;
+  padding: @padd;
+}
+
+.default-section {
+  .pure-g-r;
+  .pure-u-1;
+
+  .font-hack;
+
+  h2 > i {
+    margin-right: 0.4em;
+  }
+
+  div.content {
+    @media(max-width:320px) {
+      .box(10px 15px);
+    }
+    @media(min-width:321px) {
+      .box(10px 25px);
+    }
+    p {
+      text-indent: 0.85em;
+    }
+  }
+}
+
+.summary-by-dates {
+  .font-hack;
+
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: 15px;
+    min-height: 65px;
+
+    .dates {
+      float: left;
+      width: 75px;
+
+      span {
+        display: block;
+        color: #ffffff;
+        padding: 6px;
+        text-align: center;
+      }
+
+      span:first-child {
+        position: relative;
+        box-shadow: 0px 2px 6px -3px rgba(68, 68, 68, 0.5);
+        z-index: 3;
+        background-color: @color-light;
+      }
+
+      span:last-child {
+        background-color: @color-dark;
+      }
+    }
+
+    .description {
+      margin-left: 90px;
+      padding: 10px 0;
+
+      h3 {
+        padding: 0;
+        margin: 0 0 5px 0;
+        font-size: 1em;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        text-indent: 0 !important;
+        font-size: 1em;
+      }
+    }
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.list-by-dates {
+  padding: 0;
+  list-style: none;
+
+  li {
+    .box(10px 25px);
+    border-left: 10px solid @color-dark;
+    position: relative;
+    margin-bottom: 15px;
+
+    .date-additional {
+      position: absolute;
+      left: -10px;
+      top: 10px;
+
+      span {
+        padding: 7px 10px 7px 18px;
+        line-height: 30px;
+        margin: 0;
+        background-color: @color-dark;
+        color: #ffffff;
+      }
+
+      span:last-child {
+        background-color: @color-light;
+        box-shadow: -3px 0px 7px -3px rgba(68, 68, 68, 0.5);
+        margin-left: -5px !important;
+        padding-left: 7px;
+      }
+    }
+
+    .description {
+      padding-top: 45px !important;
+      margin-bottom: 10px !important;
+
+      h3 {
+        padding: 0;
+        margin: 0 0 5px 0;
+        font-size: 1em;
+      }
+    }
+
+    .skills {
+      ul {
+        padding: 0;
+        list-style: none;
+
+        li {
+          .box(6px 9px) !important;
+          display: inline-block;
+          margin-right: 5px;
+          border-left: 3px solid #9b9b9b;;
+        }
+      }
+    }
+
+    .assets {
+      text-align: right;
+      margin-right: -15px;
+
+      a {
+        font-size: 1.4em;
+        text-decoration: none;
+        padding: 5px 15px;
+        outline: 0;
+        border-top: 2px solid @color-light;
+
+        &:hover {
+          background-color: @color-light;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+#bio, #education, #awards, #projects, #experience {
+  .default-section;
+}
+
+footer {
+  .pure-u-1;
+  .font-hack;
+
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #9b9b9b;
+}

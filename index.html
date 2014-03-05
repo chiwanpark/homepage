@@ -1,96 +1,367 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Chiwan Park</title>
-
-    <link href="/static/less/style.less" rel="stylesheet/less" type="text/css"/>
-    <script type="text/javascript" src="/static/js/less-1.4.1.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style.less"/>
+  <link rel="stylesheet" type="text/css"
+        href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"/>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.3/less.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script type="text/javascript"
+          src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-media.js"></script>
+  <script type="text/javascript" src="assets/index.js"></script>
+  <title>Chiwan Park</title>
 </head>
 <body>
 <div id="wrapper">
-    <div id="portrait-holder">
-        <img id="portrait" alt="A Portrait of Chiwan Park" src="/static/images/portrait.jpg"/>
-    </div>
+<header>
+  <div id="portrait-holder">
+    <img src="assets/portrait.jpg" title="Portrait of Chiwan Park"/>
+  </div>
+  <h1>박치완 (Chiwan Park)</h1>
+  <ul class="links">
+    <li><a href="http://chiwanpark.com/" alt="Homepage"><i class="fa fa-home"></i></a></li>
+    <li>
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01Hyzp_YFzysc70qsTOiq_YQ==&amp;c=RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E="
+         onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501Hyzp_YFzysc70qsTOiq_YQ\75\75\46c\75RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;"
+         target="_blank" alt="E-Mail Address"><i class="fa fa-envelope"></i></a></li>
+    <li><a href="http://blog.chiwanpark.com/" alt="Tumblr"><i class="fa fa-tumblr-square"></i></a></li>
+    <li><a href="https://fb.me/chiwanpark" alt="Facebook"><i class="fa fa-facebook-square"></i></a></li>
+    <li><a href="https://github.com/chiwanpark" alt="Github"><i class="fa fa-github-square"></i></a></li>
+    <li><a href="https://bitbucket.org/chiwanpark" alt="Bitbucket"><i class="fa fa-bitbucket-square"></i></a></li>
+  </ul>
+</header>
 
-    <h1>박치완 (Chiwan Park)</h1>
+<section id="bio">
+  <h2><i class="fa fa-user"></i>Bio</h2>
 
-    <div id="links">
-        <ul>
-            <li>
-                <a href="http://www.google.com/recaptcha/mailhide/d?k=01Hyzp_YFzysc70qsTOiq_YQ==&amp;c=RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E="
-                   onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501Hyzp_YFzysc70qsTOiq_YQ\75\75\46c\75RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;"
-                   title="Reveal this e-mail address"><i class="fa fa-envelope"></i></a></li>
-            <li><a href="http://blog.chiwanpark.com/" target="_blank"><i class="fa fa-tumblr-square"></i></a></li>
-            <li><a href="http://facebook.com/chiwanpark" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-            <li><a href="http://github.com/chiwanpark" target="_blank"><i class="fa fa-github-alt"></i></a></li>
-            <li><a href="http://bitbucket.org/chiwanpark" target="_blank"><i class="fa fa-bitbucket"></i></a></li>
-        </ul>
-    </div>
+  <div class="content">
+    <p>1991년 생, 스물네 살 남자입니다. 집은 용인이지만, 학교까지 거리가 멀어 서울 봉천동에 나와살고 있습니다. 달달한 음식을 좋아하고, 커피를 달고 살며, 매운 음식을 잘 못먹는 전형적인 어린이
+      입맛의 소유자 입니다.</p>
 
-    <div id="content-bio">
-        <h2><i class="fa fa-user fa-4x"></i>Bio</h2>
+    <p>영화와 드라마 보는 것을 굉장히 좋아합니다. 주로 달달한 로맨틱 코미디나 슬픈 로맨스 장르를 좋아하고 공포 영화들은 거의 보지 않습니다. 배우 중에서는 정유미, 레이첼 맥아담스, 에이미 아담스,
+      계륜미를 좋아합니다.</p>
 
-        <p>스물세 살, 남자입니다. 영화와 드라마 보는 것을 좋아하고 커피를 달고 삽니다. 집은 용인이지만, 학교가 너무 멀어 맘에 맞는 친구들과 낙성대에서 자취하고 있습니다. 달달한 음식과 치즈를
-            좋아하는 (그리고 매운 음식을 못 먹는) 전형적인 어린이 입맛입니다. </p>
+    <p>연세대학교 지구시스템과학과 4학년이고, 현재 다른 활동들을 하기 위해 휴학 중입니다. 현재 NIPA 오픈 프론티어 1기로 활동 중입니다.</p>
+  </div>
+</section>
 
-        <p>최근에 살이 너무 쪄, 운동을 통해 다이어트를 하고 있는데, 아침에 헬스장 가는 게 죽을 맛이라 너무 힘이 듭니다.</p>
+<section id="education">
+  <h2><i class="fa fa-book"></i>Education</h2>
 
-        <p>연세대학교 지구시스템과학과 3학년에 재학 중이며, 컴퓨터에 관심이 많아 컴퓨터과학과를 복수 전공하고 있고, 교직과정 이수 중입니다.</p>
+  <div class="content">
+    <ul class="summary-by-dates">
+      <li>
+        <div class="dates">
+          <span>현재</span>
+          <span>2010.03</span>
+        </div>
+        <div class="description">
+          <h3>연세대학교 (Yonsei University)</h3>
 
-        <p>친구들은 2014년 2월에 졸업하는데, 최소 5학년, 수틀리면 6학년까지 다녀야 하는 상황에서 졸업이 언제 오려나 걱정이 이만저만이 아닙니다.</p>
-    </div>
+          <p>지구시스템과학과 (Dept. of Earth System Sciences)</p>
+        </div>
+      </li>
+      <li>
+        <div class="dates">
+          <span>2010.02</span>
+          <span>2007.03</span>
+        </div>
+        <div class="description">
+          <h3>한국디지털미디어고등학교 (Korea Digital Media High School)</h3>
 
-    <div id="content-interests">
-        <h2><i class="fa fa-star fa-4x"></i>Interests</h2>
+          <p>웹프로그래밍과 (Dept. of Web Programming)</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 
-        <p>서버사이드 프로그래밍을 주로 해왔고, 데이터 분석에 관심이 많습니다. 최근 데이터 시각화에 관심을 가져 멀티미디어를 통해 시각화하는 방법에 대해 고민하고 있습니다.</p>
+<section id="experience">
+  <h2><i class="fa fa-briefcase"></i>Experience</h2>
 
-        <p>오픈 소스 프로젝트에도 관심이 많아 개발 결과물을 github, bitbucket 등을 통해 공개하려고 노력합니다. 또한, 오픈 소스 세미나와 컨퍼런스도 참가하고 있습니다.</p>
+  <div class="content">
+    <ul class="summary-by-dates">
+      <li>
+        <div class="dates">
+          <span>현재</span>
+          <span>2013.12</span>
+        </div>
+        <div class="description">
+          <h3>NIPA Open Frontier</h3>
 
-        <p>많은 오픈 소스 프로젝트들의 매뉴얼, 과학 전공자들의 글을 보고 느끼는 바가 있어, 좋은 매뉴얼 작성이나 과학적 글쓰기에도 관심이 많은 편입니다. 글을 짜임새 있고 바르게 쓰는 사람을 대단히
-            부러워합니다.</p>
-    </div>
+          <p>풀타임 1기</p>
+        </div>
+      </li>
+      <li>
+        <div class="dates">
+          <span>현재</span>
+          <span>2013.07</span>
+        </div>
+        <div class="description">
+          <h3>Anbado Video</h3>
 
-    <div id="content-experiences">
-        <h2><i class="fa fa-lightbulb-o fa-4x"></i>Experiences</h2>
+          <p>파트타임 개발자 (Python 기반 API 서버 개발)</p>
+        </div>
+      </li>
+      <li>
+        <div class="dates">
+          <span>2013.12</span>
+          <span>2013.07</span>
+        </div>
+        <div class="description">
+          <h3>Cloudine </h3>
 
-        <p>현재 &lsquo;<a href="http://anbado.com/" target="_blank">Anbado Video</a>&rsquo;라는 팀에서 서버사이드 프로그래머로 활동하고 있으며, &lsquo;<a href="http://openflamingo.org" target="_blank">Flamingo Project</a>&rsquo;에 참여해 빅 데이터 관련 오픈 소스 프로젝트에 기여하고 있습니다.</p>
+          <p>파트타임 개발자</p>
+        </div>
+      </li>
+      <li>
+        <div class="dates">
+          <span>2013.06</span>
+          <span>2012.07</span>
+        </div>
+        <div class="description">
+          <h3>SW Maestro</h3>
 
-        <p>2013년 6월까지 미래창조과학부 <a href="http://swmaestro.kr/" target="_blank">소프트웨어 마에스트로</a> 3기 연수생이었습니다.</p>
+          <p>3기 연수생 (2단계)</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 
-        <p>스마트TV용 애플리케이션(<a
-                href="https://tv.samsungapps.com/kr/widget/all/view.do?productID=G00000384386&amp;categoryID=0000008918"
-                target="_blank">Smilepet</a>)을 제작했던 경험이 있으며, <a href="http://library.yonsei.ac.kr/" target="_blank">연세대학교
-            학술정보원 홈페이지</a>, <a href="http://library.yonsei.ac.kr/iclib" target="_blank">연세대학교 언더우드 기념도서관 홈페이지</a> 개선 작업 등
-            기타 말할 수 없는 외주 개발 경험이 조금 있습니다.</p>
+<section id="awards">
+  <h2><i class="fa fa-trophy"></i>Awards</h2>
 
-        <p>고등학교 재학 중에 한국정보올림피아드 장려상 (2009년 7월), 한국정보과학경시대회 대상 (2008년 6월) 수상 경력이 있습니다.</p>
-    </div>
+  <div class="content">
+    <ul class="list-by-dates">
+      <li>
+        <div class="date-additional">
+          <span>2013.12</span>
+          <span>우수상 (3등상)</span>
+        </div>
+        <div class="description">
+          <h3>제 1회 빅데이터 분석 경진대회</h3>
 
-    <div id="content-skills">
-        <h2><i class="fa fa-cogs fa-4x"></i>Skills</h2>
+          <p>미래창조과학부(MSIP)가 주최하고 한국정보화진흥원(NIA)가 주관하는 빅데이터 분석 경진대회입니다. 수집된 트위터 데이터를 분석하여, 특정 날짜의 이슈 키워드를 추출하는 프로그램을
+            작성하였습니다.</p>
+        </div>
+      </li>
+      <li>
+        <div class="date-additional">
+          <span>2013.12</span>
+          <span>우수상 (3등상)</span>
+        </div>
+        <div class="description">
+          <h3>세상에서 가장 친절한 모바일 웹앱 공모전</h3>
 
-        <p>OS X, Linux 같은 유닉스 계열 운영체제를 다루는 데 어려움이 없으며, Windows 플랫폼도 사용하는 데 문제없습니다.</p>
+          <p>SK 텔레콤에서 주최하는 모바일 웹앱 공모전 입니다. Anbado Video팀에 소속되어 modac.tv라는 웹 사이트를 출품하였습니다.</p>
+        </div>
+      </li>
+      <li>
+        <div class="date-additional">
+          <span>2009.07</span>
+          <span>장려상 (5등상)</span>
+        </div>
+        <div class="description">
+          <h3>제 26회 한국정보올림피아드(KOI) 경시부문 고등부</h3>
 
-        <p>프로그래밍 언어로는 Java, Python을 즐겨 사용합니다. 하지만, C, C++, Javascript, PHP, HTML, CSS, LESS, Matlab도 사용할 수 있습니다.</p>
+          <p>행정안전부가 주최하고 한국정보문화진흥원이 주관하는 초, 중, 고교생 대상 프로그래밍 경진대회입니다. 작품을 출품하는 공모부문과 주어진 문제를 제한시간 안에 푸는 경시부문이 존재하며,
+            경시부문에서 입상하였습니다.</p>
+        </div>
+      </li>
+      <li>
+        <div class="date-additional">
+          <span>2008.06</span>
+          <span>대상 (1등상)</span>
+        </div>
+        <div class="description">
+          <h3>제 5회 전국정보과학경시대회 C언어 프로그래밍 고등부</h3>
 
-        <p>웹 개발 경험이 다수 있으며, 주로 Flask, Django, Spring 중 하나를 사용하여 프로젝트를 진행하는 편입니다.</p>
+          <p>성결대학교와 사단법인 한국정보과학진흥협회가 주최하는 초, 중, 고교생 대상 IT 경진대회 입니다. 여러 대회 종목중 C언어 프로그래밍 부문에서 입상하였습니다.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 
-        <p>표준적인 SQL 코딩이 가능하며, Hibernate, SQLAlchemy 같은 ORM 프레임워크도 사용하는데 무리가 없습니다.</p>
+<section id="projects">
+  <h2><i class="fa fa-laptop"></i>Projects</h2>
 
-        <p>주 관심사인 데이터 분석 작업을 수행하기 위해 Apache Hadoop 플랫폼을 자주 사용하는 편입니다. Apache Hive, Apache Pig를 다룰 수 있으며, Apache Lucene
-            같은 색인 라이브러리도 자주 사용합니다. 자주 사용하는 NoSQL 스토리지는 mongoDB입니다.</p>
+  <div class="content">
+    <ul class="list-by-dates">
+      <li>
+        <div class="date-additional">
+          <span>2013.07 - 2013.12</span>
+          <span>Project</span>
+        </div>
+        <div class="description">
+          <h3>Anbado Video</h3>
 
-        <p>버전 관리 시스템에 대해 이해를 하고 있으며, DVCS를 사용하는 데 어려움이 없습니다. 주로 git, mercurial을 사용하며, 필요한 경우 subversion도 사용합니다.</p>
-    </div>
+          <p>비디오 위에 시청자의 생각과 감정을 남길 수 있는 오픈소스 비디오 플레이어입니다. NIPA 공개소프트웨어 개발지원 사업에 선정되어 프로젝트를 수행하였으며, 우수 과제로 선정되었습니다. 이외에도
+            Anbado Video를 활용한 modac.tv 서비스로 공모전에 참가하는 등 다양한 활동을 수행했습니다.</p>
 
-    <footer>
-        <p>Designed by Chiwan Park</p>
+          <p>서버사이드 프로그래머로 참여해 솔루션의 서버를 설계, 구현했습니다.</p>
+        </div>
+        <div class="skills">
+          <ul>
+            <li>Python</li>
+            <li>Javascript</li>
+            <li>Flask</li>
+            <li>SQLAlchemy</li>
+            <li>MySQL</li>
+          </ul>
+        </div>
+        <div class="assets">
+          <a href="https://github.com/anbadovideo/" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="date-additional">
+          <span>2012.12 - 2013.06</span>
+          <span>Toy Project</span>
+        </div>
+        <div class="description">
+          <h3>Herring</h3>
 
-        <p>Powered by <a href="http://github.com/" target="_blank">Github</a></p>
-    </footer>
+          <p>SW Maestro 3기 2단계에서 수행한 프로젝트로, 실시간 스트리밍 데이터 처리를 위한 소프트웨어를 만들었습니다. 실시간으로 전송되는 데이터를 즉시 색인하여 저장한 뒤, 간단한 쿼리문을
+            통해 조회, 통계 연산등을 수행할 수 있는 기능을 가지고 있습니다.</p>
+
+          <p>Web-based GUI와 Query Language 설계, Query 입력 시 데이터 조회 순서 결정 로직 등을 작성하는 역할을 수행했습니다.</p>
+        </div>
+        <div class="skills">
+          <ul>
+            <li>Java</li>
+            <li>Spring Framework</li>
+            <li>ANTLR</li>
+          </ul>
+        </div>
+        <div class="assets">
+          <a href="https://github.com/team-herring/" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+          <a href="http://www.youtube.com/watch?v=i2gq4TH-4L4" class="fancybox-media">
+            <i class="fa fa-youtube"></i>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="date-additional">
+          <span>2012.07 - 2012.09</span>
+          <span>Toy Project</span>
+        </div>
+        <div class="description">
+          <h3>MapReduce based TF-IDF</h3>
+
+          <p>Apache Hadoop을 활용하여, MapReduce 기반으로 TF-IDF 알고리즘을 구현, 기초적인 검색엔진 작성 프로젝트를 수행했습니다. SW Maestro 3기 1단계 1차 과정에서
+            프로젝트를 수행했으며, 좋은 평가를 받아 2단계에 진출 했습니다.</p>
+
+          <p>개인 프로젝트이므로 모든 구현을 직접하였으며, 구현하기에 앞서 기본적인 MapReduce 코딩, Hadoop 아키텍쳐 등을 학습했습니다. 또한, 구현된 내용을 문서로 정리하여
+            공개했습니다.</p>
+        </div>
+        <div class="skills">
+          <ul>
+            <li>Java</li>
+            <li>Hadoop</li>
+            <li>MapReduce</li>
+            <li>MySQL</li>
+          </ul>
+        </div>
+        <div class="assets">
+          <a href="http://www.slideshare.net/chiwanpark/presentation-31773587" target="_blank">
+            <i class="fa fa-desktop"></i>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="date-additional">
+          <span>2010.12 - 2011.02</span>
+          <span>Outsourcing</span>
+        </div>
+        <div class="description">
+          <h3>연세대학교 학술정보원 프로젝트</h3>
+
+          <p>연세대학교 학술정보원 홈페이지 관련 프로젝트를 수행했습니다. 학술정보원 홈페이지 내의 온라인 이용교육 메뉴 신설 프로젝트와 언더우드 기념 도서관 (구 연세대학교 국제캠퍼스 도서관) 홈페이지
+            퍼블리싱을 진행했습니다.</p>
+        </div>
+        <div class="skills">
+          <ul>
+            <li>Javascript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Prototype.js</li>
+          </ul>
+        </div>
+        <div class="assets">
+          <a href="http://library.yonsei.ac.kr/main/sub.do?menuCode=5001" target="_blank">
+            <i class="fa fa-external-link"></i>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="date-additional">
+          <span>2010.08 - 2011.07</span>
+          <span>Project</span>
+        </div>
+        <div class="description">
+          <h3>에브리타임 (Everytime)</h3>
+
+          <p>대학생들을 위한 시간표 작성 서비스 에브리타임 프로젝트에 참여했습니다. 에브리타임은 다른 시간표 작성 서비스와 달리, 수업 보관함에 들어있는 수업으로 생성할 수 있는 다양한 시간표 조합을
+            만들어 사용자에게 안내합니다. 사용자는 자동으로 생성된 여러 시간표 중 마음에 드는 시간표를 고를 수 있습니다.</p>
+
+          <p>페이지 최적화 및 학점 계산기 등의 부가기능을 개발했습니다.</p>
+        </div>
+        <div class="skills">
+          <ul>
+            <li>Javascript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>PHP</li>
+          </ul>
+        </div>
+        <div class="assets">
+          <a href="http://everytime.kr" target="_blank">
+            <i class="fa fa-external-link"></i>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="date-additional">
+          <span>2010.06 - 2010.09</span>
+          <span>Outsourcing</span>
+        </div>
+        <div class="description">
+          <h3>Smilepet</h3>
+
+          <p>Smilepet은 반려동물을 위한 스마트TV 어플리케이션입니다. 집을 비운 사이 반려동물이 심심하지 않도록, 노래를 들려주거나 심장 박동 소리를 들려줄 수 있습니다. 삼성 스마트 TV
+            플랫폼에서 작동되도록 작성되었고 현재 삼성 앱스 마켓에서 판매 중입니다.</p>
+        </div>
+        <div class="skills">
+          <ul>
+            <li>HTML</li>
+            <li>Javascript</li>
+            <li>Actionscript</li>
+            <li>Adobe Flash Lite</li>
+            <li>Samsung SMART TV Platform</li>
+          </ul>
+        </div>
+        <div class="assets">
+          <a href="http://tv.samsungapps.com/kr/widget/lifestyle/view.do?productID=G00000384386&categoryID=0000008918&sortType=date&payType=null&pageNo=4"
+             target="_blank">
+            <i class="fa fa-external-link"></i>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<footer>
+  <p>Hosted by <a href="https://pages.github.com/">Github pages</a></p>
+</footer>
 </div>
 </body>
 </html>
