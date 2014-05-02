@@ -1,0 +1,13 @@
+language: python
+branches:
+  only:
+    - v3
+install:
+  - pip install jinja2 Markdown
+script:
+  - python chiwanpark.py
+after_success:
+  - bash deploy.sh
+env:
+  global:
+    - secure: "MEcDN7s0/a6jLOAyUmXfwHExwcczWnvVwlId3ojLRVl4aja6UUY+YstWmol/LgX3OoqvsqUcl9C0Z2k7g5dlWNAVqynXIHJH0oJXmjUmqwv8SovcmQT58QEI7nvfdj8cVVzuWewGmXgOHXeedzyhhvV/82TsKzH3yzcaeRXZqZY="
