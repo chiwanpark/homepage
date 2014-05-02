@@ -94,7 +94,11 @@ def build_article_index(articles):
 
 def create_article_index(articles):
     rendered = build_article_index(articles)
-    file_path = os.path.join(OUTPUT_DIR, 'articles', 'index.html')
+
+    dir_path = os.path.join(OUTPUT_DIR, 'articles')
+    make_output_dir(dir_path)
+
+    file_path = os.path.join(dir_path, 'index.html')
     with open(file_path, 'w') as f:
         f.write(rendered.encode('utf-8'))
 
@@ -111,7 +115,7 @@ def build():
     articles = []
 
     for page in iter_pages():
-        page['content'] = markdown.convert(page['content'])
+        page['content'] = markdown.reset().convert(page['content'])
         page['meta'] = markdown.Meta
 
         template = page['meta']['template'][0]
