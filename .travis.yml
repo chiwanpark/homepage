@@ -6,7 +6,6 @@ install:
   - pip install jinja2 Markdown
 script:
   - python chiwanpark.py
-after_success:
   - bash deploy.sh
 env:
   global:
