@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "$TRAVIS" == "true" ]; then
+    git config --global user.email "chiwanpark@icloud.com"
+    git config --global user.name "Chiwan Park"
+fi
+
 git clone --quiet --branch=master https://${GH_TOKEN}@github.com/chiwanpark/chiwanpark.github.io master > /dev/null
 cd master
 rsync -rv --exclude=.git ../_build/* .
