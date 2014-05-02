@@ -108,6 +108,12 @@ def build_index(page):
     return templates['index'].render(content=content)
 
 
+def create_cname():
+    file_path = os.path.join(OUTPUT_DIR, 'CNAME')
+    with open(file_path, 'w') as f:
+        f.write('chiwanpark.com')
+
+
 def build():
     clear_output_dir()
     copy_assets()
@@ -139,6 +145,7 @@ def build():
             f.write(rendered.encode('utf-8'))
 
     create_article_index(articles)
+    create_cname()
 
 
 if __name__ == '__main__':
