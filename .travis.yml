@@ -9,4 +9,4 @@ script:
   - bash deploy.sh
 env:
   global:
-    - secure: "MEcDN7s0/a6jLOAyUmXfwHExwcczWnvVwlId3ojLRVl4aja6UUY+YstWmol/LgX3OoqvsqUcl9C0Z2k7g5dlWNAVqynXIHJH0oJXmjUmqwv8SovcmQT58QEI7nvfdj8cVVzuWewGmXgOHXeedzyhhvV/82TsKzH3yzcaeRXZqZY="
+    - secure: "fxjEsed50sNAbhekG010Ad7HIJPdWd9W6I+XN8Slavn2e3F3iWf/2Qr3ljZ1wfevJ07LNUzrBjCB5JX8ozdKa62KiZSYtFbg327kkyBgydMUTte6RkXcGpRdfselzP0CRLR0NlOsU9mbJ9lUsAh7Cvm4bGm2zlfrrTNNunUSIFo="
