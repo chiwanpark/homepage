@@ -1,0 +1,29 @@
+{% extends "skeleton.html" %}
+{% block title %}Articles{% endblock %}
+{% block content %}
+  <section>
+    <h2><i class="fa fa-book"></i>Articles</h2>
+
+    <div class="content">
+      <ul class="list-by-dates">
+        {% for month, sub_articles in articles|groupby('month') %}
+          <li>
+            <div class="date-additional">
+              <span>Written in</span>
+              <span>{{ month }}</span>
+            </div>
+            <div class="description">
+              <ul>
+                {% for article in sub_articles %}
+                  <li><a href="{{ url('articles', article['name'] + '.html') }}">{{ article['title'] }}</a>
+                    ({{ article['date'] }})
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endblock %}

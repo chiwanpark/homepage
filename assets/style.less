@@ -25,7 +25,7 @@ a {
 #wrapper {
   .pure-g;
 
-  max-width: 890px;
+  max-width: 690px;
   margin: 30px auto;
   padding: 10px;
 }
@@ -41,16 +41,15 @@ header {
   #portrait-holder {
     .pure-u-1;
 
+    max-width: 120px;
     margin: 15px auto;
     border: 3px solid #FFFFFF;
     border-radius: 50%;
-    max-width: 180px;
     box-shadow: 0 0 8px rgba(0, 0, 0, .6);
 
     img {
       margin: 0 auto;
-      max-width: 180px;
-      width: 100%;
+      max-width: 120px;
       border-radius: 50%;
       zoom: 1;
       display: inline-block;
@@ -58,25 +57,29 @@ header {
     }
   }
 
-  h1 {
-    .pure-u-1;
-  }
-
-  .links {
+  nav {
     .pure-u-1;
     .font-hack;
 
-    font-size: 2em;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    h1 {
+      padding: 0;
+      margin: 0;
+      font-size: 2em;
+    }
 
-    li {
-      display: inline-block;
-      margin-right: 10px;
+    .links {
+      font-size: 2em;
+      list-style: none;
+      margin: 10px 0;
+      padding: 0;
 
-      a {
-        color: @color-dark;
+      li {
+        display: inline-block;
+        margin-right: 5px;
+
+        a {
+          color: @color-dark;
+        }
       }
     }
   }
@@ -88,23 +91,36 @@ header {
   padding: @padd;
 }
 
-.default-section {
+section, article {
   .pure-g-r;
   .pure-u-1;
 
   .font-hack;
+
+  margin-bottom: 10px;
 
   h2 > i {
     margin-right: 0.4em;
   }
 
   div.content {
-    @media(max-width:320px) {
+    img {
+      margin: 10px auto;
+      text-align: center;
+    }
+
+    i.fa {
+      margin-right: 10px;
+    }
+
+    @media (max-width: 320px) {
       .box(10px 15px);
     }
-    @media(min-width:321px) {
+
+    @media (min-width: 321px) {
       .box(10px 25px);
     }
+
     p {
       text-indent: 0.85em;
     }
@@ -173,7 +189,12 @@ header {
   padding: 0;
   list-style: none;
 
-  li {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  > li {
     .box(10px 25px);
     border-left: 10px solid @color-dark;
     position: relative;
@@ -211,20 +232,6 @@ header {
       }
     }
 
-    .skills {
-      ul {
-        padding: 0;
-        list-style: none;
-
-        li {
-          .box(6px 9px) !important;
-          display: inline-block;
-          margin-right: 5px;
-          border-left: 3px solid #9b9b9b;;
-        }
-      }
-    }
-
     .assets {
       text-align: right;
       margin-right: -15px;
@@ -245,8 +252,18 @@ header {
   }
 }
 
-#bio, #education, #awards, #projects, #experience {
-  .default-section;
+.skills, .tags {
+  ul {
+    padding: 0;
+    list-style: none;
+
+    li {
+      .box(6px 9px) !important;
+      display: inline-block;
+      margin-right: 5px;
+      border-left: 3px solid #9b9b9b;;
+    }
+  }
 }
 
 footer {
