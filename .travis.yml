@@ -3,7 +3,7 @@ branches:
   only:
     - v3
 install:
-  - pip install jinja2 Markdown
+  - pip install jinja2 Markdown plistop requests pytz
 script:
   - python chiwanpark.py
   - bash deploy.sh

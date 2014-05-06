@@ -5,11 +5,19 @@ from datetime import datetime
 
 from jinja2 import Environment, PackageLoader
 from markdown import Markdown
+import plistop
+import pytz
+import requests
+from io import BytesIO
 
 
 OUTPUT_DIR = os.environ.get('OUTPUT_DIR', './_build')
+ITUNES_LIB = os.environ.get('ITUNES_LIB', None)
+ITUNES_USER = os.environ.get('ITUNES_USER', None)
+ITUNES_PASS = os.environ.get('ITUNES_PASS', None)
 DATE_FORMAT = '%b, %d, %Y'
 MONTH_FORMAT = '%b, %Y'
+KST_TIMEZONE = pytz.timezone('Asia/Seoul')
 
 jinja2_env = Environment(loader=PackageLoader('chiwanpark'))
 markdown = Markdown(extensions=['meta', 'footnotes'])
@@ -17,6 +25,7 @@ templates = {
     'index': jinja2_env.get_template('index.html'),
     'article': jinja2_env.get_template('article.html'),
     'articles': jinja2_env.get_template('articles.html'),
+    'itunes': jinja2_env.get_template('itunes.html'),
     'skeleton': jinja2_env.get_template('skeleton.html')
 }
 
@@ -30,6 +39,16 @@ def url(*args):
 
 def assets(name):
     return url('assets', name)
+
+
+def to_aware(obj):
+    if isinstance(obj, datetime):
+        if obj.tzinfo:
+            return obj.astimezone(KST_TIMEZONE)
+        else:
+            return KST_TIMEZONE.localize(obj)
+
+    return obj
 
 
 jinja2_env.globals.update(url=url, assets=assets)
@@ -72,6 +91,38 @@ def clear_output_dir():
 
 def copy_assets():
     shutil.copytree(os.path.join('.', 'assets'), os.path.join(OUTPUT_DIR, 'assets'))
+
+
+def build_itunes():
+    if not ITUNES_LIB:
+        return ''
+
+    result = requests.get(ITUNES_LIB, auth=(ITUNES_USER, ITUNES_PASS))
+    if result.status_code != 200:
+        return ''
+
+    tracks = []
+
+    with BytesIO(result.content) as f:
+        itunes_lib = plistop.parse(f)
+
+        for idx, track in enumerate(itunes_lib['Tracks'].itervalues()):
+            if track.get('Podcast', False):
+                continue
+
+            tracks.append({
+                'artist': track['Artist'],
+                'name': track['Name'],
+                'count': track.get('Play Count', 0),
+                'added': to_aware(track['Date Added']),
+                'lastPlayed': to_aware(track.get('Play Date UTC', datetime.utcfromtimestamp(0)))
+            })
+
+    return templates['itunes'].render(tracks=tracks)
+
+
+def create_itunes():
+    build_itunes()
 
 
 def build_article(page):
@@ -135,6 +186,8 @@ def build():
             })
         elif template == 'index':
             rendered = build_index(page)
+        elif template == 'itunes':
+            rendered = build_itunes()
         else:
             continue
 
@@ -146,6 +199,8 @@ def build():
 
     create_article_index(articles)
     create_cname()
+
+    create_itunes()
 
 
 if __name__ == '__main__':

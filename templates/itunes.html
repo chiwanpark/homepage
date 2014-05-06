@@ -1,0 +1,73 @@
+{% extends "skeleton.html" %}
+{% block title %}iTunes Library - Chiwan Park{% endblock %}
+{% block content %}
+  <section>
+    <h2><i class="fa fa-music"></i>Music</h2>
+
+    <div class="content">
+      <div>
+        <h3>Recent Played</h3>
+        <table class="song-list">
+          <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Name</th>
+            <th>Play Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for track in tracks|sort(attribute='lastPlayed', reverse=True)|batch(15)|first %}
+            <tr>
+              <td>{{ track['artist'] }}</td>
+              <td>{{ track['name'] }}</td>
+              <td>{{ track['lastPlayed'] }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Recent Added</h3>
+        <table class="song-list">
+          <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Name</th>
+            <th>Added</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for track in tracks|sort(attribute='added', reverse=True)|batch(50)|first %}
+            <tr>
+              <td>{{ track['artist'] }}</td>
+              <td>{{ track['name'] }}</td>
+              <td>{{ track['added'] }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Play Count Top 50</h3>
+        <table class="song-list">
+          <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Name</th>
+            <th>Play Count</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for track in tracks|sort(attribute='count', reverse=True)|batch(50)|first %}
+            <tr>
+              <td>{{ track['artist'] }}</td>
+              <td>{{ track['name'] }}</td>
+              <td>{{ track['count'] }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+{% endblock %}
