@@ -1,0 +1,40 @@
+{% extends "skeleton.html" %}
+{% block title %}iTunes Library - Chiwan Park{% endblock %}
+
+{% macro pretty_album(album) %}
+  <li>
+    <div>
+      <span class="type">Album</span>
+
+      <p class="coverart">
+        <img src="{{ albumart(album['artist'] + ' ' + album['title']) }}" title="Coverart of {{ album['title'] }}"/>
+      </p>
+
+      <p>
+        <span class="title"><i class="fa fa-headphones"></i>{{ album['title'] }}</span>
+        <span class="artist"><i class="fa fa-user"></i>{{ album['artist'] }}</span>
+        <span class="lastPlayed"><i class="fa fa-clock-o"></i>{{ album['lastPlayed'] }}</span>
+      </p>
+    </div>
+  </li>
+{% endmacro %}
+
+{% macro pretty_media(media_list) %}
+  <ul class="media-list">
+    {% for media in media_list %}
+      {% if media['type'] == 'album' %}
+        {{ pretty_album(media) }}
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% block content %}
+  <section>
+    <h2><i class="fa fa-play-circle-o"></i>Media</h2>
+
+    <div class="content">
+      {{ pretty_media(media_list) }}
+    </div>
+  </section>
+{% endblock %}

@@ -86,7 +86,7 @@ header {
 }
 
 .box(@padd: 25px) {
-  box-shadow: 0px 3px 3px -3px #ccc;
+  box-shadow: 3px 3px 3px -3px #ccc;
   background-color: #fefefe;
   padding: @padd;
 }
@@ -266,13 +266,62 @@ section, article {
   }
 }
 
-table {
-  width: 100%;
+ul.media-list {
+  list-style: none;
+  padding: 0;
 
-  &.song-list {
-    tr {
-      td {
-        text-align: center;
+  column-count: 1;
+  -moz-column-count: 1;
+  -webkit-column-count: 1;
+
+  @media (min-width: 401px) {
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+  }
+
+  @media (min-width: 601px) {
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+  }
+
+  li {
+    transition: opacity .4s ease-in-out;
+    column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+
+    div {
+      .box(10px);
+      margin: 5px;
+
+      span.type {
+        .box(6px 9px) !important;
+        display: inline-block;
+        margin: -15px 5px 0 -15px;
+        border-left: 3px solid @color-light;
+      }
+
+      p {
+        text-indent: 0;
+        margin: 0;
+        vertical-align: middle;
+
+        &.coverart {
+          width: 100%;
+          overflow: hidden;
+          text-align: center;
+          margin-right: 10px;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        span {
+          display: block;
+        }
       }
     }
   }

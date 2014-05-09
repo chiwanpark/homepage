@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
+from collections import defaultdict
 import os
+import re
 import shutil
 from datetime import datetime
+from io import BytesIO
 
+from lxml import etree
 from jinja2 import Environment, PackageLoader
 from markdown import Markdown
 import plistop
 import pytz
 import requests
-from io import BytesIO
 
 
 OUTPUT_DIR = os.environ.get('OUTPUT_DIR', './_build')
@@ -19,13 +22,17 @@ DATE_FORMAT = '%b, %d, %Y'
 MONTH_FORMAT = '%b, %Y'
 KST_TIMEZONE = pytz.timezone('Asia/Seoul')
 
+MANIADB_NAMESPACE = etree.FunctionNamespace('http://www.maniadb.com/api')
+MANIADB_NAMESPACE.prefix = u'maniadb'
+QUERY_MASK = re.compile(r'\s*(Various Artists|\(.*\))')
+
 jinja2_env = Environment(loader=PackageLoader('chiwanpark'))
 markdown = Markdown(extensions=['meta', 'footnotes'])
 templates = {
     'index': jinja2_env.get_template('index.html'),
     'article': jinja2_env.get_template('article.html'),
     'articles': jinja2_env.get_template('articles.html'),
-    'itunes': jinja2_env.get_template('itunes.html'),
+    'media': jinja2_env.get_template('media.html'),
     'skeleton': jinja2_env.get_template('skeleton.html')
 }
 
@@ -51,7 +58,60 @@ def to_aware(obj):
     return obj
 
 
-jinja2_env.globals.update(url=url, assets=assets)
+def query_candidates(query):
+    split = query.split(u' ')
+    return [u' '.join(split[:i + 1]) for i in range(len(split))]
+
+
+def albumarts_maniadb(query):
+    result = requests.get('http://www.maniadb.com/api/search/%s/' % query, params={
+        'sr': 'album',
+        'key': 'example',
+        'v': 0.5,
+        'display': 20
+    })
+
+    if result.status_code != 200:
+        return []
+
+    data = etree.XML(result.content)
+
+    try:
+        total_count = int(data.xpath('/rss/channel/total/text()')[0])
+        if total_count > 0:
+            return data.xpath('/rss/channel/item/maniadb:coverart/front/image/text()')
+    except ValueError:
+        pass
+
+    return []
+
+
+def albumart(query=None):
+    if not query:
+        return ''
+
+    print 'Download Albumart -- query: %s' % query
+
+    query = QUERY_MASK.sub('', query)
+
+    print 'Replaced Query: %s' % query
+
+    albumarts = defaultdict(int)
+
+    for candidate in query_candidates(query):
+        for image in albumarts_maniadb(candidate):
+            albumarts[image] += 1
+
+    max_image, max_count = '', 0
+
+    for image, count in albumarts.iteritems():
+        if count > max_count:
+            max_image, max_count = image, count
+
+    return max_image
+
+
+jinja2_env.globals.update(url=url, assets=assets, albumart=albumart)
 
 
 def iter_pages(path=None, trees=None):
@@ -102,6 +162,8 @@ def build_itunes():
         return ''
 
     tracks = []
+    albums = []
+    albums_dict = {}
 
     with BytesIO(result.content) as f:
         itunes_lib = plistop.parse(f)
@@ -110,19 +172,45 @@ def build_itunes():
             if track.get('Podcast', False):
                 continue
 
+            lastPlayed = to_aware(track.get('Play Date UTC', datetime.utcfromtimestamp(0)))
+            added = to_aware(track['Date Added'])
+            albumArtist = track.get('Album Artist', None) or track['Artist']
+
+            if track['Album'] not in albums_dict or albums_dict[track['Album']]['lastPlayed'] < lastPlayed:
+                albums_dict[track['Album']] = {
+                    'artist': albumArtist,
+                    'lastPlayed': lastPlayed
+                }
+
             tracks.append({
                 'artist': track['Artist'],
+                'album': track['Album'],
+                'albumArtist': albumArtist,
                 'name': track['Name'],
                 'count': track.get('Play Count', 0),
-                'added': to_aware(track['Date Added']),
-                'lastPlayed': to_aware(track.get('Play Date UTC', datetime.utcfromtimestamp(0)))
+                'added': added,
+                'lastPlayed': lastPlayed
             })
 
-    return templates['itunes'].render(tracks=tracks)
+    for title, data in albums_dict.iteritems():
+        data['title'] = title
+        albums.append(data)
+
+    return {
+        'tracks': tracks,
+        'albums': albums
+    }
 
 
-def create_itunes():
-    build_itunes()
+def build_media():
+    itunes_data = build_itunes()
+
+    media_list = []
+
+    media_list += (dict(type='track', **x) for x in itunes_data['tracks'])
+    media_list += (dict(type='album', **x) for x in itunes_data['albums'])
+
+    return templates['media'].render(media_list=media_list)
 
 
 def build_article(page):
@@ -186,8 +274,8 @@ def build():
             })
         elif template == 'index':
             rendered = build_index(page)
-        elif template == 'itunes':
-            rendered = build_itunes()
+        elif template == 'media':
+            rendered = build_media()
         else:
             continue
 
@@ -199,8 +287,6 @@ def build():
 
     create_article_index(articles)
     create_cname()
-
-    create_itunes()
 
 
 if __name__ == '__main__':
