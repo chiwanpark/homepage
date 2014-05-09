@@ -5,6 +5,7 @@ import re
 import shutil
 from datetime import datetime
 from io import BytesIO
+import iso8601
 
 from lxml import etree
 from jinja2 import Environment, PackageLoader
@@ -18,6 +19,7 @@ OUTPUT_DIR = os.environ.get('OUTPUT_DIR', './_build')
 ITUNES_LIB = os.environ.get('ITUNES_LIB', None)
 ITUNES_USER = os.environ.get('ITUNES_USER', None)
 ITUNES_PASS = os.environ.get('ITUNES_PASS', None)
+WATCHA_URL = os.environ.get('WATCHA_URL', None)
 DATE_FORMAT = '%b, %d, %Y'
 MONTH_FORMAT = '%b, %Y'
 KST_TIMEZONE = pytz.timezone('Asia/Seoul')
@@ -202,13 +204,29 @@ def build_itunes():
     }
 
 
+def build_watcha():
+    result = requests.get(WATCHA_URL)
+
+    if result.status_code != 200:
+        return ''
+
+    return ({
+        'type': 'movie',
+        'title': movie['movie']['title'],
+        'coverart': movie['movie']['poster']['big'],
+        'lastPlayed': to_aware(iso8601.parse_date(movie['owner_interest']['updated_at']))
+    } for movie in result.json().get('data', []))
+
+
 def build_media():
     itunes_data = build_itunes()
+    watcha_data = build_watcha()
 
     media_list = []
 
     media_list += (dict(type='track', **x) for x in itunes_data['tracks'])
     media_list += (dict(type='album', **x) for x in itunes_data['albums'])
+    media_list += watcha_data
 
     return templates['media'].render(media_list=media_list)
 
