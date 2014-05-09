@@ -13,7 +13,7 @@
       <p>
         <span class="title"><i class="fa fa-headphones"></i>{{ album['title'] }}</span>
         <span class="artist"><i class="fa fa-user"></i>{{ album['artist'] }}</span>
-        <span class="lastPlayed"><i class="fa fa-clock-o"></i>{{ album['lastPlayed'] }}</span>
+        <span class="lastPlayed"><i class="fa fa-clock-o"></i>{{ album['lastPlayed'].strftime('%Y-%m-%d') }}</span>
       </p>
     </div>
   </li>
@@ -30,7 +30,7 @@
 
       <p>
         <span class="title"><i class="fa fa-youtube-play"></i>{{ movie['title'] }}</span>
-        <span class="lastPlayed"><i class="fa fa-clock-o"></i>{{ movie['lastPlayed'] }}</span>
+        <span class="lastPlayed"><i class="fa fa-clock-o"></i>{{ movie['lastPlayed'].strftime('%Y-%m-%d') }}</span>
       </p>
     </div>
   </li>
