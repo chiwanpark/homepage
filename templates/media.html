@@ -1,5 +1,5 @@
 {% extends "skeleton.html" %}
-{% block title %}iTunes Library - Chiwan Park{% endblock %}
+{% block title %}Media Library - Chiwan Park{% endblock %}
 
 {% macro pretty_album(album) %}
   <li>
@@ -51,6 +51,10 @@
 {% block content %}
   <section>
     <h2><i class="fa fa-play-circle-o"></i>Media</h2>
+
+    <div class="content">
+      <p>최근에 감상한 음악, 영화 목록입니다. 이 문서는 {{ today.strftime('%Y년 %m월 %d일') }}에 업데이트 되었습니다.</p>
+    </div>
 
     <div class="content">
       {{ pretty_media(media_list|sort(attribute='lastPlayed', reverse=True)) }}

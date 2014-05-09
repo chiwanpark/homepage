@@ -228,7 +228,7 @@ def build_media():
     media_list += (dict(type='album', **x) for x in itunes_data['albums'])
     media_list += watcha_data
 
-    return templates['media'].render(media_list=media_list)
+    return templates['media'].render(media_list=media_list, today=datetime.now(tz=KST_TIMEZONE))
 
 
 def build_article(page):
