@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
-from datetime import datetime
 import shutil
+from datetime import datetime
 from types import GeneratorType
 
 from jinja2 import Environment, PackageLoader
@@ -31,7 +31,7 @@ JINJA_ENV = create_jinja2_env()
 TEMPLATES = {
     'index': JINJA_ENV.get_template('index.html'),
     'article': JINJA_ENV.get_template('article.html'),
-    'article-index': JINJA_ENV.get_template('articles.html')
+    'article-index': JINJA_ENV.get_template('article-index.html')
 }
 
 
@@ -153,5 +153,15 @@ def build():
     page.save_to_file()
 
 
+def run_http_server():
+    import http.server
+    import socketserver
+
+    httpd = socketserver.TCPServer(('', 8000), http.server.SimpleHTTPRequestHandler)
+    httpd.serve_forever()
+
+
 if __name__ == '__main__':
     build()
+    if os.environ.get('local', 'False') == 'True':
+        run_http_server()
