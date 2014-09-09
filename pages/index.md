@@ -1,4 +1,4 @@
-template: index
+type: index
 
 ## Me
 

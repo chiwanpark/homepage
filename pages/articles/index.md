@@ -1,0 +1,1 @@
+type: article-index
