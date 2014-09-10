@@ -70,6 +70,7 @@ class ArticlePage(Page):
 class ArticleIndexPage(Page):
     def __init__(self, path: str=None, articles: list=None):
         articles = list(articles)
+        articles.sort(key=lambda article: article.date, reverse=True)
 
         rendered = TEMPLATES['article-index'].render(articles=articles)
         super().__init__(path, rendered)
