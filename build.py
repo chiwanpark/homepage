@@ -12,7 +12,7 @@ from pytz import timezone
 DEST_DIR = os.environ.get('OUTPUT_DIR', './_build')
 DEFAULT_TIMEZONE = timezone('Asia/Seoul')
 MARKDOWN = Markdown(extensions=['meta', 'footnotes'])
-DATE_FORMAT = '%b, %d, %Y'
+DATE_FORMAT = '%b %d, %Y'
 
 
 def create_jinja2_env() -> Environment:
@@ -60,6 +60,11 @@ class ArticlePage(Page):
 
         rendered = TEMPLATES['article'].render(article=self)
         super().__init__(path, rendered)
+
+    @property
+    def url(self) -> str:
+        current_path = os.path.join(get_current_dir(), 'pages')
+        return self.path.replace(current_path, '').replace('.md', '.html')
 
 
 class ArticleIndexPage(Page):
