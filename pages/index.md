@@ -1,5 +1,7 @@
 type: index
 
+# About
+
 ## Me
 
 My name is Chiwan Park. I'm undergraduate student majoring in Earth System Sciences and Computer Science in Yonsei
@@ -11,9 +13,11 @@ I prefer to use Python or Java for my projects. Sometimes I use C/C++, Objective
 I'm supported by Open Frontier Program which is program for open-source contributor by [NIPA](http://nipa.kr). For
 participating this program, I currently located in [Nurikkum Square](http://www.nipa.kr/nuri/itComplex.it), Seoul,
 Korea. I'm contributing [Flamingo Project](http://wiki.opencloudengine.org/display/IN/Flamingo) (Korean) and trying to
-contribute other projects. You can see open-source activities in my [github pages](https://github.com/chiwanpark).
+contribute other projects. You can see open-source activities in my [github pages](https://github.com/chiwanpark). There
+are some articles written by me in [this website](/articles/).
 
-You can contact me via email, facebook, github message.
+You can contact me via [email](http://www.google.com/recaptcha/mailhide/d?k\07501Hyzp_YFzysc70qsTOiq_YQ\75\75\46c\75RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E\075),
+facebook message.
 
 ## Website
 
