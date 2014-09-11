@@ -1,3 +1,4 @@
 jinja2==2.7.3
 markdown==2.4.1
 pytz==2014.7
+Pygments==1.6

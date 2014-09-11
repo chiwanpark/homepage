@@ -11,7 +11,7 @@ from pytz import timezone
 
 DEST_DIR = os.environ.get('OUTPUT_DIR', './_build')
 DEFAULT_TIMEZONE = timezone('Asia/Seoul')
-MARKDOWN = Markdown(extensions=['meta', 'footnotes'])
+MARKDOWN = Markdown(extensions=['meta', 'footnotes', 'codehilite(linenums=True)'])
 DATE_FORMAT = '%b %d, %Y'
 
 
