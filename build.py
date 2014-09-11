@@ -163,11 +163,15 @@ def run_http_server():
     import http.server
     import socketserver
 
-    httpd = socketserver.TCPServer(('', 8000), http.server.SimpleHTTPRequestHandler)
+    httpd = socketserver.TCPServer(('', 8000), http.server.SimpleHTTPRequestHandler, bind_and_activate=False)
+    httpd.allow_reuse_address = True
+    httpd.server_bind()
+    httpd.server_activate()
     httpd.serve_forever()
 
 
 if __name__ == '__main__':
     build()
     if os.environ.get('local', 'False') == 'True':
+        os.chdir(DEST_DIR)
         run_http_server()
