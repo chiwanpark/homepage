@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 import os
 import shutil
+import http.server
+import socketserver
+from threading import Thread
 from datetime import datetime
 from types import GeneratorType
 
-from jinja2 import Environment, PackageLoader
-from markdown import Markdown
+import click
 from pytz import timezone
+from markdown import Markdown
+from jinja2 import Environment, PackageLoader
 
 
 DEST_DIR = os.environ.get('OUTPUT_DIR', './_build')
@@ -22,7 +26,7 @@ def create_jinja2_env() -> Environment:
     def assets(name):
         return url('assets', name)
 
-    env = Environment(loader=PackageLoader('build'))
+    env = Environment(loader=PackageLoader('cli'))
     env.globals.update(url=url, assets=assets)
     return env
 
@@ -97,12 +101,14 @@ def create_page(path: str=None, content: str=None):
 
     page_type = meta['type'][0]
     if page_type == 'index':
+        click.echo('[BUILD] Index page detected (%s)' % path)
         return IndexPage(path, converted)
     elif page_type == 'article':
         title = meta['title'][0]
         date = datetime.strptime(meta['date'][0], DATE_FORMAT)
         summary = meta['summary'][0]
 
+        click.echo('[BUILD] Article page detected (%s)' % path)
         return ArticlePage(path, title, date, converted, summary)
     else:
         return None
@@ -133,18 +139,22 @@ def make_output_dir(path: str=None):
         os.mkdir(path)
 
 
-def clear_output_dir():
-    if os.path.exists(DEST_DIR):
-        shutil.rmtree(DEST_DIR)
-    make_output_dir()
-
-
 def copy_assets():
     shutil.copytree(os.path.join('.', 'assets'), os.path.join(DEST_DIR, 'assets'))
 
 
+@click.group(chain=True)
+def cli():
+    pass
+
+
+@cli.command()
 def build():
-    clear_output_dir()
+    click.echo('[BUILD] Build whole pages of site.')
+    if os.path.exists(DEST_DIR):
+        click.echo('[BUILD] There is no destination directory, so we create destination directory.')
+        make_output_dir()
+
     copy_assets()
 
     current_path = os.path.join(get_current_dir(), 'pages')
@@ -159,19 +169,94 @@ def build():
     page.save_to_file()
 
 
-def run_http_server():
-    import http.server
-    import socketserver
+class HttpdThread(Thread):
+    def __init__(self):
+        super().__init__()
+        self.httpd = socketserver.TCPServer(('', 8000), http.server.SimpleHTTPRequestHandler, bind_and_activate=False)
 
-    httpd = socketserver.TCPServer(('', 8000), http.server.SimpleHTTPRequestHandler, bind_and_activate=False)
-    httpd.allow_reuse_address = True
-    httpd.server_bind()
-    httpd.server_activate()
-    httpd.serve_forever()
+    def run(self):
+        os.chdir(DEST_DIR)
+
+        self.httpd.allow_reuse_address = True
+
+        self.httpd.server_bind()
+        self.httpd.server_activate()
+
+        click.echo('[HTTPD] Running on http://0.0.0.0:8000')
+
+        self.httpd.serve_forever()
+
+    def shutdown(self):
+        click.echo('[HTTPD] Stopping daemon...')
+        self.httpd.shutdown()
+
+
+@cli.command()
+def clean():
+    os.chdir(get_current_dir())
+    if os.path.exists(DEST_DIR):
+        click.echo('[BUILD] Clean destination directory.')
+        shutil.rmtree(DEST_DIR)
+
+
+@cli.command()
+@click.pass_context
+def watch(ctx):
+    from time import sleep
+    from watchdog.observers import Observer
+    from watchdog.events import FileSystemEventHandler
+
+    ctx.invoke(clean)
+    ctx.invoke(build)
+
+    current_dir = get_current_dir()
+    click.echo('[WATCH] Watching %s' % current_dir)
+
+    httpd_thread = HttpdThread()
+
+    class RecompileAllEventHandler(FileSystemEventHandler):
+        def on_any_event(self, event):
+            nonlocal httpd_thread
+
+            if event.is_directory:
+                return
+
+            click.echo('[WATCH] Event detected (%s), try rebuilding site.' % event)
+
+            httpd_thread.shutdown()
+
+            os.chdir(current_dir)
+
+            ctx.invoke(clean)
+            ctx.invoke(build)
+
+            httpd_thread = HttpdThread()
+            httpd_thread.start()
+
+    observer = Observer()
+    all_event_handler = RecompileAllEventHandler()
+
+    observer.schedule(all_event_handler, os.path.join(current_dir, 'templates'), recursive=True)
+    observer.schedule(all_event_handler, os.path.join(current_dir, 'pages'), recursive=True)
+    observer.schedule(all_event_handler, os.path.join(current_dir, 'assets'), recursive=True)
+
+    httpd_thread.start()
+    observer.start()
+
+    try:
+        while True:
+            sleep(1)
+    except KeyboardInterrupt:
+        click.echo('[BUILD] Keyboard Interrupt detected, shutdown.')
+        if observer.is_alive():
+            observer.stop()
+        if httpd_thread.is_alive():
+            httpd_thread.shutdown()
+
+    observer.join()
+
+    ctx.invoke(clean)
 
 
 if __name__ == '__main__':
-    build()
-    if os.environ.get('local', 'False') == 'True':
-        os.chdir(DEST_DIR)
-        run_http_server()
+    cli()
