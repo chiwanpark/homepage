@@ -5,6 +5,9 @@ branches:
   only:
     - v4
 install:
+  - sudo apt-get update
+  - sudo apt-get install nodejs npm
+  - npm install -g less
   - pip install -r requirements.txt
 script:
   - python cli.py build

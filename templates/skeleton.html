@@ -5,10 +5,9 @@
 
   <title>{% block title %}{% endblock %}</title>
 
-  <link href="{{ assets('style.less') }}" type="text/css" rel="stylesheet/less"/>
+  <link href="{{ assets('style.css') }}" type="text/css" rel="stylesheet"/>
   {% block customStylesheet %}{% endblock %}
 
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.4/less.min.js"></script>
   {% block customScript %}{% endblock %}
 </head>
 <body>

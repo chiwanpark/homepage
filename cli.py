@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 import os
+import re
 import shutil
 import http.server
 import socketserver
+import subprocess
 from threading import Thread
 from datetime import datetime
 from types import GeneratorType
@@ -149,9 +151,10 @@ def build_assets(path: str=None):
         else:
             dest_path = abspath.replace(base_path, dest_base_path)
             if abspath.split('.')[-1] == 'less':
-                # TODO: need to compile less file
                 click.echo('[BUILD] Asset file detected (%s) -> LESS' % abspath)
-                shutil.copy(abspath, dest_path)
+                dest_path = re.sub(r'less$', 'css', dest_path)
+                cmds = ['lessc', '-x', '--clean-css', abspath, dest_path]
+                subprocess.call(cmds)
             else:
                 click.echo('[BUILD] Asset file detected (%s)' % abspath)
                 shutil.copy(abspath, dest_path)
