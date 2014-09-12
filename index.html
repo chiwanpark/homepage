@@ -2,82 +2,52 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet/less" type="text/css"
-        href="/assets/style.less"/>
-  <link rel="stylesheet" type="text/css"
-        href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"/>
-  <script type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.3/less.min.js"></script>
-  <script type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-  <script type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-media.js"></script>
-  <script type="text/javascript" src="/assets/index.js"></script>
-  <title>Chiwan Park</title>
-</head>
-<body>
-<div id="wrapper">
-  <header>
-    <div id="portrait-holder">
-      <img src="/assets/portrait.jpg" title="Portrait of Chiwan Park"/>
-    </div>
-    <nav>
-      <h1>Chiwan Park</h1>
 
-      <ul class="links">
-        <li><a href="/" alt="Homepage"><i class="fa fa-home"></i></a>
-        </li>
-        <li><a href="/articles" alt="Articles"><i
-            class="fa fa-book"></i></a></li>
-        <li><a href="https://fb.me/chiwanpark" alt="Facebook"><i
-            class="fa fa-facebook-square"></i></a></li>
-        <li><a href="http://instagram.com/chiwanpark" alt="Instagram"><i
-            class="fa fa-instagram"></i></a></li>
-        <li><a href="https://github.com/chiwanpark" alt="Github"><i
-            class="fa fa-github-square"></i></a></li>
-        <li>
-          <a href="http://www.google.com/recaptcha/mailhide/d?k=01Hyzp_YFzysc70qsTOiq_YQ==&amp;c=RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E="
-             onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501Hyzp_YFzysc70qsTOiq_YQ\75\75\46c\75RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;"
-             target="_blank" alt="E-Mail Address"><i class="fa fa-envelope"></i></a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <title>Chiwan Park</title>
+
+  <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
+  
 
   
-  <section>
-    <h2><i class="fa fa-question-circle"></i>About</h2>
+</head>
+<body>
+<header>
+  <img src="/assets/portrait.jpg" id="portrait"/>
 
-    <div class="content">
-      <h2>Me</h2>
-<p>My name is Chiwan Park. I'm undergraduate student majoring in Earth System
-Sciences and Computer Science in Yonsei University. I'm developer interested in
-server programming and big data processing. I'm a member of
+  <h1><a href="/">Chiwan Park</a></h1>
+
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+
+  <p class="menu">
+    <a href="https://github.com/chiwanpark"><i class="fa fa-lg fa-github-square"></i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-lg fa-facebook-square"></i></a>
+    <a href="http://instagram.com/chiwanpark"><i class="fa fa-lg fa-instagram"></i></a>
+  </p>
+</header>
+<section class="content">
+  <h1>About</h1>
+<h2>Me</h2>
+<p>My name is Chiwan Park. I'm undergraduate student majoring in Earth System Sciences and Computer Science in Yonsei
+University. I'm developer interested in server programming and big data processing. I'm a member of
 <a href="http://anbado.com">Anbado Video</a> (Korean) as a server programmer.</p>
-<p>I prefer to use Python or Java for my projects. Sometimes I use C/C++,
-Objective-C, Javascript, and PHP if need be.</p>
-<p>I'm supported by Open Frontier Program which is program for open-source
-contributor by <a href="http://nipa.kr">NIPA</a>. For participating this program, I
-currently located in <a href="http://www.nipa.kr/nuri/itComplex.it">Nurikkum Square</a>,
-Seoul, Korea. I'm contributing
-<a href="http://wiki.opencloudengine.org/display/IN/Flamingo">Flamingo Project</a> (Korean)
-and trying to contribute other projects. You can see open-source activities in
-my <a href="https://github.com/chiwanpark">github pages</a>.</p>
-<p>You can contact me via email, facebook, github message.</p>
+<p>I prefer to use Python or Java for my projects. Sometimes I use C/C++, Objective-C, Javascript, and PHP if need be.</p>
+<p>I'm supported by Open Frontier Program which is program for open-source contributor by <a href="http://nipa.kr">NIPA</a>. For
+participating this program, I currently located in <a href="http://www.nipa.kr/nuri/itComplex.it">Nurikkum Square</a>, Seoul,
+Korea. I'm contributing <a href="http://wiki.opencloudengine.org/display/IN/Flamingo">Flamingo Project</a> (Korean) and trying to
+contribute other projects. You can see open-source activities in my <a href="https://github.com/chiwanpark">github pages</a>. There
+are some articles written by me in <a href="/articles/">this website</a>.</p>
+<p>You can contact me via <a href="http://www.google.com/recaptcha/mailhide/d?k\07501Hyzp_YFzysc70qsTOiq_YQ\75\75\46c\75RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E\075">email</a>,
+facebook message.</p>
 <h2>Website</h2>
-<p>This website is written in Markdown, compiled with small python and shell
-scripts and hosted by github pages. You can find whole source code in
-<a href="http://github.com/chiwanpark/chiwanpark.github.io">github repository</a>.</p>
-    </div>
-  </section>
-
-
-  <footer>
-    <p>Hosted by <a href="https://pages.github.com/">Github pages</a></p>
-  </footer>
-</div>
+<p>This website is written in Markdown, compiled with small python and shell scripts and hosted by github pages. You can
+find whole source code in <a href="http://github.com/chiwanpark/chiwanpark.github.io">github repository</a>.</p>
+</section>
+<footer>
+  <p>
+    &copy; Copyright 2013-2014 by Chiwan Park.<br/>
+    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                                       target="_blank">Creative Common attribution-noncommercial-sharealike License</a>.
+  </p>
+</footer>
 </body>
 </html>

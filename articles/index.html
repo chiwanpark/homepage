@@ -2,66 +2,71 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet/less" type="text/css"
-        href="/assets/style.less"/>
-  <link rel="stylesheet" type="text/css"
-        href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"/>
-  <script type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.3/less.min.js"></script>
-  <script type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-  <script type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-media.js"></script>
-  <script type="text/javascript" src="/assets/index.js"></script>
-  <title>Articles</title>
-</head>
-<body>
-<div id="wrapper">
-  <header>
-    <div id="portrait-holder">
-      <img src="/assets/portrait.jpg" title="Portrait of Chiwan Park"/>
-    </div>
-    <nav>
-      <h1>Chiwan Park</h1>
 
-      <ul class="links">
-        <li><a href="/" alt="Homepage"><i class="fa fa-home"></i></a>
-        </li>
-        <li><a href="/articles" alt="Articles"><i
-            class="fa fa-book"></i></a></li>
-        <li><a href="https://fb.me/chiwanpark" alt="Facebook"><i
-            class="fa fa-facebook-square"></i></a></li>
-        <li><a href="http://instagram.com/chiwanpark" alt="Instagram"><i
-            class="fa fa-instagram"></i></a></li>
-        <li><a href="https://github.com/chiwanpark" alt="Github"><i
-            class="fa fa-github-square"></i></a></li>
-        <li>
-          <a href="http://www.google.com/recaptcha/mailhide/d?k=01Hyzp_YFzysc70qsTOiq_YQ==&amp;c=RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E="
-             onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501Hyzp_YFzysc70qsTOiq_YQ\75\75\46c\75RrEeehlsm3nB3TgN4aIF-Jbu-a2cGhgjzK2bxqdao2E\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;"
-             target="_blank" alt="E-Mail Address"><i class="fa fa-envelope"></i></a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <title>Articles | Chiwan Park</title>
+
+  <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
+  
 
   
-  <section>
-    <h2><i class="fa fa-book"></i>Articles</h2>
+</head>
+<body>
+<header>
+  <img src="/assets/portrait.jpg" id="portrait"/>
 
-    <div class="content">
-      <ul class="list-by-dates">
-        
-      </ul>
+  <h1><a href="/">Chiwan Park</a></h1>
+
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+
+  <p class="menu">
+    <a href="https://github.com/chiwanpark"><i class="fa fa-lg fa-github-square"></i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-lg fa-facebook-square"></i></a>
+    <a href="http://instagram.com/chiwanpark"><i class="fa fa-lg fa-instagram"></i></a>
+  </p>
+</header>
+<section class="content">
+  <div class="articles">
+  
+    <div class="article-overview">
+      <div class="date">Sep 29, 2013</div>
+      <div class="description">
+        <h1><a href="/articles/lessons-learned-in-recent-3-months.html">Lessons learned in recent 3 months</a></h1>
+        <div class="summary">최근 3개월간 참여했던 프로젝트에서 답답하다고 느낀 점</div>
+      </div>
     </div>
-  </section>
-
-
-  <footer>
-    <p>Hosted by <a href="https://pages.github.com/">Github pages</a></p>
-  </footer>
-</div>
+  
+    <div class="article-overview">
+      <div class="date">Jun 03, 2013</div>
+      <div class="description">
+        <h1><a href="/articles/soma-2nd-middle-evaluation.html">SW Maestro 2차 중간 평가</a></h1>
+        <div class="summary">SW Maestro 중간 평가 중 의미있었던 의견</div>
+      </div>
+    </div>
+  
+    <div class="article-overview">
+      <div class="date">Feb 09, 2013</div>
+      <div class="description">
+        <h1><a href="/articles/data-management.html">데이터 관리</a></h1>
+        <div class="summary">기록 덕후의 데이터 저장 관리 방법</div>
+      </div>
+    </div>
+  
+    <div class="article-overview">
+      <div class="date">Jan 31, 2013</div>
+      <div class="description">
+        <h1><a href="/articles/intellectual-greed.html">지적 욕심</a></h1>
+        <div class="summary">시험 기간에는 공부만 빼고는 모든게 재밌다.</div>
+      </div>
+    </div>
+  
+  </div>
+</section>
+<footer>
+  <p>
+    &copy; Copyright 2013-2014 by Chiwan Park.<br/>
+    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                                       target="_blank">Creative Common attribution-noncommercial-sharealike License</a>.
+  </p>
+</footer>
 </body>
 </html>
