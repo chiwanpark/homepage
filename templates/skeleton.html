@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <link href="{{ assets('style.less') }}" type="text/css" rel="stylesheet/less"/>
+  {% block customStylesheet %}{% endblock %}
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.4/less.min.js"></script>
+  {% block customScript %}{% endblock %}
+</head>
+<body>
+<header>
+  <img src="{{ assets('portrait.jpg') }}" id="portrait"/>
+
+  <h1><a href="{{ url() }}">Chiwan Park</a></h1>
+
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+
+  <p class="menu">
+    <a href="https://github.com/chiwanpark"><i class="fa fa-lg fa-github-square"></i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-lg fa-facebook-square"></i></a>
+    <a href="http://instagram.com/chiwanpark"><i class="fa fa-lg fa-instagram"></i></a>
+  </p>
+</header>
+<section class="content">{% block content %}{% endblock %}</section>
+<footer>
+  <p>
+    &copy; Copyright 2013-2014 by Chiwan Park.<br/>
+    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                                       target="_blank">Creative Common attribution-noncommercial-sharealike License</a>.
+  </p>
+</footer>
+</body>
+</html>

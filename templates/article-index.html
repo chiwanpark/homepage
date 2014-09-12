@@ -1,0 +1,15 @@
+{% extends 'skeleton.html' %}
+{% block title %}Articles | Chiwan Park{% endblock %}
+{% block content %}
+  <div class="articles">
+  {% for article in articles %}
+    <div class="article-overview">
+      <div class="date">{{ article.date.strftime('%b %d, %Y') }}</div>
+      <div class="description">
+        <h1><a href="{{ article.url }}">{{ article.title }}</a></h1>
+        <div class="summary">{{ article.summary }}</div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+{% endblock %}
