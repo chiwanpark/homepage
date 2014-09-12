@@ -13,7 +13,11 @@ from markdown import Markdown
 from jinja2 import Environment, PackageLoader
 
 
-DEST_DIR = os.environ.get('OUTPUT_DIR', './_build')
+def get_current_dir() -> str:
+    return os.path.dirname(os.path.abspath(__file__))
+
+
+DEST_DIR = os.path.join(get_current_dir(), '_build')
 DEFAULT_TIMEZONE = timezone('Asia/Seoul')
 MARKDOWN = Markdown(extensions=['meta', 'footnotes', 'codehilite(linenums=True)'])
 DATE_FORMAT = '%b %d, %Y'
@@ -88,10 +92,6 @@ class IndexPage(Page):
         super().__init__(path, rendered)
 
 
-def get_current_dir() -> str:
-    return os.path.dirname(os.path.abspath(__file__))
-
-
 def create_page(path: str=None, content: str=None):
     assert path
     assert content
@@ -132,15 +132,36 @@ def iter_pages(path: str=None) -> GeneratorType:
                 yield page
 
 
+def build_assets(path: str=None):
+    current_dir = get_current_dir()
+    base_path = os.path.join(current_dir, 'assets')
+    dest_base_path = os.path.join(DEST_DIR, 'assets')
+
+    if not path:
+        path = base_path
+
+    make_output_dir(dest_base_path)
+
+    for name in os.listdir(path):
+        abspath = os.path.join(path, name)
+        if os.path.isdir(abspath):
+            build_assets(abspath)
+        else:
+            dest_path = abspath.replace(base_path, dest_base_path)
+            if abspath.split('.')[-1] == 'less':
+                # TODO: need to compile less file
+                click.echo('[BUILD] Asset file detected (%s) -> LESS' % abspath)
+                shutil.copy(abspath, dest_path)
+            else:
+                click.echo('[BUILD] Asset file detected (%s)' % abspath)
+                shutil.copy(abspath, dest_path)
+
+
 def make_output_dir(path: str=None):
     if not path:
         path = DEST_DIR
     if not os.path.exists(path):
         os.mkdir(path)
-
-
-def copy_assets():
-    shutil.copytree(os.path.join('.', 'assets'), os.path.join(DEST_DIR, 'assets'))
 
 
 @click.group(chain=True)
@@ -151,11 +172,11 @@ def cli():
 @cli.command()
 def build():
     click.echo('[BUILD] Build whole pages of site.')
-    if os.path.exists(DEST_DIR):
+    if not os.path.exists(DEST_DIR):
         click.echo('[BUILD] There is no destination directory, so we create destination directory.')
         make_output_dir()
 
-    copy_assets()
+    build_assets()
 
     current_path = os.path.join(get_current_dir(), 'pages')
     article_pages = []
