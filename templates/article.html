@@ -1,13 +1,19 @@
 {% extends 'skeleton.html' %}
 {% block title %}{{ article.title }} | Chiwan Park{% endblock %}
 {% block content %}
-  <h1>{{ article.title }}</h1>
+  <article>
+    <header>
+      <h1>{{ article.title }}</h1>
 
-  <p class="date">written on {{ article.date.strftime('%A, %B %d, %Y') }}</p>
+      <p class="date">written on {{ article.date.strftime('%A, %B %d, %Y') }}</p>
+    </header>
 
-  <article>{{ article.content }}</article>
+    <section class="content">
+      {{ article.content }}
+    </section>
+  </article>
 
-  <div class="navigation">
-    <a href="{{ url('articles') }}"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
+  <div class="list-navigation">
+  <a href="{{ url('articles') }}"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
 {% endblock %}

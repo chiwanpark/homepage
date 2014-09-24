@@ -15,17 +15,19 @@
 <header>
   <img src="{{ assets('portrait.jpg') }}" id="portrait"/>
 
-  <h1><a href="{{ url() }}">Chiwan Park</a></h1>
+  <h1>Chiwan Park</h1>
 
   <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
 
-  <p class="menu">
-    <a href="https://github.com/chiwanpark"><i class="fa fa-lg fa-github-square"></i></a>
-    <a href="https://fb.me/chiwanpark"><i class="fa fa-lg fa-facebook-square"></i></a>
-    <a href="http://instagram.com/chiwanpark"><i class="fa fa-lg fa-instagram"></i></a>
-  </p>
+  <nav class="menu">
+    <a href="{{ url() }}"><i class="fa fa-user"></i>About</a>
+    <a href="{{ url('articles') }}"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+    <a href="https://github.com/chiwanpark"><i class="fa fa-github-square"></i><i class="label">Github</i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-facebook-square"></i><i class="label">Facebook</i></a>
+    <a href="http://instagram.com/chiwanpark"><i class="fa fa-instagram"></i><i class="label">Instagram</i></a>
+  </nav>
 </header>
-<section class="content">{% block content %}{% endblock %}</section>
+<main>{% block content %}{% endblock %}</main>
 <footer>
   <p>rev. {{ git_hash_link(path) }}</p>
 
