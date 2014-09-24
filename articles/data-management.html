@@ -8,28 +8,35 @@
   <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
   
 
+  <script type="text/javascript" src="/assets/script.js"></script>
   
 </head>
 <body>
 <header>
   <img src="/assets/portrait.jpg" id="portrait"/>
 
-  <h1><a href="/">Chiwan Park</a></h1>
+  <h1>Chiwan Park</h1>
 
   <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
 
-  <p class="menu">
-    <a href="https://github.com/chiwanpark"><i class="fa fa-lg fa-github-square"></i></a>
-    <a href="https://fb.me/chiwanpark"><i class="fa fa-lg fa-facebook-square"></i></a>
-    <a href="http://instagram.com/chiwanpark"><i class="fa fa-lg fa-instagram"></i></a>
-  </p>
+  <nav class="menu">
+    <a href="/"><i class="fa fa-user"></i>About</a>
+    <a href="/articles"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+    <a href="https://github.com/chiwanpark"><i class="fa fa-github-square"></i><i class="label">Github</i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-facebook-square"></i><i class="label">Facebook</i></a>
+    <a href="http://instagram.com/chiwanpark"><i class="fa fa-instagram"></i><i class="label">Instagram</i></a>
+  </nav>
 </header>
-<section class="content">
-  <h1>데이터 관리</h1>
+<main>
+  <article>
+    <header>
+      <h1>데이터 관리</h1>
 
-  <p class="date">written on Saturday, February 09, 2013</p>
+      <p class="date">written on Saturday, February 09, 2013</p>
+    </header>
 
-  <article><p>어렸을 때 부터 손으로 써서든 타이핑을 해서든, 무언가를 만드는 일을 계속 해오다 보니 나는 남들보다 내가 만든 또는 내가 얻은 데이터에 대해 애착을 갖는 편이다.
+    <section class="content">
+      <p>어렸을 때 부터 손으로 써서든 타이핑을 해서든, 무언가를 만드는 일을 계속 해오다 보니 나는 남들보다 내가 만든 또는 내가 얻은 데이터에 대해 애착을 갖는 편이다.
 애착을 갖는 다는 것은 별다르게 특별한 것을 의미하는 것은 아니고, 언제나 내가 했던 기록을 열어볼 수 있는 정도로 정리해놓는 것을 의미한다. 쉽게 열어볼 수 있도록
 폴더 구조를 잘 구축해 놓는 것도 내가 데이터에게 해주는 작업 중 하나이다.</p>
 <p>주로 프로그래밍을 많이 했기 때문에, 대부분의 가지고 있는 데이터는 디지털로 되어있지만, 일부 데이터(예를 들면, 고등학교 때 푼 수능 문제의 풀이과정<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>
@@ -56,17 +63,21 @@
 필요하다. 협업을 하려해도 협업에 참여하는 모든 사람이 LaTeX에 수준급의 실력을 갖추고 있어야한다.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
-</div></article>
+</div>
+    </section>
+  </article>
 
-  <div class="navigation">
-    <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
+  <div class="list-navigation">
+  <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
-</section>
+</main>
 <footer>
+  <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/150a3a67e8d576307e5eace3983a1bba908b0ce1/pages/articles/data-management.md">150a3a6</a></p>
+
   <p>
     &copy; Copyright 2013-2014 by Chiwan Park.<br/>
-    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-                                       target="_blank">Creative Common attribution-noncommercial-sharealike License</a>.
+    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
+    attribution-noncommercial-sharealike License</a>.
   </p>
 </footer>
 </body>
