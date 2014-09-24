@@ -41,7 +41,7 @@ def create_jinja2_env() -> Environment:
         full_hash, short_hash = git_log.replace('"', '').split(',')
         path = path.replace(get_current_dir() + '/', '')
 
-        return '<a href="%s/blob/%s/%s" target="_blank">%s</a>' % (GIT_REPOSITORY_URL, full_hash, path, short_hash)
+        return '<a href="%s/blob/%s/%s">%s</a>' % (GIT_REPOSITORY_URL, full_hash, path, short_hash)
 
     env = Environment(loader=PackageLoader('cli'))
     env.globals.update(url=url, assets=assets, git_hash_link=git_hash_link)
@@ -54,7 +54,6 @@ TEMPLATES = {
     'article': JINJA_ENV.get_template('article.html'),
     'article-index': JINJA_ENV.get_template('article-index.html')
 }
-
 
 class Page(object):
     def __init__(self, path: str=None, file_content: str=None):
