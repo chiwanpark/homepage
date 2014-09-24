@@ -23,6 +23,7 @@ DEST_DIR = os.path.join(get_current_dir(), '_build')
 DEFAULT_TIMEZONE = timezone('Asia/Seoul')
 MARKDOWN = Markdown(extensions=['meta', 'footnotes', 'codehilite(linenums=True)'])
 DATE_FORMAT = '%b %d, %Y'
+GIT_REPOSITORY_URL = 'https://github.com/chiwanpark/chiwanpark.github.io'
 
 
 def create_jinja2_env() -> Environment:
@@ -32,8 +33,18 @@ def create_jinja2_env() -> Environment:
     def assets(name):
         return url('assets', name)
 
+    def git_hash_link(path):
+        cmds = ['/usr/bin/git', 'log', '--pretty=format:"%H,%h"', '-1', '--', path]
+        git_log = subprocess.Popen(cmds, stdout=subprocess.PIPE).communicate()[0].decode('utf-8')
+        if not git_log:
+            return 'UNCOMMITED'
+        full_hash, short_hash = git_log.replace('"', '').split(',')
+        path = path.replace(get_current_dir() + '/', '')
+
+        return '<a href="%s/blob/%s/%s" target="_blank">%s</a>' % (GIT_REPOSITORY_URL, full_hash, path, short_hash)
+
     env = Environment(loader=PackageLoader('cli'))
-    env.globals.update(url=url, assets=assets)
+    env.globals.update(url=url, assets=assets, git_hash_link=git_hash_link)
     return env
 
 
@@ -68,7 +79,7 @@ class ArticlePage(Page):
         self.content = content
         self.summary = summary
 
-        rendered = TEMPLATES['article'].render(article=self)
+        rendered = TEMPLATES['article'].render(article=self, path=path)
         super().__init__(path, rendered)
 
     @property
@@ -82,7 +93,7 @@ class ArticleIndexPage(Page):
         articles = list(articles)
         articles.sort(key=lambda article: article.date, reverse=True)
 
-        rendered = TEMPLATES['article-index'].render(articles=articles)
+        rendered = TEMPLATES['article-index'].render(articles=articles, path=path)
         super().__init__(path, rendered)
 
 
@@ -90,7 +101,7 @@ class IndexPage(Page):
     def __init__(self, path: str=None, content: str=None):
         self.content = content
 
-        rendered = TEMPLATES['index'].render(page=self)
+        rendered = TEMPLATES['index'].render(page=self, path=path)
         super().__init__(path, rendered)
 
 

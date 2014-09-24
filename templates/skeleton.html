@@ -26,6 +26,8 @@
 </header>
 <section class="content">{% block content %}{% endblock %}</section>
 <footer>
+  <p>rev. {{ git_hash_link(path) }}</p>
+
   <p>
     &copy; Copyright 2013-2014 by Chiwan Park.<br/>
     All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
