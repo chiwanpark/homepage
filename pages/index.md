@@ -13,11 +13,12 @@ I prefer to use Python or Java for my projects. Sometimes I use C/C++, Objective
 I'm supported by Open Frontier Program which is program for open-source contributor by [NIPA](http://nipa.kr). For
 participating this program, I currently located in [Nuritkum Square](http://www.nipa.kr/nuri/itComplex.it), Seoul,
 Korea. I'm contributing [Flamingo Project](http://wiki.opencloudengine.org/display/IN/Flamingo) (Korean) and trying to
-contribute other projects. You can see my open-source activities in [github pages](https://github.com/chiwanpark). There
-are some articles written by me in [this website](/articles/).
+contribute other projects. You can see my open-source activities in [Github](https://github.com/chiwanpark) or
+[Apache Review Board](https://reviews.apache.org/users/chiwanpark/). There are some articles written by me in [this
+website](/articles/).
 
-You can contact me via [email](http://www.google.com/recaptcha/mailhide/d?k=01zdK04x7A3jyfFdz2qu8eLQ==&c=snsdlvUXCQklJ8Ni_YyX6t5Th2n07aWoHpGBpW8JY5k=),
-facebook message.
+You can contact me via [email](http://www.google.com/recaptcha/mailhide/d?k=01zdK04x7A3jyfFdz2qu8eLQ==&c=snsdlvUXCQklJ8Ni_YyX6t5Th2n07aWoHpGBpW8JY5k=)
+or facebook message.
 
 ## Website
 
