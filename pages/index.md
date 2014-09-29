@@ -4,13 +4,13 @@ type: index
 
 ## Me
 
-My name is Chiwan Park. I'm undergraduate student majoring in Earth System Sciences and Computer Science in [Yonsei
-University](http://www.yonsei.ac.kr). I'm developer interested in database, distributed computing, and data processing.
-I'm a member of [Anbado Video](http://anbado.com) (Korean) as a server programmer.
+My name is Chiwan Park. I'm a undergraduate student majoring in Earth System Sciences and Computer Science in [Yonsei
+University](http://www.yonsei.ac.kr). I'm a developer interested in database, distributed computing, 
+and data processing. I'm a member of [Anbado Video](http://anbado.com) (Korean) as a server programmer.
 
 I prefer to use Python or Java for my projects. Sometimes I use C/C++, Objective-C, Javascript, and PHP if need be.
 
-I'm supported by Open Frontier Program which is program for open-source contributor by [NIPA](http://nipa.kr). For
+I'm supported by Open Frontier Program which is program for open-source contributors by [NIPA](http://nipa.kr). For
 participating this program, I currently located in [Nuritkum Square](http://www.nipa.kr/nuri/itComplex.it), Seoul,
 Korea. I'm contributing [Flamingo Project](http://wiki.opencloudengine.org/display/IN/Flamingo) (Korean) and trying to
 contribute other projects. You can see my open-source activities in [Github](https://github.com/chiwanpark) or
