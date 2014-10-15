@@ -17,10 +17,22 @@ contribute other projects. You can see my open-source activities in [Github](htt
 [Apache Review Board](https://reviews.apache.org/users/chiwanpark/). There are some articles written by me in [this
 website](/articles/).
 
-You can contact me via [email](http://www.google.com/recaptcha/mailhide/d?k=01zdK04x7A3jyfFdz2qu8eLQ==&c=snsdlvUXCQklJ8Ni_YyX6t5Th2n07aWoHpGBpW8JY5k=)
-or facebook message.
+## Contact and other profiles
 
-## Website
+You can contact me via [email](http://www.google.com/recaptcha/mailhide/d?k=01zdK04x7A3jyfFdz2qu8eLQ==&c=snsdlvUXCQklJ8Ni_YyX6t5Th2n07aWoHpGBpW8JY5k=).
+If you want to contact privately, you can encrypt your message using PGP. (Public Key: [13BE C5AB 2123 4E4A CFCF F1FC 
+9205 2D19 8F14 F96E](https://keybase.io/chiwanpark/key.asc))
+
+You can find my other profiles in following sites.
+
+* [Github](https://github.com/chiwanpark)
+* [Bitbucket](https://bitbucket.org/chiwanpark)
+* [Keybase](https://keybase.io/chiwanpark)
+* [Facebook](https://fb.me/chiwanpark)
+* [Instagram](http://instagram.com/chiwanpark)
+* [LinkedIn](https://www.linkedin.com/in/chiwanpark)
+
+## This website
 
 This website is written in Markdown, compiled with small python and shell scripts and hosted by github pages. You can
 find whole source code in [github repository](http://github.com/chiwanpark/chiwanpark.github.io).
