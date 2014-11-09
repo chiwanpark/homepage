@@ -11,7 +11,7 @@ and data processing. I'm a member of [Anbado Video](http://anbado.com) (Korean) 
 I prefer to use Python or Java for my projects. Sometimes I use C/C++, Objective-C, Javascript, and PHP if need be.
 
 I'm supported by Open Frontier Program which is program for open-source contributors by [NIPA](http://nipa.kr). For
-participating this program, I currently located in [Nuritkum Square](http://www.nipa.kr/nuri/itComplex.it), Seoul,
+participating this program, I'm currently located in [Nuritkum Square](http://www.nipa.kr/nuri/itComplex.it), Seoul,
 Korea. I'm contributing [Flamingo Project](http://wiki.opencloudengine.org/display/IN/Flamingo) (Korean) and trying to
 contribute other projects. You can see my open-source activities in [Github](https://github.com/chiwanpark) or
 [Apache Review Board](https://reviews.apache.org/users/chiwanpark/). There are some articles written by me in [this
