@@ -131,6 +131,8 @@ def iter_pages(path: str=None) -> GeneratorType:
         path = os.path.join(get_current_dir(), 'pages')
 
     for name in os.listdir(path):
+        if name.startswith('.'):
+            continue
         abspath = os.path.join(path, name)
         if os.path.isdir(abspath):
             for subpage in iter_pages(abspath):
@@ -163,7 +165,7 @@ def build_assets(path: str=None):
             if abspath.split('.')[-1] == 'less':
                 click.echo('[BUILD] Asset file detected (%s) -> LESS' % abspath)
                 dest_path = re.sub(r'less$', 'css', dest_path)
-                cmds = ['lessc', '-x', '--clean-css', abspath, dest_path]
+                cmds = ['lessc', '-x', abspath, dest_path]
                 subprocess.call(cmds)
             else:
                 click.echo('[BUILD] Asset file detected (%s)' % abspath)
