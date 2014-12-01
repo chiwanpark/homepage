@@ -21,7 +21,7 @@ def get_current_dir() -> str:
 
 DEST_DIR = os.path.join(get_current_dir(), '_build')
 DEFAULT_TIMEZONE = timezone('Asia/Seoul')
-MARKDOWN = Markdown(extensions=['meta', 'footnotes', 'codehilite(linenums=True)'])
+MARKDOWN = Markdown(extensions=['meta', 'footnotes', 'codehilite(linenums=True)', 'fenced_code'])
 DATE_FORMAT = '%b %d, %Y'
 GIT_REPOSITORY_URL = 'https://github.com/chiwanpark/chiwanpark.github.io'
 
