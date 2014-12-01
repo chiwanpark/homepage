@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+
+  <title>Introduction to Apache Flink | Chiwan Park</title>
+
+  <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
+  
+
+  <script type="text/javascript" src="/assets/script.js"></script>
+  
+</head>
+<body>
+<header>
+  <img src="/assets/portrait.jpg" id="portrait"/>
+
+  <h1>Chiwan Park</h1>
+
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+
+  <nav class="menu">
+    <a href="/"><i class="fa fa-user"></i>About</a>
+    <a href="/articles"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+  </nav>
+</header>
+<main>
+  <article>
+    <header>
+      <h1>Introduction to Apache Flink</h1>
+
+      <p class="date">written on Sunday, November 09, 2014</p>
+    </header>
+
+    <section class="content">
+      <p>Hadoop의 MapReduce 프레임워크를 통해서 데이터 처리를 해본 사람들은 알겠지만, 사실 MapReduce 프레임워크를 통해 데이터를 처리하는 것은 불편한 점이 한 둘이 아니다. 기본적으로 지원하는 연산이 Map과 Reduce 둘 만 제공되어 모든 알고리즘을 Map, Reduce의 반복을 통해 구현해야 하는 점<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>, 병렬 최적화를 사실상 수동으로 수행해야해서 복잡한 알고리즘의 경우 최적화가 어려운 점, 중간 결과물도 HDFS에 저장해야해서 많은 I/O를 발생시키는 점<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> 등이 대표적이다. 특히 MapReduce 프레임워크가 HDFS랑 밀접하게 붙어 작동하는 것은 성능 저하에 꽤 큰 부분을 차지했는데 특히 반복 기반으로 작동되는 알고리즘들은 중간 결과물이 많아져 복잡한 처리를 하지 않으면 성능이 급격하게 떨어진다.</p>
+<p>위와 같은 문제점 들을 해결하기 위해, MapReduce 프레임워크 위의 다른 프론트엔드<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>를 사용하거나 다른 패러다임의 데이터 처리 프레임워크<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup>를 사용하는 추세가 이어지고 있다.</p>
+<p>Apache Flink는 MapReduce 프레임워크를 쓰지 않는 독자적인 데이터 처리 프레임워크로 반복 기반의 알고리즘을 처리할 때 대폭적인 성능 향상을 보인다. 모든 데이터는 Read-Only 이며, 모든 연산은 새로운 데이터 셋을 계속해서 생성하는 형태로 수행된다. 함수형 프로그래밍의 특징을 그대로 계승하므로 병렬 최적화를 높은 수준으로 수행할 수 있다.</p>
+<p>Flink의 데이터 단위는 DataSet 이며, DataSet을 연산할 수 있는 Operator가 존재한다. 프로그램은 DataSet에 다양한 Operator를 적용해 데이터를 처리하는 형태로 구성된다.</p>
+<p><img alt="Concept of Apache Flink Dataflow" src="/assets/introduction-to-apache-flink-01.png" /></p>
+<p>또한, Map, Reduce 이외에도 Join, CoGroup, Union, Iterate, <strong>Delta Iterate</strong>, Filter, FlatMap, GroupReduce, Project, Aggregate, Distinct, Accumulation 등 다양한 연산을 지원하여 MapReduce 프레임워크 보다 훨씬 쉽게 알고리즘을 구현할 수 있다.</p>
+<p>아래의 소스 코드는 Hadoop 관련 예제에 많이 등장하는 WordCount 예제다. MapReduce 보다 훨씬 간결하게 코드를 작성할 수 있다.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">DataSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">input</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="na">readTextFile</span><span class="o">(</span><span class="n">inputPath</span><span class="o">);</span>
+
+<span class="n">DataSet</span><span class="o">&lt;</span><span class="n">Tuple2</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">flatMap</span><span class="o">((</span><span class="n">value</span><span class="o">,</span> <span class="n">out</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+   <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">value</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">))</span> <span class="o">{</span>
+       <span class="n">out</span><span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="k">new</span> <span class="n">Tuple2</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;(</span><span class="n">s</span><span class="o">,</span> <span class="mi">1L</span><span class="o">));</span>
+   <span class="o">}</span>
+<span class="o">});</span>
+
+<span class="n">words</span><span class="o">.</span><span class="na">groupBy</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">sum</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">writeAsText</span><span class="o">(</span><span class="n">outputPath</span><span class="o">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>Apache Flink는 Delta Iterate라는 특이한 연산을 지원하는데, 간단히 소개하자면 한번 반복이 진행 된 후 다음에 계산할 필요가 있는 후보들만 계속해서 반복함으로써 반복의 수를 줄여 수행 시간을 단축하는 데 도움을 준다. Delta Iterate 연산은 특히 그래프 내에서 Propagation 등을 수행하는 경우 유용하다.</p>
+<p>Hadoop과의 호환성도 좋아서 Hadoop에서 사용하던 InputFormat, OutputFormat, Map Function, Reduce Function 등도 그대로 사용할 수 있고 YARN 클러스터 위에서 작동 할 수도 있다.</p>
+<p><a href="https://github.com/chiwanpark/flink-example">https://github.com/chiwanpark/flink-example</a>에 Apache Flink를 사용한 예제 구현을 만들어봤다. 100줄도 안되는 코드로 분산 클러스터에서 작동하는 PageRank 알고리즘을 구현할 수 있었다.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>MapReduce 기반의 알고리즘들이 복잡해지는 주요 원인이 된다.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>물론 InputFormat, OutputFormat을 직접 만들어 메모리에 저장하거나 할 수도 있긴 하다.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>데이터 처리를 위한 스크립트 언어를 제공하는 <a href="http://pig.apache.org">Apache Pig</a>나 SQL과 비슷한 구문으로 데이터 처리를 수행하도록 도와주는 <a href="http://hive.apache.org">Apache Hive</a> 등이 대표적인 예다.&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="http://spark.apache.org">Apache Spark</a>, <a href="http://tez.apache.org">Apache Tez</a> 등이 대표적인 예다.&#160;<a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </section>
+  </article>
+
+  <div class="list-navigation">
+  <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
+  </div>
+</main>
+<footer>
+  <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/918edf410c7b77e86e7d893a0bd912181cbc8db2/pages/articles/introduction-to-apache-flink.md">918edf4</a></p>
+
+  <p>
+    &copy; Copyright 2013-2014 by Chiwan Park.<br/>
+    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
+    attribution-noncommercial-sharealike License</a>.
+  </p>
+</footer>
+</body>
+</html>
