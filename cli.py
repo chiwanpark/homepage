@@ -55,6 +55,7 @@ TEMPLATES = {
     'article-index': JINJA_ENV.get_template('article-index.html')
 }
 
+
 class Page(object):
     def __init__(self, path: str=None, file_content: str=None):
         self.path = path
