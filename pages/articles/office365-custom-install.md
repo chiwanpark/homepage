@@ -3,16 +3,9 @@ title: Office 365 Custom Install
 date: May 2, 2015
 summary: Office 365 설치할 때 필요한 컴포넌트만 설치하기
 
-예전에는 학교에서 나눠주는 Office를 외부 컴퓨터에 설치하는 것이 금지되어 있어서 꼭 학교 IP로 인증을
-받아야 했다. 얼마 전부터는 학교에서 Office 365를 제공해주면서 외부에서도 사용할 수 있게 되었다. 그런데
-학교에서 배포한 Office 365에는 Word, Powerpoint, Excel 말고도 Lync, Outlook, Publisher,
-Access 등 안 쓰는 프로그램이 잔뜩 설치되는 또 다른 문제가 있었다. 설치 프로그램을 실행하자마자, 다짜고짜
-설치를 진행하는데 불필요한 프로그램을 제외할 수도 없어 난감했다. 어찌어찌해서 선택 설치에 성공했고 선택
-설치를 하기 위해서, 해야 하는 몇 가지 작업을 잘 기억해두기 위해 블로그에 적어둔다.
+예전에는 학교에서 나눠주는 Office를 외부 컴퓨터에 설치하는 것이 금지되어 있어서 꼭 학교 IP로 인증을 받아야 했다. 얼마 전부터는 학교에서 Office 365를 제공해주면서 외부에서도 사용할 수 있게 되었다. 그런데 학교에서 배포한 Office 365에는 Word, Powerpoint, Excel 말고도 Lync, Outlook, Publisher, Access 등 안 쓰는 프로그램이 잔뜩 설치되는 또 다른 문제가 있었다. 설치 프로그램을 실행하자마자, 다짜고짜 설치를 진행하는데 불필요한 프로그램을 제외할 수도 없어 난감했다. 어찌어찌해서 선택 설치에 성공했고 선택 설치를 하기 위해서, 해야 하는 몇 가지 작업을 잘 기억해두기 위해 블로그에 적어둔다.
 
-먼저 아래의 코드를 다운 받아 xml 확장자 파일로 저장하자. 이 파일을 적용하면, 64-bit 버전으로 Word,
-Powerpoint, Excel 이외의 프로그램은 설치되지 않는다. 여기서는 `setup.xml`이라는 이름으로
-저장했다고 가정한다.
+먼저 아래의 코드를 다운 받아 xml 확장자 파일로 저장하자. 이 파일을 적용하면, 64-bit 버전으로 Word, Powerpoint, Excel 이외의 프로그램은 설치되지 않는다. 여기서는 `setup.xml`이라는 이름으로 저장했다고 가정한다.
 
 ```xml
 <Configuration>
@@ -34,8 +27,4 @@ Powerpoint, Excel 이외의 프로그램은 설치되지 않는다. 여기서는
 </Configuration>
 ```
 
-그다음, 배포 관련 툴을
-[공식 홈페이지](https://www.microsoft.com/en-us/download/details.aspx?id=36778)에서
-다운 받는다. 다운 받은 프로그램을 실행하면 압축이 풀리면서 `setup.exe`, `configuration.xml`이
-생성된다. 이후 명령 프롬프트에서 `setup.exe /configure setup.xml` 명령을 실행하면 설치가
-진행된다.
+그다음, 배포 관련 툴을 [공식 홈페이지](https://www.microsoft.com/en-us/download/details.aspx?id=36778)에서 다운 받는다. 다운 받은 프로그램을 실행하면 압축이 풀리면서 `setup.exe`, `configuration.xml`이 생성된다. 이후 명령 프롬프트에서 `setup.exe /configure setup.xml` 명령을 실행하면 설치가 진행된다.
