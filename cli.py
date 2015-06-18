@@ -158,6 +158,8 @@ def build_assets(path: str=None):
     make_output_dir(dest_base_path)
 
     for name in os.listdir(path):
+        if name.startswith('_'):
+            continue
         abspath = os.path.join(path, name)
         if os.path.isdir(abspath):
             build_assets(abspath)
@@ -238,59 +240,21 @@ def clean():
 
 @cli.command()
 @click.pass_context
-def watch(ctx):
+def run(ctx):
     from time import sleep
-    from watchdog.observers import Observer
-    from watchdog.events import FileSystemEventHandler
-
     ctx.invoke(clean)
     ctx.invoke(build)
 
-    current_dir = get_current_dir()
-    click.echo('[WATCH] Watching %s' % current_dir)
-
     httpd_thread = HttpdThread()
-
-    class RecompileAllEventHandler(FileSystemEventHandler):
-        def on_any_event(self, event):
-            nonlocal httpd_thread
-
-            if event.is_directory:
-                return
-
-            click.echo('[WATCH] Event detected (%s), try rebuilding site.' % event)
-
-            httpd_thread.shutdown()
-
-            os.chdir(current_dir)
-
-            ctx.invoke(clean)
-            ctx.invoke(build)
-
-            httpd_thread = HttpdThread()
-            httpd_thread.start()
-
-    observer = Observer()
-    all_event_handler = RecompileAllEventHandler()
-
-    observer.schedule(all_event_handler, os.path.join(current_dir, 'templates'), recursive=True)
-    observer.schedule(all_event_handler, os.path.join(current_dir, 'pages'), recursive=True)
-    observer.schedule(all_event_handler, os.path.join(current_dir, 'assets'), recursive=True)
-
     httpd_thread.start()
-    observer.start()
 
     try:
         while True:
             sleep(1)
     except KeyboardInterrupt:
-        click.echo('[BUILD] Keyboard Interrupt detected, shutdown.')
-        if observer.is_alive():
-            observer.stop()
+        click.echo('[RUN] Keyboard Interrupt detected, shutdown.')
         if httpd_thread.is_alive():
             httpd_thread.shutdown()
-
-    observer.join()
 
     ctx.invoke(clean)
 
