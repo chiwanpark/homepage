@@ -1,5 +1,19 @@
 {% extends 'skeleton.html' %}
 {% block title %}{{ article.title }} | Chiwan Park{% endblock %}
+{% block customScript %}
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [['$', '$'], ["\\(", "\\)"]],
+        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+{% endblock %}
 {% block content %}
   <article>
     <header>
@@ -8,12 +22,10 @@
       <p class="date">written on {{ article.date.strftime('%A, %B %d, %Y') }}</p>
     </header>
 
-    <section class="content">
-      {{ article.content }}
-    </section>
+    <section class="content">{{ article.content }}</section>
   </article>
 
   <div class="list-navigation">
-  <a href="{{ url('articles') }}"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
+    <a href="{{ url('articles') }}"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
 {% endblock %}
