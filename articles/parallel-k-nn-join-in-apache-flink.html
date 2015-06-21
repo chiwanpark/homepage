@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+
+  <title>Parallel k-NN Join in Apache Flink | Chiwan Park</title>
+
+  <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
+  
+
+  <script type="text/javascript" src="/assets/script.js"></script>
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [['$', '$'], ["\\(", "\\)"]],
+        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+</head>
+<body>
+<header>
+  <img src="/assets/portrait.jpg" id="portrait"/>
+
+  <h1>Chiwan Park</h1>
+
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+
+  <nav class="menu">
+    <a href="/"><i class="fa fa-user"></i>About</a>
+    <a href="/articles"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+  </nav>
+</header>
+<main>
+  <article>
+    <header>
+      <h1>Parallel k-NN Join in Apache Flink</h1>
+
+      <p class="date">written on Monday, June 22, 2015</p>
+    </header>
+
+    <section class="content"><h2>시작하며</h2>
+<p>최근 6개월간은 남는 시간을 거의 <a href="http://flink.apache.org">Apache Flink</a>에 기여하는 데 보내고 있다. 처음에는 덜 중요한 기능 추가로 기여를 하기 시작해서 근래에는 다양한 컴포넌트에 기여를 하고있다. 예전부터 오픈소스 활동을 하면서 새로이 배운 내용들을 블로그에 잘 정리해 둬야겠다고 생각하고 있었는데, 이제서야 글을 하나 올린다. 이 글은 Flink 기계 학습 라이브러리 <a href="http://ci.apache.org/projects/flink/flink-docs-master/libs/ml/">flink-ml</a>에 k-Nearest Neighbors Join을 추가하면서 공부한 내용을 정리한 것이다.</p>
+<p>이 글에 적은 k-NN, k-NN Join의 정의와 MapReduce 모델에서의 k-NN Join 구현은 Zhang, C.의 논문<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>에서 가져왔다.</p>
+<h2>k-Nearest Neighbors Join</h2>
+<p>k-Nearest Neighbors는 특정 데이터와 거리가 가까운 k개의 데이터의 분류를 통해 특정 데이터의 분류를 결정하는 알고리즘이다. 데이터 사이의 거리는 보통 유클리드 거리(Euclidean Distance)가 사용되지만 때에 따라 코사인 거리(Cosine Distance)나 기타 다른 거리 척도가 사용되기도 한다. 거리 척도를 바탕으로 임의의 두 데이터 $r$과 $s$에 대해 두 데이터 사이의 거리를 $d(r, s)$라 하자. 그러면 임의의 데이터 $r$과 데이터 집합 $S$에 대해서 $\text{knn}(r,S)$를 정의할 수 있다.</p>
+<p>$$\text{knn}(r,S) = \text{set of }k\text{ nearest neighbors of }r\text{ from }S$$</p>
+<p>이미 분류가 알려진 데이터 집합 $S$로 부터 거리가 가까운 k개의 데이터를 찾아낸 후, 새로운 데이터 $r$의 분류를 결정한다. 새로운 데이터 1개가 아닌 데이터 집합에 대해서도 k-NN 알고리즘을 적용할 수 있는데, 그것을 k-NN Join이라 한다.</p>
+<p>Join 연산은 일반적으로 서로 다른 두 집합에 대해 어떤 조건이 일치하는 데이터를 조합해 하나의 집합으로 표현한 것을 말한다. k-NN Join은 조합 조건이 k-NN인 경우라고 볼 수 있다. 다시 말해, 두 집합 $R$, $S$에 대해서 k-NN Join은 $R$의 모든 데이터 각각에 대해 $S$에서의 k-NN을 계산하는 것을 말한다. 이를 바탕으로 k-NN Join을 아래와 같이 정의할 수 있다.</p>
+<p>$$\text{knnJ}(R, S) = \{(r, \text{knn}(r,S))\mid\text{for all}\ r \in R \}$$</p>
+<p>기본적인 k-NN Join은 $O(d|S||R|)$의 시간 복잡도를 갖는데, 시간 복잡도를 개선하기 위해 R-Tree, KD-Tree 등의 자료구조를 사용하거나, 병렬 처리를 수행하거나, 결과의 정확도를 약간 희생하는 근사 알고리즘 등으로 시간 복잡도를 개선할 수 있다. 여기서는 병렬 처리를 수행하는 부분에 대해서 보다 자세하게 알아볼 것이다.</p>
+<h2>Parallel k-Nearest Neighbors Join in MapReduce</h2>
+<p>MapReduce 모델에서 Join 연산은 대부분 shuffle-reduce 단계에서 수행되는데 k-NN Join역시 마찬가지로 shuffle-reduce를 수행하면서 k-NN Join을 수행한다. MapReduce 모델에서의 k-NN Join 알고리즘을 개략적으로 기술하면 아래와 같다.</p>
+<h3>Phase 1</h3>
+<ol>
+<li>데이터 집합 $R$과 $S$를 둘 다 $n$개의 집합으로 나눈다. 이를 각각 $R_1,R_2,...,R_n$과 $S_1,S_2,...,S_n$라 하자.</li>
+<li>나누어진 데이터 $n$개의 집합 $R_1,R_2,...,R_n$과 $S_1,S_2,...,S_n$을 가지고 cross product 연산을 수행한다. 연산의 결과로 $(R_1,S_1),(R_1,S_2),...,(R_1,S_n),(R_2,S_1),...,(R_n,S_n)$, 총 $n^2$개의 조합을 갖게 된다.<ul>
+<li>Hadoop MapReduce는 보통의 경우 입력을 1개만 받을 수 있어서 cross product 연산을 구현하기 위해서 특별한 구현이 필요하다. (MapReduce-based Join 구현을 응용하거나, 또는 직접 HDFS API로 파일 열어서 Block Offset으로 파일을 읽어들이거나 하는 식의 구현을 사용)</li>
+</ul>
+</li>
+<li>각각의 조합 $(R_i,S_j)$에 대해, $(r,s,d(r,s))$를 계산한다. ($r\in R_i, s\in S_j$)</li>
+</ol>
+<h3>Phase 2</h3>
+<ol>
+<li>Phase 1의 결과를 $r$을 기준으로 묶은 후, 각각의 묶음에서 $d(r,s)$를 기준으로 정렬(local sort)한다.<ul>
+<li>Grouping 연산은 shuffle-reduce 단계를 통해 수행할 수 있다.</li>
+<li>정렬 대신에 Priority Queue 같은 자료구조를 사용할 수도 있다.</li>
+</ul>
+</li>
+<li>정렬된 레코드들에서 상위 $k$의 데이터를 선택해 $\text{knnJ}(R,S)$에 포함시킨다.</li>
+</ol>
+<h2>Parallel k-Neareset Neighbors Join in Apache Flink</h2>
+<p>위의 알고리즘을 Apache Flink에서 제공하는 기능들을 바탕으로 간단하게 k-NN Join을 구현해 보았다.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">import</span> <span class="nn">org.apache.flink.api.scala._</span>
+<span class="k">import</span> <span class="nn">org.apache.flink.ml.common._</span>
+<span class="k">import</span> <span class="nn">org.apache.flink.ml.math.Vector</span>
+<span class="k">import</span> <span class="nn">org.apache.flink.metrics.distances.EuclideanDistanceMetric</span>
+<span class="k">import</span> <span class="nn">org.apache.flink.util.Collector</span>
+<span class="k">import</span> <span class="nn">org.apache.flink.api.java.utils.DataSetUtils</span>
+
+<span class="k">val</span> <span class="n">env</span> <span class="k">=</span> <span class="nc">ExecutionEnvironment</span><span class="o">.</span><span class="n">getEnvironment</span>
+
+<span class="k">val</span> <span class="n">R</span><span class="k">:</span> <span class="kt">DataSet</span><span class="o">[</span><span class="kt">Vector</span><span class="o">]</span> <span class="k">=</span> <span class="n">env</span><span class="o">.</span><span class="n">fromElements</span><span class="o">(...)</span>
+<span class="k">val</span> <span class="n">S</span><span class="k">:</span> <span class="kt">DataSet</span><span class="o">[</span><span class="kt">Vector</span><span class="o">]</span> <span class="k">=</span> <span class="n">env</span><span class="o">.</span><span class="n">fromElements</span><span class="o">(...)</span>
+
+<span class="k">val</span> <span class="n">partitioner</span> <span class="k">=</span> <span class="nc">FlinkMLTools</span><span class="o">.</span><span class="nc">ModuloKeyPartitioner</span>
+
+<span class="k">val</span> <span class="n">k</span> <span class="k">=</span> <span class="mi">10</span> <span class="c1">// 이웃의 수 k</span>
+<span class="k">val</span> <span class="n">n</span> <span class="k">=</span> <span class="mi">10</span> <span class="c1">// 병렬 처리를 위한 분할 집합의 수 n</span>
+
+<span class="c1">// 두 Vector의 거리 측정을 위한 척도</span>
+<span class="k">val</span> <span class="n">metric</span> <span class="k">=</span> <span class="nc">EuclideanDistanceMetric</span><span class="o">()</span>
+
+<span class="c1">// R을 n개의 집합으로 나눈다</span>
+<span class="c1">// Vector 데이터 타입은 비교가 안되기 때문에 groupBy 연산을 수행할 수 없다.</span>
+<span class="c1">// 그렇기 때문에 R에 속한 각각의 데이터에 고유한 번호를 붙인다</span>
+<span class="k">val</span> <span class="nc">RWithIndex</span> <span class="k">=</span> <span class="nc">DataSetUtils</span><span class="o">.</span><span class="n">zipWithIndex</span><span class="o">(</span><span class="n">R</span><span class="o">)</span>
+<span class="k">val</span> <span class="nc">RBlocks</span> <span class="k">=</span> <span class="nc">FlinkMLTools</span><span class="o">.</span><span class="n">block</span><span class="o">(</span><span class="nc">RWithIndex</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="nc">Some</span><span class="o">(</span><span class="n">partitioner</span><span class="o">))</span>
+
+<span class="c1">// S를 n개의 집합으로 나눈다</span>
+<span class="k">val</span> <span class="nc">SBlocks</span> <span class="k">=</span> <span class="nc">FlinkMLTools</span><span class="o">.</span><span class="n">block</span><span class="o">(</span><span class="n">S</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="nc">Some</span><span class="o">(</span><span class="n">partitioner</span><span class="o">))</span>
+
+<span class="c1">// 두 집합에 대해서 cross product을 계산</span>
+<span class="k">val</span> <span class="n">crossed</span> <span class="k">=</span> <span class="nc">SBlocks</span><span class="o">.</span><span class="n">cross</span><span class="o">(</span><span class="nc">RBlocks</span><span class="o">).</span><span class="n">mapPartition</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">iter</span><span class="o">,</span> <span class="n">out</span><span class="k">:</span> <span class="kt">Collector</span><span class="o">[(</span><span class="kt">Vector</span>, <span class="kt">Vector</span>, <span class="kt">Long</span>, <span class="kt">Double</span><span class="o">)])</span> <span class="k">=&gt;</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">((</span><span class="nc">SetS</span><span class="o">,</span> <span class="nc">SetR</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">iter</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">for</span> <span class="o">(</span><span class="n">r</span> <span class="k">&lt;-</span> <span class="nc">SetR</span><span class="o">.</span><span class="n">values</span><span class="o">;</span> <span class="n">s</span> <span class="k">&lt;-</span> <span class="nc">SetS</span><span class="o">.</span><span class="n">values</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Phase 1 결과 계산 (S vector, R key, R vector, distance)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">collect</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">_1</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">_2</span><span class="o">,</span> <span class="n">metric</span><span class="o">.</span><span class="n">distance</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">_2</span><span class="o">))</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// 입력 Vector Key 기준으로 묶은 뒤 각 묶음 내에서 거리 순으로 정렬</span>
+<span class="k">val</span> <span class="n">result</span> <span class="k">=</span> <span class="n">crossed</span><span class="o">.</span><span class="n">groupBy</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="n">sortGroup</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="nc">Order</span><span class="o">.</span><span class="nc">ASCENDING</span><span class="o">).</span><span class="n">reduceGroup</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">iter</span><span class="o">,</span> <span class="n">out</span><span class="k">:</span> <span class="kt">Collector</span><span class="o">[</span><span class="kt">Vector</span>, <span class="kt">Array</span><span class="o">[</span><span class="kt">Vector</span><span class="o">]])</span> <span class="k">=&gt;</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="n">hasNext</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">val</span> <span class="n">head</span> <span class="k">=</span> <span class="n">iter</span><span class="o">.</span><span class="n">next</span><span class="o">()</span>
+      <span class="k">val</span> <span class="n">key</span> <span class="k">=</span> <span class="n">head</span><span class="o">.</span><span class="n">_2</span>
+      <span class="k">val</span> <span class="n">neighbors</span><span class="k">:</span> <span class="kt">ArrayBuffer</span><span class="o">[</span><span class="kt">Vector</span><span class="o">]</span> <span class="k">=</span> <span class="nc">ArrayBuffer</span><span class="o">(</span><span class="n">head</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+
+      <span class="c1">// 거리 순으로 정렬된 것에서 k개 추출</span>
+      <span class="k">for</span> <span class="o">((</span><span class="n">vector</span><span class="o">,</span> <span class="k">_</span><span class="o">,</span> <span class="k">_</span><span class="o">,</span> <span class="k">_</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">iter</span><span class="o">.</span><span class="n">take</span><span class="o">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">neighbors</span> <span class="o">+=</span> <span class="n">vector</span>
+      <span class="o">}</span>
+
+      <span class="n">out</span><span class="o">.</span><span class="n">collect</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">toArray</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Zhang, C., Li, F., &amp; Jestes, J. (2012). Efficient parallel kNN joins for large data in MapReduce. EDBT, 38–49. <a href="http://doi.org/10.1145/2247596.2247602">http://doi.org/10.1145/2247596.2247602</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></section>
+  </article>
+
+  <div class="list-navigation">
+    <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
+  </div>
+</main>
+<footer>
+  <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/1952f28e8dd13c9d9cee16c34a1b37a81e34acc2/pages/articles/parallel-k-nn-join-in-apache-flink.md">1952f28</a></p>
+
+  <p>
+    &copy; Copyright 2013-2015 by Chiwan Park.<br/>
+    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
+    attribution-noncommercial-sharealike License</a>.
+  </p>
+</footer>
+</body>
+</html>

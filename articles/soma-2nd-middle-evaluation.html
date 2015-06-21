@@ -10,6 +10,19 @@
 
   <script type="text/javascript" src="/assets/script.js"></script>
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [['$', '$'], ["\\(", "\\)"]],
+        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 </head>
 <body>
 <header>
@@ -32,8 +45,7 @@
       <p class="date">written on Monday, June 03, 2013</p>
     </header>
 
-    <section class="content">
-      <p>나는 지금 SW Maestro 3기 과정을 통해 프로젝트를 하나 진행하고 있다. 현재 진행하는 이 프로젝트는 과정 종료 후 2013년 하반기 안에 오픈소스로 공개하는 것을 목표로 삼고 있다.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> 평가에 참여하신 신승은 멘토님의 의견 중 기억에 남는 의견이 있어서 올려본다.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></p>
+    <section class="content"><p>나는 지금 SW Maestro 3기 과정을 통해 프로젝트를 하나 진행하고 있다. 현재 진행하는 이 프로젝트는 과정 종료 후 2013년 하반기 안에 오픈소스로 공개하는 것을 목표로 삼고 있다.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> 평가에 참여하신 신승은 멘토님의 의견 중 기억에 남는 의견이 있어서 올려본다.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></p>
 <blockquote>
 <p>프로젝트를 오픈소스로 공개하는데, 정작 프로젝트에서 활용 가능한 오픈소스를 적극적으로 활용하지 않은 점이 아쉽네요. 오픈소스는 프로그래머들의 관심이 중요한 부분인데, 다른 사람들이 사용하는 오픈소스 프로젝트를 호환 시켜서 쓸 수 없다는게 단점으로 작용할 것 같아요.</p>
 </blockquote>
@@ -53,12 +65,11 @@
 <p>저렇게 정확하게 말씀하신 건 아니고, 의미가 그러했다. 실제로는 질답이 오가면서 얘기가 진행되었다.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
-</div>
-    </section>
+</div></section>
   </article>
 
   <div class="list-navigation">
-  <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
+    <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
 </main>
 <footer>
