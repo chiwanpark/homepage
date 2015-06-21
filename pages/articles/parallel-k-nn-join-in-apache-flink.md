@@ -1,7 +1,7 @@
 type: article
 title: Parallel k-NN Join in Apache Flink
-date: May 10, 2015
-summary: Parallel k-NN Join에 대한 소개와 Apache Flink를 사용한 k-NN Join 구현
+date: Jun 22, 2015
+summary: Parallel k-NN Join에 대한 소개 및 Apache Flink를 통한 구현
 
 ## 시작하며
 
@@ -27,18 +27,83 @@ $$\text{knnJ}(R, S) = \\{(r, \text{knn}(r,S))\mid\text{for all}\ r \in R \\}$$
 
 MapReduce 모델에서 Join 연산은 대부분 shuffle-reduce 단계에서 수행되는데 k-NN Join역시 마찬가지로 shuffle-reduce를 수행하면서 k-NN Join을 수행한다. MapReduce 모델에서의 k-NN Join 알고리즘을 개략적으로 기술하면 아래와 같다.
 
-### Map Phase
+### Phase 1
 
 1. 데이터 집합 $R$과 $S$를 둘 다 $n$개의 집합으로 나눈다. 이를 각각 $R_1,R_2,...,R_n$과 $S_1,S_2,...,S_n$라 하자.
 1. 나누어진 데이터 $n$개의 집합 $R_1,R_2,...,R_n$과 $S_1,S_2,...,S_n$을 가지고 cross product 연산을 수행한다. 연산의 결과로 $(R_1,S_1),(R_1,S_2),...,(R_1,S_n),(R_2,S_1),...,(R_n,S_n)$, 총 $n^2$개의 조합을 갖게 된다.
     - Hadoop MapReduce는 보통의 경우 입력을 1개만 받을 수 있어서 cross product 연산을 구현하기 위해서 특별한 구현이 필요하다. (MapReduce-based Join 구현을 응용하거나, 또는 직접 HDFS API로 파일 열어서 Block Offset으로 파일을 읽어들이거나 하는 식의 구현을 사용)
 1. 각각의 조합 $(R_i,S_j)$에 대해, $(r,s,d(r,s))$를 계산한다. ($r\in R_i, s\in S_j$)
 
-### Reduce Phase
+### Phase 2
 
-1. Map Phase의 결과를 $r$을 기준으로 묶은 후, 각각의 묶음에서 $d(r,s)$를 기준으로 정렬(local sort)한다.
+1. Phase 1의 결과를 $r$을 기준으로 묶은 후, 각각의 묶음에서 $d(r,s)$를 기준으로 정렬(local sort)한다.
     - Grouping 연산은 shuffle-reduce 단계를 통해 수행할 수 있다.
     - 정렬 대신에 Priority Queue 같은 자료구조를 사용할 수도 있다.
 1. 정렬된 레코드들에서 상위 $k$의 데이터를 선택해 $\text{knnJ}(R,S)$에 포함시킨다.
+
+## Parallel k-Neareset Neighbors Join in Apache Flink
+
+위의 알고리즘을 Apache Flink에서 제공하는 기능들을 바탕으로 간단하게 k-NN Join을 구현해 보았다.
+
+```scala
+import org.apache.flink.api.scala._
+import org.apache.flink.ml.common._
+import org.apache.flink.ml.math.Vector
+import org.apache.flink.metrics.distances.EuclideanDistanceMetric
+import org.apache.flink.util.Collector
+import org.apache.flink.api.java.utils.DataSetUtils
+
+val env = ExecutionEnvironment.getEnvironment
+
+val R: DataSet[Vector] = env.fromElements(...)
+val S: DataSet[Vector] = env.fromElements(...)
+
+val partitioner = FlinkMLTools.ModuloKeyPartitioner
+
+val k = 10 // 이웃의 수 k
+val n = 10 // 병렬 처리를 위한 분할 집합의 수 n
+
+// 두 Vector의 거리 측정을 위한 척도
+val metric = EuclideanDistanceMetric()
+
+// R을 n개의 집합으로 나눈다
+// Vector 데이터 타입은 비교가 안되기 때문에 groupBy 연산을 수행할 수 없다.
+// 그렇기 때문에 R에 속한 각각의 데이터에 고유한 번호를 붙인다
+val RWithIndex = DataSetUtils.zipWithIndex(R)
+val RBlocks = FlinkMLTools.block(RWithIndex, n, Some(partitioner))
+
+// S를 n개의 집합으로 나눈다
+val SBlocks = FlinkMLTools.block(S, n, Some(partitioner))
+
+// 두 집합에 대해서 cross product을 계산
+val crossed = SBlocks.cross(RBlocks).mapPartition {
+  (iter, out: Collector[(Vector, Vector, Long, Double)]) => {
+    for ((SetS, SetR) <- iter) {
+      for (r <- SetR.values; s <- SetS.values) {
+        // Phase 1 결과 계산 (S vector, R key, R vector, distance)
+        out.collect(s, r._1, r._2, metric.distance(s, r._2))
+      }
+    }
+  }
+}
+
+// 입력 Vector Key 기준으로 묶은 뒤 각 묶음 내에서 거리 순으로 정렬
+val result = crossed.groupBy(1).sortGroup(3, Order.ASCENDING).reduceGroup {
+  (iter, out: Collector[Vector, Array[Vector]]) => {
+    if (iter.hasNext) {
+      val head = iter.next()
+      val key = head._2
+      val neighbors: ArrayBuffer[Vector] = ArrayBuffer(head._1)
+      
+      // 거리 순으로 정렬된 것에서 k개 추출
+      for ((vector, _, _, _) <- iter.take(k - 1)) {
+        neighbors += vector
+      }
+      
+      out.collect(key, neighbors.toArray)
+    }
+  }
+}
+```
 
 [^1]: Zhang, C., Li, F., & Jestes, J. (2012). Efficient parallel kNN joins for large data in MapReduce. EDBT, 38–49. [http://doi.org/10.1145/2247596.2247602](http://doi.org/10.1145/2247596.2247602)
