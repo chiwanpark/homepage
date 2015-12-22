@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
+import http.server
 import os
 import re
 import shutil
-import http.server
 import socketserver
 import subprocess
-from threading import Thread
 from datetime import datetime
-from types import GeneratorType
+from threading import Thread
 
 import click
-from pytz import timezone
-from markdown import Markdown
+import sass
 from jinja2 import Environment, PackageLoader
+from markdown import Markdown
+from pytz import timezone
 
 
-def get_current_dir() -> str:
+def get_current_dir():
     return os.path.dirname(os.path.abspath(__file__))
 
 
@@ -26,7 +26,7 @@ DATE_FORMAT = '%b %d, %Y'
 GIT_REPOSITORY_URL = 'https://github.com/chiwanpark/chiwanpark.github.io'
 
 
-def create_jinja2_env() -> Environment:
+def create_jinja2_env():
     def url(*args):
         return '/' + '/'.join(list(args))
 
@@ -57,7 +57,7 @@ TEMPLATES = {
 
 
 class Page(object):
-    def __init__(self, path: str=None, file_content: str=None):
+    def __init__(self, path: str = None, file_content: str = None):
         self.path = path
         self.file_content = file_content
 
@@ -72,8 +72,8 @@ class Page(object):
 
 
 class ArticlePage(Page):
-    def __init__(self, path: str=None, title: str=None, date: datetime=datetime.now(tz=DEFAULT_TIMEZONE),
-                 content: str=None, summary: str=None):
+    def __init__(self, path: str = None, title: str = None, date: datetime = datetime.now(tz=DEFAULT_TIMEZONE),
+            content: str = None, summary: str = None):
         self.title = title
         self.date = date
         self.content = content
@@ -83,13 +83,13 @@ class ArticlePage(Page):
         super().__init__(path, rendered)
 
     @property
-    def url(self) -> str:
+    def url(self):
         current_path = os.path.join(get_current_dir(), 'pages')
         return self.path.replace(current_path, '').replace('.md', '.html')
 
 
 class ArticleIndexPage(Page):
-    def __init__(self, path: str=None, articles: list=None):
+    def __init__(self, path: str = None, articles: list = None):
         articles = list(articles)
         articles.sort(key=lambda article: article.date, reverse=True)
 
@@ -98,14 +98,14 @@ class ArticleIndexPage(Page):
 
 
 class IndexPage(Page):
-    def __init__(self, path: str=None, content: str=None):
+    def __init__(self, path: str = None, content: str = None):
         self.content = content
 
         rendered = TEMPLATES['index'].render(page=self, path=path)
         super().__init__(path, rendered)
 
 
-def create_page(path: str=None, content: str=None):
+def create_page(path: str = None, content: str = None):
     assert path
     assert content
 
@@ -127,7 +127,7 @@ def create_page(path: str=None, content: str=None):
         return None
 
 
-def iter_pages(path: str=None) -> GeneratorType:
+def iter_pages(path: str = None):
     if not path:
         path = os.path.join(get_current_dir(), 'pages')
 
@@ -147,7 +147,7 @@ def iter_pages(path: str=None) -> GeneratorType:
                 yield page
 
 
-def build_assets(path: str=None):
+def build_assets(path: str = None):
     current_dir = get_current_dir()
     base_path = os.path.join(current_dir, 'assets')
     dest_base_path = os.path.join(DEST_DIR, 'assets')
@@ -165,17 +165,19 @@ def build_assets(path: str=None):
             build_assets(abspath)
         else:
             dest_path = abspath.replace(base_path, dest_base_path)
-            if abspath.split('.')[-1] == 'less':
-                click.echo('[BUILD] Asset file detected (%s) -> LESS' % abspath)
-                dest_path = re.sub(r'less$', 'css', dest_path)
-                cmds = ['lessc', '-x', abspath, dest_path]
-                subprocess.call(cmds)
+            if abspath.split('.')[-1] in ['sass', 'scss']:
+                click.echo('[BUILD] Asset file detected (%s) -> SASS' % abspath)
+                compiled_css = sass.compile(filename=abspath, precision=8, include_paths=[os.path.dirname(abspath)])
+                dest_path = re.sub(r'(sass|scss)$', 'css', dest_path)
+
+                with open(dest_path, 'w', encoding='utf-8') as f:
+                    f.write(compiled_css)
             else:
                 click.echo('[BUILD] Asset file detected (%s)' % abspath)
                 shutil.copy(abspath, dest_path)
 
 
-def make_output_dir(path: str=None):
+def make_output_dir(path: str = None):
     if not path:
         path = DEST_DIR
     if not os.path.exists(path):

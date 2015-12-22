@@ -1,5 +1,6 @@
-jinja2==2.7.3
-markdown==2.6.2
-pytz==2015.4
+jinja2==2.8
+markdown==2.6.5
+pytz==2015.7
 Pygments==2.0.2
-click==4.0
+click==6.2
+libsass==0.10.0

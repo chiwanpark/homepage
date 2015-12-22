@@ -1,14 +1,12 @@
 language: python
 python:
-  - 3.4
+  - 3.5
 branches:
   only:
     - v4
 install:
-  - sudo apt-get update
-  - sudo apt-get install nodejs npm
-  - npm install -g less
-  - pip install -r requirements.txt
+  - gem install sass
+  - gem install bootstrap-sass
 script:
   - python cli.py build
   - bash deploy.sh
