@@ -1,7 +1,10 @@
 /** Pygments **/
 
 table.codehilitetable {
-  margin: 15px 0;
+  margin: 1em auto;
+  font-family: "Inconsolata", monospace;
+  font-size: 0.9em;
+  max-width: 100%;
 
   td.linenos {
     padding-right: 6px;
@@ -23,7 +26,7 @@ table.codehilitetable {
     padding: 10px;
     border: solid 1px #dddddd;
     background: #ffffff;
-    line-height: 23px;
+    line-height: 1.1em;
     white-space: pre;
     overflow-x: auto;
     word-break: inherit;
@@ -31,8 +34,7 @@ table.codehilitetable {
   }
 
   div.codehilite {
-    width: 714px;
-    max-width: 714px;
+    max-width: 100%;
     overflow: scroll;
   }
 

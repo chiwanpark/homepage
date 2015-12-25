@@ -50,7 +50,7 @@ def create_jinja2_env():
 
 JINJA_ENV = create_jinja2_env()
 TEMPLATES = {
-    'index': JINJA_ENV.get_template('index.html'),
+    'static': JINJA_ENV.get_template('static.html'),
     'article': JINJA_ENV.get_template('article.html'),
     'article-index': JINJA_ENV.get_template('article-index.html')
 }
@@ -97,11 +97,12 @@ class ArticleIndexPage(Page):
         super().__init__(path, rendered)
 
 
-class IndexPage(Page):
-    def __init__(self, path: str = None, content: str = None):
+class StaticPage(Page):
+    def __init__(self, path: str = None, title: str = None, content: str = None):
         self.content = content
+        self.title = title
 
-        rendered = TEMPLATES['index'].render(page=self, path=path)
+        rendered = TEMPLATES['static'].render(page=self, path=path)
         super().__init__(path, rendered)
 
 
@@ -113,9 +114,10 @@ def create_page(path: str = None, content: str = None):
     meta = MARKDOWN.Meta
 
     page_type = meta['type'][0]
-    if page_type == 'index':
+    if page_type == 'static':
         click.echo('[BUILD] Index page detected (%s)' % path)
-        return IndexPage(path, converted)
+        title = meta['title'][0] if 'title' in meta else None
+        return StaticPage(path, title, converted)
     elif page_type == 'article':
         title = meta['title'][0]
         date = datetime.strptime(meta['date'][0], DATE_FORMAT)

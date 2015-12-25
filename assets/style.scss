@@ -1,0 +1,244 @@
+/** Eric Meyer Reset **/
+@import url(//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
+/** Font Awesome **/
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
+/** Spoqa Han Sans KR **/
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+/** Inconsolata **/
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+/** Variables **/
+$font-sans-serif: "Spoqa Han Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+$highlight-color: #E91E63;
+$sidebar-background-color: #2B303B;
+$sidebar-icon-box-color: #21252D;
+$sidebar-color: #788195;
+$sidebar-size: 240px;
+$background-color: #E4E4E8;
+$content-color: #606777;
+$content-background-color: #F2F2F4;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+/** Pygments Style **/
+@import "_pygments.scss";
+
+html {
+  height: 100%;
+  font-size: 12pt;
+}
+
+@media only all and (min-width: 768px) {
+  div.content-container {
+    margin-right: 240px;
+    min-height: 100%;
+  }
+
+  body > header {
+    float: right;
+    width: 240px;
+  }
+}
+
+body {
+  height: 100%;
+  font-family: $font-sans-serif;
+  background-color: $sidebar-background-color;
+}
+
+a {
+  text-decoration: underline;
+  color: $content-color;
+
+  &:hover {
+    color: $highlight-color;
+  }
+}
+
+sup {
+  font-size: 0.7em;
+  margin-top: -5px;
+  display: inline-block;
+  vertical-align: top;
+
+  a {
+    color: $highlight-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+body > header {
+  background-color: $sidebar-background-color;
+  color: $sidebar-color;
+
+  img#portrait {
+    width: 120px;
+    border-radius: 50%;
+    border: 2px solid $sidebar-color;
+    padding: 3px;
+
+    /** grayscale filter from https://github.com/karlhorky/gray **/
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+
+    -webkit-transform: translateZ(0); /* fix for CSS3 webkit bug */
+
+    display: block;
+    margin: 1em auto;
+  }
+
+  h1 {
+    font-weight: lighter;
+    font-size: 1.4em;
+    text-align: center;
+    margin: 1em 0 0.9em 0;
+  }
+
+  p.description {
+    padding: 0 0.4em;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: lighter;
+  }
+
+  nav {
+    margin: 1em;
+    text-align: center;
+
+    &.menu {
+      text-align: left;
+      a {
+        text-decoration: none;
+        display: block;
+        margin: 0.3em auto;
+        width: 10em;
+        line-height: 2em;
+
+        i {
+          text-align: center;
+          float: right;
+          width: 2em;
+          height: 2em;
+          line-height: 2em;
+          background-color: $sidebar-icon-box-color;
+        }
+
+        &:hover {
+          color: #FFFFFF;
+
+          i {
+            background-color: $highlight-color;
+          }
+        }
+      }
+    }
+
+    &.link {
+      a {
+        display: inline-block;
+        font-size: 0.9em;
+        width: 1.6em;
+        height: 1.6em;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 1.7em;
+        background-color: $sidebar-icon-box-color;
+        color: $sidebar-color;
+
+        &:hover {
+          background-color: $highlight-color;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+}
+
+div.content-container {
+  background-color: $background-color;
+  color: $content-color;
+  padding: 1.2em;
+  text-align: justify;
+
+  main, footer {
+    background-color: $content-background-color;
+    box-shadow: $box-shadow;
+    padding: 1em;
+  }
+
+  main {
+    h1, h2, h3 {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      margin: 0.4em 0;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      margin: 0.4em 0;
+    }
+
+    p {
+      margin: 0.7em 0;
+      line-height: 1.3em;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    article {
+      p.date {
+        margin-top: -0.6em;
+        font-size: 0.8em;
+      }
+    }
+
+    ul {
+      list-style: disc;
+      padding: 0.6em 1.4em;
+    }
+
+    ol {
+      list-style: decimal;
+      line-height: 1.3em;
+      padding: 0.6em 1.4em;
+
+      &.articles {
+        list-style: none;
+        padding: 0.6em 0;
+
+        li {
+          margin: 1em 0;
+
+          h1 {
+            font-size: 1em;
+          }
+
+          .date {
+            font-style: italic;
+          }
+
+          .description {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    margin-top: 1em;
+    line-height: 1.3em;
+    font-size: 0.7em;
+    text-align: right;
+  }
+}
