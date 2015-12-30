@@ -1,6 +1,11 @@
 type: static
 title: Chiwan Park
 
+# News
+
+* **Dec 22, 2015** - I gave a talk named "[Introduction to Apache Flink](http://j.mp/ossdevconf-2015-park)" at Open-source Software Developer Center Conference in Korea.
+* **Nov 17, 2015** - I gave a talk named "[Lessons from Open-source Activities](http://j.mp/cjkossforum-2015-park)" at The 14th Northeast Asia OSS Promotion Forum.
+
 # About
 
 ## Me

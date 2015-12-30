@@ -162,7 +162,7 @@ div.content-container {
   background-color: $background-color;
   color: $content-color;
   padding: 1.2em;
-  text-align: justify;
+  text-align: left;
 
   main, footer {
     background-color: $content-background-color;
@@ -205,6 +205,10 @@ div.content-container {
     ul {
       list-style: disc;
       padding: 0.6em 1.4em;
+
+      li {
+        margin: 0 0 0.8em 0;
+      }
     }
 
     ol {
@@ -217,7 +221,7 @@ div.content-container {
         padding: 0.6em 0;
 
         li {
-          margin: 1em 0;
+          margin: 0 0 0.8em 0;
 
           h1 {
             font-size: 1em;
