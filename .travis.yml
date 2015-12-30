@@ -1,9 +1,10 @@
 language: python
+sudo: false
 python:
   - 3.5
 branches:
   only:
-    - v4
+    - v5
 install:
   - gem install sass
   - gem install bootstrap-sass
