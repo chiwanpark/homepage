@@ -165,6 +165,7 @@ div.content-container {
   text-align: left;
 
   main, footer {
+    display: block;
     background-color: $content-background-color;
     box-shadow: $box-shadow;
     padding: 1em;
@@ -214,7 +215,7 @@ div.content-container {
     ol {
       list-style: decimal;
       line-height: 1.3em;
-      padding: 0.6em 1.4em;
+      padding: 0.4em 1.4em;
 
       &.articles {
         list-style: none;
@@ -234,6 +235,23 @@ div.content-container {
           .description {
             text-align: left;
           }
+        }
+      }
+    }
+
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid $sidebar-color;
+    }
+
+    div.list-navigation {
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
         }
       }
     }
