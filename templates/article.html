@@ -1,18 +1,29 @@
 {% extends 'skeleton.html' %}
 {% block title %}{{ article.title }} | Chiwan Park{% endblock %}
+{% block customStylesheet %}
+  <link href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
 {% block customScript %}
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [['$', '$'], ["\\(", "\\)"]],
-        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+
+      var renderLaTeX = function() {
+        window.renderMathInElement(document.getElementById('article-content'), {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: '$', display: false},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      };
+
+      window.addEventListener('load', renderLaTeX, false);
+    })();
   </script>
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 {% endblock %}
 {% block content %}
   <article>
@@ -22,7 +33,7 @@
       <p class="date">written on {{ article.date.strftime('%A, %B %d, %Y') }}</p>
     </header>
 
-    <section class="content">{{ article.content }}</section>
+    <section id="article-content" class="content">{{ article.content }}</section>
   </article>
 
   <div class="list-navigation">
