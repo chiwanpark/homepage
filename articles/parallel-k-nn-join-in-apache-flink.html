@@ -2,26 +2,38 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
 
   <title>Parallel k-NN Join in Apache Flink | Chiwan Park</title>
 
   <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
   
+  <link href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css" rel="stylesheet" type="text/css"/>
+
 
   <script type="text/javascript" src="/assets/script.js"></script>
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [['$', '$'], ["\\(", "\\)"]],
-        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+
+      var renderLaTeX = function() {
+        window.renderMathInElement(document.getElementById('article-content'), {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: '$', display: false},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      };
+
+      window.addEventListener('load', renderLaTeX, false);
+    })();
   </script>
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
 </head>
 <body>
@@ -30,14 +42,24 @@
 
   <h1>Chiwan Park</h1>
 
-  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences</p>
 
   <nav class="menu">
-    <a href="/"><i class="fa fa-user"></i>About</a>
-    <a href="/articles"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+    <a href="/">Home<i class="fa fa-user"></i></a>
+    <a href="/articles">Articles<i class="fa fa-file-text"></i></a>
+  </nav>
+
+  <nav class="link">
+    <!-- TODO: need to add meaningful text in link -->
+    <a href="https://github.com/chiwanpark/"><i class="fa fa-github"></i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/parkchiwan"><i class="fa fa-twitter"></i></a>
+    <a href="https://kr.linkedin.com/in/chiwanpark"><i class="fa fa-linkedin"></i></a>
+    <a href="https://instagram.com/chiwanpark"><i class="fa fa-instagram"></i></a>
   </nav>
 </header>
-<main>
+<div class="content-container">
+  <main>
   <article>
     <header>
       <h1>Parallel k-NN Join in Apache Flink</h1>
@@ -45,7 +67,7 @@
       <p class="date">written on Monday, June 22, 2015</p>
     </header>
 
-    <section class="content"><h2>시작하며</h2>
+    <section id="article-content" class="content"><h2>시작하며</h2>
 <p>최근 6개월간은 남는 시간을 거의 <a href="http://flink.apache.org">Apache Flink</a>에 기여하는 데 보내고 있다. 처음에는 덜 중요한 기능 추가로 기여를 하기 시작해서 근래에는 다양한 컴포넌트에 기여를 하고있다. 예전부터 오픈소스 활동을 하면서 새로이 배운 내용들을 블로그에 잘 정리해 둬야겠다고 생각하고 있었는데, 이제서야 글을 하나 올린다. 이 글은 Flink 기계 학습 라이브러리 <a href="http://ci.apache.org/projects/flink/flink-docs-master/libs/ml/">flink-ml</a>에 k-Nearest Neighbors Join을 추가하면서 공부한 내용을 정리한 것이다.</p>
 <p>이 글에 적은 k-NN, k-NN Join의 정의와 MapReduce 모델에서의 k-NN Join 구현은 Zhang, C.의 논문<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>에서 가져왔다.</p>
 <h2>k-Nearest Neighbors Join</h2>
@@ -209,14 +231,15 @@
     <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
 </main>
-<footer>
-  <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/1952f28e8dd13c9d9cee16c34a1b37a81e34acc2/pages/articles/parallel-k-nn-join-in-apache-flink.md">1952f28</a></p>
+  <footer>
+    <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/1952f28e8dd13c9d9cee16c34a1b37a81e34acc2/pages/articles/parallel-k-nn-join-in-apache-flink.md">1952f28</a></p>
 
-  <p>
-    &copy; Copyright 2013-2015 by Chiwan Park.<br/>
-    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
-    attribution-noncommercial-sharealike License</a>.
-  </p>
-</footer>
+    <p>
+      &copy; Copyright 2013-2015 by Chiwan Park.<br/>
+      All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
+      attribution-noncommercial-sharealike License</a>.
+    </p>
+  </footer>
+</div>
 </body>
 </html>

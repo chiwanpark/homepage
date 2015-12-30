@@ -2,26 +2,38 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
 
   <title>지적 욕심 | Chiwan Park</title>
 
   <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
   
+  <link href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css" rel="stylesheet" type="text/css"/>
+
 
   <script type="text/javascript" src="/assets/script.js"></script>
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [['$', '$'], ["\\(", "\\)"]],
-        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+
+      var renderLaTeX = function() {
+        window.renderMathInElement(document.getElementById('article-content'), {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: '$', display: false},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      };
+
+      window.addEventListener('load', renderLaTeX, false);
+    })();
   </script>
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
 </head>
 <body>
@@ -30,14 +42,24 @@
 
   <h1>Chiwan Park</h1>
 
-  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences</p>
 
   <nav class="menu">
-    <a href="/"><i class="fa fa-user"></i>About</a>
-    <a href="/articles"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+    <a href="/">Home<i class="fa fa-user"></i></a>
+    <a href="/articles">Articles<i class="fa fa-file-text"></i></a>
+  </nav>
+
+  <nav class="link">
+    <!-- TODO: need to add meaningful text in link -->
+    <a href="https://github.com/chiwanpark/"><i class="fa fa-github"></i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/parkchiwan"><i class="fa fa-twitter"></i></a>
+    <a href="https://kr.linkedin.com/in/chiwanpark"><i class="fa fa-linkedin"></i></a>
+    <a href="https://instagram.com/chiwanpark"><i class="fa fa-instagram"></i></a>
   </nav>
 </header>
-<main>
+<div class="content-container">
+  <main>
   <article>
     <header>
       <h1>지적 욕심</h1>
@@ -45,7 +67,7 @@
       <p class="date">written on Thursday, January 31, 2013</p>
     </header>
 
-    <section class="content"><p>주어진 일을 제시간에 끝내지 못하는 이유에는 여러가지가 있을 수 있지만, 내 경우 지적 욕심에 의한 해찰<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>이 주를 이룬다. 예를 들어, 시간이 정해진 A라는 일이 있는데 일을 하기 위해 자료를 찾다 B라는 흥미 있는 주제를 발견하면 나는 거의 A를 잠시 접고 B에 대해서 내 지적 욕심이 채워질 때 까지 찾아 본다. 채워지면 대게는 A로 돌아오지만 가끔 시간이 너무 늦거나 하여 A를 수행하는 것을 포기하는 경우도 있다. 아니, 있다 정도가 아니라 상당히 많다. 이러한 지적 욕심의 방해로 일어나는 일은 작게는 친구와의 약속에 늦거나 하는 것에서 부터 시작해 크게는 수업에 결석하거나 프로젝트 마감을 미루거나 하는 일도 생긴다. 덕분에 여기저기서 욕도 많이 먹고 있다. 심지어 마감을 앞두고 있는 일이 너댓개는 되는 시점에 쓰는 이 글 조차도 지적 욕심에 의한 정리병 같은 거라고 볼 수 있다.</p>
+    <section id="article-content" class="content"><p>주어진 일을 제시간에 끝내지 못하는 이유에는 여러가지가 있을 수 있지만, 내 경우 지적 욕심에 의한 해찰<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>이 주를 이룬다. 예를 들어, 시간이 정해진 A라는 일이 있는데 일을 하기 위해 자료를 찾다 B라는 흥미 있는 주제를 발견하면 나는 거의 A를 잠시 접고 B에 대해서 내 지적 욕심이 채워질 때 까지 찾아 본다. 채워지면 대게는 A로 돌아오지만 가끔 시간이 너무 늦거나 하여 A를 수행하는 것을 포기하는 경우도 있다. 아니, 있다 정도가 아니라 상당히 많다. 이러한 지적 욕심의 방해로 일어나는 일은 작게는 친구와의 약속에 늦거나 하는 것에서 부터 시작해 크게는 수업에 결석하거나 프로젝트 마감을 미루거나 하는 일도 생긴다. 덕분에 여기저기서 욕도 많이 먹고 있다. 심지어 마감을 앞두고 있는 일이 너댓개는 되는 시점에 쓰는 이 글 조차도 지적 욕심에 의한 정리병 같은 거라고 볼 수 있다.</p>
 <p>그렇다고 지적 욕심이 나쁜 것만은 아니다. 지금 내가 써먹고 있는 지식<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>은 거의 다 지적 욕심에 의한 해찰하는 과정을 통해 습득한 지식들이다. 문제는 앞의 경우와 같이 살아가면서 주어진 시간내에 해결해야 하는 일을 해야하는 경우에 발생한다.</p>
 <p>억제해야하는 걸 억제하지 못하니까 자꾸 사고를 친다. 이런걸 슬기롭게 다스리는 방법이 없을까?</p>
 <div class="footnote">
@@ -65,14 +87,15 @@
     <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
 </main>
-<footer>
-  <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/2df4fad7b117a8f28ea42af8bcc188e3a0958307/pages/articles/intellectual-greed.md">2df4fad</a></p>
+  <footer>
+    <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/2df4fad7b117a8f28ea42af8bcc188e3a0958307/pages/articles/intellectual-greed.md">2df4fad</a></p>
 
-  <p>
-    &copy; Copyright 2013-2015 by Chiwan Park.<br/>
-    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
-    attribution-noncommercial-sharealike License</a>.
-  </p>
-</footer>
+    <p>
+      &copy; Copyright 2013-2015 by Chiwan Park.<br/>
+      All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
+      attribution-noncommercial-sharealike License</a>.
+    </p>
+  </footer>
+</div>
 </body>
 </html>

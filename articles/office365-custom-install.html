@@ -2,26 +2,38 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
 
   <title>Office 365 Custom Install | Chiwan Park</title>
 
   <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
   
+  <link href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css" rel="stylesheet" type="text/css"/>
+
 
   <script type="text/javascript" src="/assets/script.js"></script>
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [['$', '$'], ["\\(", "\\)"]],
-        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+
+      var renderLaTeX = function() {
+        window.renderMathInElement(document.getElementById('article-content'), {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: '$', display: false},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      };
+
+      window.addEventListener('load', renderLaTeX, false);
+    })();
   </script>
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
 </head>
 <body>
@@ -30,14 +42,24 @@
 
   <h1>Chiwan Park</h1>
 
-  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences</p>
 
   <nav class="menu">
-    <a href="/"><i class="fa fa-user"></i>About</a>
-    <a href="/articles"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+    <a href="/">Home<i class="fa fa-user"></i></a>
+    <a href="/articles">Articles<i class="fa fa-file-text"></i></a>
+  </nav>
+
+  <nav class="link">
+    <!-- TODO: need to add meaningful text in link -->
+    <a href="https://github.com/chiwanpark/"><i class="fa fa-github"></i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/parkchiwan"><i class="fa fa-twitter"></i></a>
+    <a href="https://kr.linkedin.com/in/chiwanpark"><i class="fa fa-linkedin"></i></a>
+    <a href="https://instagram.com/chiwanpark"><i class="fa fa-instagram"></i></a>
   </nav>
 </header>
-<main>
+<div class="content-container">
+  <main>
   <article>
     <header>
       <h1>Office 365 Custom Install</h1>
@@ -45,7 +67,7 @@
       <p class="date">written on Saturday, May 02, 2015</p>
     </header>
 
-    <section class="content"><p>예전에는 학교에서 나눠주는 Office를 외부 컴퓨터에 설치하는 것이 금지되어 있어서 꼭 학교 IP로 인증을 받아야 했다. 얼마 전부터는 학교에서 Office 365를 제공해주면서 외부에서도 사용할 수 있게 되었다. 그런데 학교에서 배포한 Office 365에는 Word, Powerpoint, Excel 말고도 Lync, Outlook, Publisher, Access 등 안 쓰는 프로그램이 잔뜩 설치되는 또 다른 문제가 있었다. 설치 프로그램을 실행하자마자, 다짜고짜 설치를 진행하는데 불필요한 프로그램을 제외할 수도 없어 난감했다. 어찌어찌해서 선택 설치에 성공했고 선택 설치를 하기 위해서, 해야 하는 몇 가지 작업을 잘 기억해두기 위해 블로그에 적어둔다.</p>
+    <section id="article-content" class="content"><p>예전에는 학교에서 나눠주는 Office를 외부 컴퓨터에 설치하는 것이 금지되어 있어서 꼭 학교 IP로 인증을 받아야 했다. 얼마 전부터는 학교에서 Office 365를 제공해주면서 외부에서도 사용할 수 있게 되었다. 그런데 학교에서 배포한 Office 365에는 Word, Powerpoint, Excel 말고도 Lync, Outlook, Publisher, Access 등 안 쓰는 프로그램이 잔뜩 설치되는 또 다른 문제가 있었다. 설치 프로그램을 실행하자마자, 다짜고짜 설치를 진행하는데 불필요한 프로그램을 제외할 수도 없어 난감했다. 어찌어찌해서 선택 설치에 성공했고 선택 설치를 하기 위해서, 해야 하는 몇 가지 작업을 잘 기억해두기 위해 블로그에 적어둔다.</p>
 <p>먼저 아래의 코드를 다운 받아 xml 확장자 파일로 저장하자. 이 파일을 적용하면, 64-bit 버전으로 Word, Powerpoint, Excel 이외의 프로그램은 설치되지 않는다. 여기서는 <code>setup.xml</code>이라는 이름으로 저장했다고 가정한다.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -90,14 +112,15 @@
     <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
 </main>
-<footer>
-  <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/2df4fad7b117a8f28ea42af8bcc188e3a0958307/pages/articles/office365-custom-install.md">2df4fad</a></p>
+  <footer>
+    <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/2df4fad7b117a8f28ea42af8bcc188e3a0958307/pages/articles/office365-custom-install.md">2df4fad</a></p>
 
-  <p>
-    &copy; Copyright 2013-2015 by Chiwan Park.<br/>
-    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
-    attribution-noncommercial-sharealike License</a>.
-  </p>
-</footer>
+    <p>
+      &copy; Copyright 2013-2015 by Chiwan Park.<br/>
+      All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
+      attribution-noncommercial-sharealike License</a>.
+    </p>
+  </footer>
+</div>
 </body>
 </html>

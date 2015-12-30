@@ -2,26 +2,38 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
 
   <title>데이터 관리 | Chiwan Park</title>
 
   <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
   
+  <link href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css" rel="stylesheet" type="text/css"/>
+
 
   <script type="text/javascript" src="/assets/script.js"></script>
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [['$', '$'], ["\\(", "\\)"]],
-        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+
+      var renderLaTeX = function() {
+        window.renderMathInElement(document.getElementById('article-content'), {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: '$', display: false},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      };
+
+      window.addEventListener('load', renderLaTeX, false);
+    })();
   </script>
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
 </head>
 <body>
@@ -30,14 +42,24 @@
 
   <h1>Chiwan Park</h1>
 
-  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences</p>
 
   <nav class="menu">
-    <a href="/"><i class="fa fa-user"></i>About</a>
-    <a href="/articles"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+    <a href="/">Home<i class="fa fa-user"></i></a>
+    <a href="/articles">Articles<i class="fa fa-file-text"></i></a>
+  </nav>
+
+  <nav class="link">
+    <!-- TODO: need to add meaningful text in link -->
+    <a href="https://github.com/chiwanpark/"><i class="fa fa-github"></i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/parkchiwan"><i class="fa fa-twitter"></i></a>
+    <a href="https://kr.linkedin.com/in/chiwanpark"><i class="fa fa-linkedin"></i></a>
+    <a href="https://instagram.com/chiwanpark"><i class="fa fa-instagram"></i></a>
   </nav>
 </header>
-<main>
+<div class="content-container">
+  <main>
   <article>
     <header>
       <h1>데이터 관리</h1>
@@ -45,7 +67,7 @@
       <p class="date">written on Saturday, February 09, 2013</p>
     </header>
 
-    <section class="content"><p>어렸을 때 부터 손으로 써서든 타이핑을 해서든, 무언가를 만드는 일을 계속 해오다 보니 나는 남들보다 내가 만든 또는 내가 얻은 데이터에 대해 애착을 갖는 편이다. 애착을 갖는 다는 것은 별다르게 특별한 것을 의미하는 것은 아니고, 언제나 내가 했던 기록을 열어볼 수 있는 정도로 정리해놓는 것을 의미한다. 쉽게 열어볼 수 있도록 폴더 구조를 잘 구축해 놓는 것도 내가 데이터에게 해주는 작업 중 하나이다.</p>
+    <section id="article-content" class="content"><p>어렸을 때 부터 손으로 써서든 타이핑을 해서든, 무언가를 만드는 일을 계속 해오다 보니 나는 남들보다 내가 만든 또는 내가 얻은 데이터에 대해 애착을 갖는 편이다. 애착을 갖는 다는 것은 별다르게 특별한 것을 의미하는 것은 아니고, 언제나 내가 했던 기록을 열어볼 수 있는 정도로 정리해놓는 것을 의미한다. 쉽게 열어볼 수 있도록 폴더 구조를 잘 구축해 놓는 것도 내가 데이터에게 해주는 작업 중 하나이다.</p>
 <p>주로 프로그래밍을 많이 했기 때문에, 대부분의 가지고 있는 데이터는 디지털로 되어있지만, 일부 데이터(예를 들면, 고등학교 때 푼 수능 문제의 풀이과정<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>이라던가, 지인들에게 받은 편지들 등)는 아날로그로 되어있기도 하다.</p>
 <p>최근에 데이터 관리하는 방법을 변경하려 조금씩 작업을 진행하고 있는데, 눈여겨볼 만한 변화라면 모든 문서의 LaTeX 소스코드화와 소스코드 저장소 호스팅을 적극적으로 이용하는 문서 저장이라고 할 수 있다.</p>
 <p>LaTeX이 기존의 문서와 다른 점은 문서가 코드로 존재하기 때문에 텍스트 형식으로 존재한다는 점이다. 따라서 소스코드 관리 시스템으로 쉽게 관리할 수 있다는 장점이 있다. 협업도 당연히 쉬워지는 편이다. 출력해서 종이로 만드는 경우를 위해 탄생된 시스템이라 출력된 결과물도 이쁘게 뽑을 수 있다.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> 또 하나의 특징은 큰 틀에서 표현과 내용을 분리할 수 있다는 점이다. 다만, 완벽하지는 않다.</p>
@@ -68,14 +90,15 @@
     <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
 </main>
-<footer>
-  <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/2df4fad7b117a8f28ea42af8bcc188e3a0958307/pages/articles/data-management.md">2df4fad</a></p>
+  <footer>
+    <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/2df4fad7b117a8f28ea42af8bcc188e3a0958307/pages/articles/data-management.md">2df4fad</a></p>
 
-  <p>
-    &copy; Copyright 2013-2015 by Chiwan Park.<br/>
-    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
-    attribution-noncommercial-sharealike License</a>.
-  </p>
-</footer>
+    <p>
+      &copy; Copyright 2013-2015 by Chiwan Park.<br/>
+      All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
+      attribution-noncommercial-sharealike License</a>.
+    </p>
+  </footer>
+</div>
 </body>
 </html>

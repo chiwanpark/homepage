@@ -2,26 +2,38 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
 
   <title>Introduction to Apache Flink | Chiwan Park</title>
 
   <link href="/assets/style.css" type="text/css" rel="stylesheet"/>
   
+  <link href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css" rel="stylesheet" type="text/css"/>
+
 
   <script type="text/javascript" src="/assets/script.js"></script>
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [['$', '$'], ["\\(", "\\)"]],
-        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+
+      var renderLaTeX = function() {
+        window.renderMathInElement(document.getElementById('article-content'), {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: '$', display: false},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      };
+
+      window.addEventListener('load', renderLaTeX, false);
+    })();
   </script>
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
 </head>
 <body>
@@ -30,14 +42,24 @@
 
   <h1>Chiwan Park</h1>
 
-  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences.</p>
+  <p class="description">A undergraduate student<br/>majoring Computer Science and Earth System Sciences</p>
 
   <nav class="menu">
-    <a href="/"><i class="fa fa-user"></i>About</a>
-    <a href="/articles"><i class="fa fa-file-text"></i><i class="label">Articles</i></a>
+    <a href="/">Home<i class="fa fa-user"></i></a>
+    <a href="/articles">Articles<i class="fa fa-file-text"></i></a>
+  </nav>
+
+  <nav class="link">
+    <!-- TODO: need to add meaningful text in link -->
+    <a href="https://github.com/chiwanpark/"><i class="fa fa-github"></i></a>
+    <a href="https://fb.me/chiwanpark"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/parkchiwan"><i class="fa fa-twitter"></i></a>
+    <a href="https://kr.linkedin.com/in/chiwanpark"><i class="fa fa-linkedin"></i></a>
+    <a href="https://instagram.com/chiwanpark"><i class="fa fa-instagram"></i></a>
   </nav>
 </header>
-<main>
+<div class="content-container">
+  <main>
   <article>
     <header>
       <h1>Introduction to Apache Flink</h1>
@@ -45,7 +67,7 @@
       <p class="date">written on Monday, December 01, 2014</p>
     </header>
 
-    <section class="content"><p>Hadoop의 MapReduce 프레임워크를 통해서 데이터 처리를 해본 사람들은 알겠지만, 사실 MapReduce 프레임워크를 통해 데이터를 처리하는 것은 불편한 점이 한 둘이 아니다. 기본적으로 지원하는 연산이 Map과 Reduce 둘 만 제공되어 모든 알고리즘을 Map, Reduce의 반복을 통해 구현해야 하는 점<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>, 병렬 최적화를 사실상 수동으로 수행해야해서 복잡한 알고리즘의 경우 최적화가 어려운 점, 중간 결과물도 HDFS에 저장해야해서 많은 I/O를 발생시키는 점<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> 등이 대표적이다. 특히 MapReduce 프레임워크가 HDFS랑 밀접하게 붙어 작동하는 것은 성능 저하에 꽤 큰 부분을 차지했는데 특히 반복 기반으로 작동되는 알고리즘들은 중간 결과물이 많아져 복잡한 처리를 하지 않으면 성능이 급격하게 떨어진다.</p>
+    <section id="article-content" class="content"><p>Hadoop의 MapReduce 프레임워크를 통해서 데이터 처리를 해본 사람들은 알겠지만, 사실 MapReduce 프레임워크를 통해 데이터를 처리하는 것은 불편한 점이 한 둘이 아니다. 기본적으로 지원하는 연산이 Map과 Reduce 둘 만 제공되어 모든 알고리즘을 Map, Reduce의 반복을 통해 구현해야 하는 점<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>, 병렬 최적화를 사실상 수동으로 수행해야해서 복잡한 알고리즘의 경우 최적화가 어려운 점, 중간 결과물도 HDFS에 저장해야해서 많은 I/O를 발생시키는 점<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> 등이 대표적이다. 특히 MapReduce 프레임워크가 HDFS랑 밀접하게 붙어 작동하는 것은 성능 저하에 꽤 큰 부분을 차지했는데 특히 반복 기반으로 작동되는 알고리즘들은 중간 결과물이 많아져 복잡한 처리를 하지 않으면 성능이 급격하게 떨어진다.</p>
 <p>위와 같은 문제점 들을 해결하기 위해, MapReduce 프레임워크 위의 다른 프론트엔드<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>를 사용하거나 다른 패러다임의 데이터 처리 프레임워크<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup>를 사용하는 추세가 이어지고 있다.</p>
 <p>Apache Flink는 MapReduce 프레임워크를 쓰지 않는 독자적인 데이터 처리 프레임워크로 반복 기반의 알고리즘을 처리할 때 대폭적인 성능 향상을 보인다. 모든 데이터는 Read-Only 이며, 모든 연산은 새로운 데이터 셋을 계속해서 생성하는 형태로 수행된다. 함수형 프로그래밍의 특징을 그대로 계승하므로 병렬 최적화를 높은 수준으로 수행할 수 있다.</p>
 <p>Flink의 데이터 단위는 DataSet 이며, DataSet을 연산할 수 있는 Operator가 존재한다. 프로그램은 DataSet에 다양한 Operator를 적용해 데이터를 처리하는 형태로 구성된다.</p>
@@ -98,14 +120,15 @@
     <a href="/articles"><i class="fa fa-lg fa-arrow-circle-left"></i> Back to list</a>
   </div>
 </main>
-<footer>
-  <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/be5db0d693f45e903fb495c4c212a3c95dece886/pages/articles/introduction-to-apache-flink.md">be5db0d</a></p>
+  <footer>
+    <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/be5db0d693f45e903fb495c4c212a3c95dece886/pages/articles/introduction-to-apache-flink.md">be5db0d</a></p>
 
-  <p>
-    &copy; Copyright 2013-2015 by Chiwan Park.<br/>
-    All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
-    attribution-noncommercial-sharealike License</a>.
-  </p>
-</footer>
+    <p>
+      &copy; Copyright 2013-2015 by Chiwan Park.<br/>
+      All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
+      attribution-noncommercial-sharealike License</a>.
+    </p>
+  </footer>
+</div>
 </body>
 </html>
