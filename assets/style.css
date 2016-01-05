@@ -191,7 +191,9 @@ table.codehilitetable {
 
 html {
   height: 100%;
-  font-size: 12pt; }
+  font-size: 11pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 @media only all and (min-width: 768px) {
   div.content-container {
@@ -203,7 +205,8 @@ html {
 
 body {
   height: 100%;
-  font-family: "Spoqa Han Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "Spoqa Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 400;
   background-color: #2B303B; }
 
 a {
@@ -341,6 +344,8 @@ div.content-container {
     text-decoration: none; }
     div.content-container main div.list-navigation a:hover {
       text-decoration: underline; }
+  div.content-container main div.footnote {
+    font-size: 0.9em; }
   div.content-container footer {
     margin-top: 1em;
     line-height: 1.3em;
