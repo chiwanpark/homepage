@@ -8,7 +8,7 @@
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 /** Variables **/
-$font-sans-serif: "Spoqa Han Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+$font-sans-serif: "Spoqa Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 $highlight-color: #E91E63;
 $sidebar-background-color: #2B303B;
 $sidebar-icon-box-color: #21252D;
@@ -24,7 +24,9 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 
 html {
   height: 100%;
-  font-size: 12pt;
+  font-size: 11pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media only all and (min-width: 768px) {
@@ -42,6 +44,7 @@ html {
 body {
   height: 100%;
   font-family: $font-sans-serif;
+  font-weight: 400;
   background-color: $sidebar-background-color;
 }
 
@@ -254,6 +257,10 @@ div.content-container {
           text-decoration: underline;
         }
       }
+    }
+
+    div.footnote {
+      font-size: 0.9em;
     }
   }
 
