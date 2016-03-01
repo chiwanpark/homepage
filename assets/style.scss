@@ -31,12 +31,12 @@ html {
 
 @media only all and (min-width: 768px) {
   div.content-container {
-    margin-right: 240px;
+    margin-left: 240px;
     min-height: 100%;
   }
 
   body > header {
-    float: right;
+    float: left;
     width: 240px;
   }
 }
@@ -171,7 +171,8 @@ div.content-container {
     display: block;
     background-color: $content-background-color;
     box-shadow: $box-shadow;
-    padding: 1em;
+    padding: 1.1rem;
+    max-width: 54rem;
   }
 
   main {

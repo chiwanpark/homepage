@@ -3,6 +3,8 @@ title: Chiwan Park
 
 # News
 
+* **Mar 2, 2016** - I joined [Data Mining Laboratory](http://datalab.snu.ac.kr) at Seoul National University as a master's student.
+* **Feb 26, 2016** - I gave a talk named "[학교에선 알려주지 않는 오픈 소스 이야기](http://j.mp/d2-campus-seminar-4th-park)" at [4th D2 Campus Seminar](http://d2.naver.com/news/2137145), Korea.
 * **Dec 22, 2015** - I gave a talk named "[Introduction to Apache Flink](http://j.mp/ossdevconf-2015-park)" at Open-source Software Developer Center Conference in Korea.
 * **Nov 17, 2015** - I gave a talk named "[Lessons from Open-source Activities](http://j.mp/cjkossforum-2015-park)" at The 14th Northeast Asia OSS Promotion Forum.
 
@@ -10,13 +12,11 @@ title: Chiwan Park
 
 ## Me
 
-My name is Chiwan Park. I'm a undergraduate student majoring in Earth System Sciences and Computer Science at [Yonsei University](http://www.yonsei.ac.kr). I'm a developer interested in distributed data processing, scalable machine learning and graph processing.
+My name is Chiwan Park. I'm a master's student majoring in Computer Science and Engineering at [Seoul National University](http://en.snu.ac.kr/). I'm advised by [U Kang](http://datalab.snu.ac.kr/~ukang). My research interests include large-scale graph processing and scalable machine learning. You can download my curriculum vitae from [here](http://j.mp/chiwanpark-cv).
 
 I prefer to use Python, Java or Scala for my projects. Sometimes I use C/C++, Objective-C, Javascript, and PHP if need be.
 
-I'm contributing [Apache Flink](http://flink.apache.org) and trying to contribute other projects. I'm supported by [Global Open Frontier Program](http://www.oss.kr/oss_dev_intro) (Korean) which is program for open-source contributors by [NIPA](http://nipa.kr). For participating this program, I'm currently located in [Nuritkum Square](http://nuri.nipa.kr/) (Korean), Seoul, Korea. You can see my open-source activities in [Github](https://github.com/chiwanpark) or [Open Hub Profile](https://www.openhub.net/accounts/chiwanpark). 
-
-There are some articles written by me in [this website](/articles/) (Korean). Because I'm familiar with text-based language for writing such as CommonMark (the next generation of Markdown), LaTeX, and reStructuredText, Most of my articles are written in that languages.
+I'm contributing [Apache Flink](http://flink.apache.org) and trying to contribute other projects. I also have my projects whose source code are open. You can see my open-source activities in [Github](https://github.com/chiwanpark) or [Open Hub Profile](https://www.openhub.net/accounts/chiwanpark).
 
 ## Contact and other profiles
 
@@ -24,4 +24,4 @@ You can contact me via [email](http://www.google.com/recaptcha/mailhide/d?k=01zd
 
 ## This website
 
-This website is written in CommonMark, compiled with small python and shell scripts and hosted by github pages. You can find whole source code in [my github repository](http://github.com/chiwanpark/chiwanpark.github.io).
+This website is written in CommonMark, compiled with small python and shell scripts and hosted by github pages. You can find whole source code in [my github repository](http://github.com/chiwanpark/chiwanpark.github.io). There are some articles written by me in [this website](/articles/) (Korean).
