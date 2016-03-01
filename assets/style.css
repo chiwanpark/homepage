@@ -197,10 +197,10 @@ html {
 
 @media only all and (min-width: 768px) {
   div.content-container {
-    margin-right: 240px;
+    margin-left: 240px;
     min-height: 100%; }
   body > header {
-    float: right;
+    float: left;
     width: 240px; } }
 
 body {
@@ -297,7 +297,8 @@ div.content-container {
     display: block;
     background-color: #F2F2F4;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    padding: 1em; }
+    padding: 1.1rem;
+    max-width: 54rem; }
   div.content-container main h1, div.content-container main h2, div.content-container main h3 {
     font-weight: bold;
     text-align: left; }
