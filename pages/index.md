@@ -1,5 +1,7 @@
+---
 type: static
 title: Chiwan Park
+---
 
 # News
 

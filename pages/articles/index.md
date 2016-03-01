@@ -1,1 +1,3 @@
+---
 type: article-index
+---

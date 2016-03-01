@@ -1,7 +1,9 @@
+---
 type: article
 title: Parallel k-NN Join in Apache Flink
 date: Jun 22, 2015
 summary: Parallel k-NN Join에 대한 소개 및 Apache Flink를 통한 구현
+---
 
 ## 시작하며
 

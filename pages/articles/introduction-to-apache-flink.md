@@ -1,7 +1,9 @@
+---
 type: article
 title: Introduction to Apache Flink
 date: Dec 01, 2014
 summary: A platform for efficient, distributed, general-purpose data processing.
+---
 
 Hadoop의 MapReduce 프레임워크를 통해서 데이터 처리를 해본 사람들은 알겠지만, 사실 MapReduce 프레임워크를 통해 데이터를 처리하는 것은 불편한 점이 한 둘이 아니다. 기본적으로 지원하는 연산이 Map과 Reduce 둘 만 제공되어 모든 알고리즘을 Map, Reduce의 반복을 통해 구현해야 하는 점[^1], 병렬 최적화를 사실상 수동으로 수행해야해서 복잡한 알고리즘의 경우 최적화가 어려운 점, 중간 결과물도 HDFS에 저장해야해서 많은 I/O를 발생시키는 점[^2] 등이 대표적이다. 특히 MapReduce 프레임워크가 HDFS랑 밀접하게 붙어 작동하는 것은 성능 저하에 꽤 큰 부분을 차지했는데 특히 반복 기반으로 작동되는 알고리즘들은 중간 결과물이 많아져 복잡한 처리를 하지 않으면 성능이 급격하게 떨어진다.
 
