@@ -18,7 +18,7 @@ My name is Chiwan Park. I'm a master's student majoring in Computer Science and 
 
 I prefer to use Python, Java or Scala for my projects. Sometimes I use C/C++, Objective-C, Javascript, and PHP if need be.
 
-I'm contributing [Apache Flink](http://flink.apache.org) and trying to contribute other projects. I also have my projects whose source code are open. You can see my open-source activities in [Github](https://github.com/chiwanpark) or [Open Hub Profile](https://www.openhub.net/accounts/chiwanpark).
+I'm contributing to [Apache Flink](http://flink.apache.org) and trying to contribute other projects. I also have my projects whose source codes are open. You can see my open-source activities in [Github](https://github.com/chiwanpark) or [Open Hub Profile](https://www.openhub.net/accounts/chiwanpark).
 
 ## Contact and other profiles
 
