@@ -25,6 +25,7 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 html {
   height: 100%;
   font-size: 11pt;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -96,14 +97,14 @@ body > header {
 
   h1 {
     font-weight: lighter;
-    font-size: 1.4em;
+    font-size: 1.6em;
     text-align: center;
     margin: 1em 0 0.9em 0;
   }
 
   p.description {
     padding: 0 0.4em;
-    font-size: 0.8em;
+    font-size: 0.95em;
     text-align: center;
     font-weight: lighter;
   }

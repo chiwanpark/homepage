@@ -5,10 +5,12 @@ table.codehilitetable {
   font-family: "Inconsolata", monospace;
   font-size: 0.9em;
   max-width: 100%;
+  width: 100%;
 
   td.linenos {
     padding-right: 6px;
     background: #dddddd;
+    text-align: right;
 
     pre {
       background: #dddddd;
