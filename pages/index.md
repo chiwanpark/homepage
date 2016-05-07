@@ -26,4 +26,4 @@ You can contact me via [email](http://www.google.com/recaptcha/mailhide/d?k=01zd
 
 ## This website
 
-This website is written in CommonMark, compiled with small python and shell scripts and hosted by github pages. You can find whole source code in [my github repository](http://github.com/chiwanpark/chiwanpark.github.io). There are some articles written by me in [this website](/articles/) (Korean).
+This website is written in CommonMark, compiled with small Python and shell scripts and hosted by Github Pages. You can find whole source code in [my github repository](http://github.com/chiwanpark/chiwanpark.github.io). There are some articles written by me in [this website](/articles/) (Korean).
