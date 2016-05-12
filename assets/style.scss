@@ -1,7 +1,7 @@
 /** Eric Meyer Reset **/
 @import url(//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
 /** Font Awesome **/
-@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css);
 /** Spoqa Han Sans KR **/
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 /** Inconsolata **/
@@ -9,49 +9,36 @@
 
 /** Variables **/
 $font-sans-serif: "Spoqa Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-$highlight-color: #E91E63;
-$sidebar-background-color: #2B303B;
-$sidebar-icon-box-color: #21252D;
-$sidebar-color: #788195;
-$sidebar-size: 240px;
-$background-color: #E4E4E8;
-$content-color: #606777;
-$content-background-color: #F2F2F4;
-$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+$base-font-size: 12pt;
+$base-font-color: #190433;
+$highlight-color: #9768D1;
+$icon-box-color: #36175E;
+$icon-color: #FFFFFF;
+$background-color: #FFFFFF;
 
 /** Pygments Style **/
 @import "_pygments.scss";
 
 html {
+  color: $base-font-color;
+  background-color: $background-color;
   height: 100%;
-  font-size: 11pt;
+  font-size: $base-font-size;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@media only all and (min-width: 768px) {
-  div.content-container {
-    margin-left: 240px;
-    min-height: 100%;
-  }
-
-  body > header {
-    float: left;
-    width: 240px;
-  }
 }
 
 body {
   height: 100%;
   font-family: $font-sans-serif;
   font-weight: 400;
-  background-color: $sidebar-background-color;
+  padding: 3rem;
 }
 
 a {
   text-decoration: underline;
-  color: $content-color;
+  color: $base-font-color;
 
   &:hover {
     color: $highlight-color;
@@ -59,7 +46,7 @@ a {
 }
 
 sup {
-  font-size: 0.7em;
+  font-size: 0.7rem;
   margin-top: -5px;
   display: inline-block;
   vertical-align: top;
@@ -75,66 +62,55 @@ sup {
 }
 
 body > header {
-  background-color: $sidebar-background-color;
-  color: $sidebar-color;
-
-  img#portrait {
-    width: 120px;
-    border-radius: 50%;
-    border: 2px solid $sidebar-color;
-    padding: 3px;
-
-    /** grayscale filter from https://github.com/karlhorky/gray **/
-    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-    filter: gray;
-    -webkit-filter: grayscale(100%);
-
-    -webkit-transform: translateZ(0); /* fix for CSS3 webkit bug */
-
-    display: block;
-    margin: 1em auto;
-  }
+  max-width: 54rem;
+  margin-bottom: 3.5rem;
 
   h1 {
     font-weight: lighter;
-    font-size: 1.6em;
-    text-align: center;
-    margin: 1em 0 0.9em 0;
+    font-size: 2.5rem;
+    margin: 0;
   }
 
   p.description {
-    padding: 0 0.4em;
-    font-size: 0.95em;
-    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.2rem;
     font-weight: lighter;
   }
 
   nav {
-    margin: 1em;
-    text-align: center;
-
     &.menu {
-      text-align: left;
+      margin-top: 1rem;
+
+      @media only all and (min-width: 600px) {
+        float: left;
+        a {
+          display: inline !important;
+        }
+      }
+
       a {
-        text-decoration: none;
         display: block;
-        margin: 0.3em auto;
-        width: 10em;
-        line-height: 2em;
+        color: $icon-box-color;
+        text-decoration: none;
+        margin: 0.3rem 0.4rem 0.3rem 0;
+        line-height: 2rem;
 
         i {
+          width: 2rem;
+          height: 2rem;
           text-align: center;
-          float: right;
-          width: 2em;
-          height: 2em;
-          line-height: 2em;
-          background-color: $sidebar-icon-box-color;
+          line-height: 2rem;
+          margin-right: 0.4rem;
+          background-color: $icon-box-color;
+          color: $icon-color;
+          border-radius: 1rem;
         }
 
         &:hover {
-          color: #FFFFFF;
+          color: $highlight-color;
 
           i {
+            color: #FFFFFF;
             background-color: $highlight-color;
           }
         }
@@ -142,16 +118,27 @@ body > header {
     }
 
     &.link {
+      margin-top: 1rem;
+      @media only all and (min-width: 600px) {
+        float: right;
+      }
+
+      span.text {
+        overflow: hidden;
+        text-indent: -10000rem;
+        display: block;
+      }
+
       a {
         display: inline-block;
-        font-size: 0.9em;
-        width: 1.6em;
-        height: 1.6em;
-        text-align: center;
+        width: 2rem;
+        height: 2rem;
         vertical-align: middle;
-        line-height: 1.7em;
-        background-color: $sidebar-icon-box-color;
-        color: $sidebar-color;
+        line-height: 2rem;
+        background-color: $icon-box-color;
+        color: $icon-color;
+        text-align: center;
+        border-radius: 1rem;
 
         &:hover {
           background-color: $highlight-color;
@@ -160,41 +147,42 @@ body > header {
       }
     }
   }
+
+  &:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
 }
 
 div.content-container {
-  background-color: $background-color;
-  color: $content-color;
-  padding: 1.2em;
   text-align: left;
 
-  main, footer {
-    display: block;
-    background-color: $content-background-color;
-    box-shadow: $box-shadow;
-    padding: 1.1rem;
-    max-width: 54rem;
-  }
-
   main {
+    display: block;
+    max-width: 54rem;
+
     h1, h2, h3 {
       font-weight: bold;
       text-align: left;
     }
 
     h1 {
-      font-size: 1.4em;
-      margin: 0.4em 0;
+      font-size: 1.4rem;
+      margin: 1.2rem 0 0.8rem;
     }
 
     h2 {
-      font-size: 1.2em;
-      margin: 0.4em 0;
+      font-size: 1.2rem;
+      margin: 1.2rem 0 0.8rem;
     }
 
     p {
-      margin: 0.7em 0;
-      line-height: 1.3em;
+      margin: 0.8rem 0;
+      line-height: 1.3rem;
     }
 
     img {
@@ -202,35 +190,37 @@ div.content-container {
     }
 
     article {
+      overflow-x: auto;
       p.date {
-        margin-top: -0.6em;
-        font-size: 0.8em;
+        margin-top: -0.6rem;
+        font-size: 0.8rem;
       }
     }
 
     ul {
       list-style: disc;
-      padding: 0.6em 1.4em;
+      padding: 0.6rem 1.4rem;
 
       li {
-        margin: 0 0 0.8em 0;
+        margin: 0 0 0.8rem 0;
       }
     }
 
     ol {
       list-style: decimal;
-      line-height: 1.3em;
-      padding: 0.4em 1.4em;
+      line-height: 1.3rem;
+      padding: 0.4rem 1.4rem;
 
       &.articles {
         list-style: none;
-        padding: 0.6em 0;
+        padding: 0.6rem 0;
 
         li {
-          margin: 0 0 0.8em 0;
+          margin: 0 0 0.8rem 0;
 
-          h1 {
-            font-size: 1em;
+          h2 {
+            font-size: 1rem;
+            margin: 0.4rem 0;
           }
 
           .date {
@@ -248,7 +238,7 @@ div.content-container {
       display: block;
       height: 1px;
       border: 0;
-      border-top: 1px solid $sidebar-color;
+      border-top: 1px solid $icon-color;
     }
 
     div.list-navigation {
@@ -262,14 +252,15 @@ div.content-container {
     }
 
     div.footnote {
-      font-size: 0.9em;
+      font-size: 0.9rem;
     }
   }
+}
 
-  footer {
-    margin-top: 1em;
-    line-height: 1.3em;
-    font-size: 0.7em;
-    text-align: right;
-  }
+footer {
+  padding: 1rem 0;
+  line-height: 1rem;
+  font-size: 0.7rem;
+  text-align: right;
+  max-width: 54rem;
 }

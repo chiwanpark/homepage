@@ -6,8 +6,17 @@ table.codehilitetable {
   font-size: 0.9em;
   max-width: 100%;
   width: 100%;
+  display: block;
+  overflow-x: auto;
+
+  tbody, tr {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
 
   td.linenos {
+    width: 3rem;
     padding-right: 6px;
     background: #dddddd;
     text-align: right;
@@ -24,6 +33,10 @@ table.codehilitetable {
     }
   }
 
+  td.code {
+    width: 100%;
+  }
+
   pre {
     padding: 10px;
     border: solid 1px #dddddd;
@@ -37,7 +50,7 @@ table.codehilitetable {
 
   div.codehilite {
     max-width: 100%;
-    overflow: scroll;
+    overflow: auto;
   }
 
   .highlight td {
