@@ -211,6 +211,9 @@ def build():
     page = ArticleIndexPage(os.path.join(current_path, 'articles', 'index.md'), article_pages)
     page.save_to_file()
 
+    with open(os.path.join(DEST_DIR, 'CNAME'), 'w') as f:
+        f.write('chiwanpark.com')
+
 
 class HttpdThread(Thread):
     def __init__(self):
