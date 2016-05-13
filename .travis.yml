@@ -4,7 +4,7 @@ python:
   - 3.5
 branches:
   only:
-    - v5
+    - v6
 install:
   - gem install sass
   - pip install -r requirements.txt
