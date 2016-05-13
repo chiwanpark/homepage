@@ -14,7 +14,7 @@ title: Chiwan Park
 
 ## Me
 
-My name is Chiwan Park. I'm a master's student majoring in Computer Science and Engineering at [Seoul National University](http://en.snu.ac.kr/). I'm advised by [U Kang](http://datalab.snu.ac.kr/~ukang). My research interests include large-scale graph processing and scalable machine learning. You can download my curriculum vitae from [here](http://j.mp/chiwanpark-cv).
+My name is Chiwan Park. I'm a master's student majoring in Computer Science and Engineering at [Seoul National University](http://en.snu.ac.kr/). I'm advised by [U Kang](http://datalab.snu.ac.kr/~ukang). My research interests include large-scale graph processing and scalable machine learning. You can see my curriculum vitae and short biography from [here](/curriculum-vitae.html).
 
 I prefer to use Python, Java or Scala for my projects. Sometimes I use C/C++, Objective-C, Javascript, and PHP if need be.
 

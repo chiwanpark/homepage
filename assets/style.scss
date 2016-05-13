@@ -257,6 +257,12 @@ div.content-container {
   }
 }
 
+iframe#pdfjs-cv {
+  width: 100%;
+  max-width: 54rem;
+  height: 35rem;
+}
+
 footer {
   padding: 1rem 0;
   line-height: 1rem;
