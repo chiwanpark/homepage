@@ -1,7 +1,7 @@
 /** Eric Meyer Reset **/
 @import url(//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
 /** Font Awesome **/
-@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css);
 /** Spoqa Han Sans KR **/
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 /** Inconsolata **/
@@ -14,10 +14,19 @@ table.codehilitetable {
   font-family: "Inconsolata", monospace;
   font-size: 0.9em;
   max-width: 100%;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
   /** Github-style Pygments Theme from https://github.com/richleland/pygments-css/blob/master/github.css **/ }
+  table.codehilitetable tbody, table.codehilitetable tr {
+    max-width: 100%;
+    width: 100%;
+    display: block; }
   table.codehilitetable td.linenos {
+    width: 3rem;
     padding-right: 6px;
-    background: #dddddd; }
+    background: #dddddd;
+    text-align: right; }
     table.codehilitetable td.linenos pre {
       background: #dddddd;
       /* Stop line numbers being visually selected */
@@ -27,6 +36,8 @@ table.codehilitetable {
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none; }
+  table.codehilitetable td.code {
+    width: 100%; }
   table.codehilitetable pre {
     padding: 10px;
     border: solid 1px #dddddd;
@@ -38,7 +49,7 @@ table.codehilitetable {
     word-wrap: inherit; }
   table.codehilitetable div.codehilite {
     max-width: 100%;
-    overflow: scroll; }
+    overflow: auto; }
   table.codehilitetable .highlight td {
     padding: 8px 15px; }
   table.codehilitetable .highlight {
@@ -190,165 +201,170 @@ table.codehilitetable {
     color: #009999; }
 
 html {
+  color: #190433;
+  background-color: #FFFFFF;
   height: 100%;
-  font-size: 11pt;
+  font-size: 12pt;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-
-@media only all and (min-width: 768px) {
-  div.content-container {
-    margin-left: 240px;
-    min-height: 100%; }
-  body > header {
-    float: left;
-    width: 240px; } }
 
 body {
   height: 100%;
   font-family: "Spoqa Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-weight: 400;
-  background-color: #2B303B; }
+  padding: 3rem; }
 
 a {
   text-decoration: underline;
-  color: #606777; }
+  color: #190433; }
   a:hover {
-    color: #E91E63; }
+    color: #9768D1; }
 
 sup {
-  font-size: 0.7em;
+  font-size: 0.7rem;
   margin-top: -5px;
   display: inline-block;
   vertical-align: top; }
   sup a {
-    color: #E91E63;
+    color: #9768D1;
     text-decoration: none; }
     sup a:hover {
       text-decoration: underline; }
 
 body > header {
-  background-color: #2B303B;
-  color: #788195; }
-  body > header img#portrait {
-    width: 120px;
-    border-radius: 50%;
-    border: 2px solid #788195;
-    padding: 3px;
-    /** grayscale filter from https://github.com/karlhorky/gray **/
-    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-    filter: gray;
-    -webkit-filter: grayscale(100%);
-    -webkit-transform: translateZ(0);
-    /* fix for CSS3 webkit bug */
-    display: block;
-    margin: 1em auto; }
+  max-width: 54rem;
+  margin-bottom: 3.5rem; }
   body > header h1 {
     font-weight: lighter;
-    font-size: 1.4em;
-    text-align: center;
-    margin: 1em 0 0.9em 0; }
+    font-size: 2.5rem;
+    margin: 0; }
   body > header p.description {
-    padding: 0 0.4em;
-    font-size: 0.8em;
-    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.2rem;
     font-weight: lighter; }
-  body > header nav {
-    margin: 1em;
-    text-align: center; }
-    body > header nav.menu {
-      text-align: left; }
-      body > header nav.menu a {
-        text-decoration: none;
-        display: block;
-        margin: 0.3em auto;
-        width: 10em;
-        line-height: 2em; }
-        body > header nav.menu a i {
-          text-align: center;
-          float: right;
-          width: 2em;
-          height: 2em;
-          line-height: 2em;
-          background-color: #21252D; }
-        body > header nav.menu a:hover {
-          color: #FFFFFF; }
-          body > header nav.menu a:hover i {
-            background-color: #E91E63; }
+  body > header nav.menu {
+    margin-top: 1rem; }
+    @media only all and (min-width: 600px) {
+      body > header nav.menu {
+        float: left; }
+        body > header nav.menu a {
+          display: inline !important; } }
+    body > header nav.menu a {
+      display: block;
+      color: #36175E;
+      text-decoration: none;
+      margin: 0.3rem 0.4rem 0.3rem 0;
+      line-height: 2rem; }
+      body > header nav.menu a i {
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 2rem;
+        margin-right: 0.4rem;
+        background-color: #36175E;
+        color: #FFFFFF;
+        border-radius: 1rem; }
+      body > header nav.menu a:hover {
+        color: #9768D1; }
+        body > header nav.menu a:hover i {
+          color: #FFFFFF;
+          background-color: #9768D1; }
+  body > header nav.link {
+    margin-top: 1rem; }
+    @media only all and (min-width: 600px) {
+      body > header nav.link {
+        float: right; } }
+    body > header nav.link span.text {
+      overflow: hidden;
+      text-indent: -10000rem;
+      display: block; }
     body > header nav.link a {
       display: inline-block;
-      font-size: 0.9em;
-      width: 1.6em;
-      height: 1.6em;
-      text-align: center;
+      width: 2rem;
+      height: 2rem;
       vertical-align: middle;
-      line-height: 1.7em;
-      background-color: #21252D;
-      color: #788195; }
+      line-height: 2rem;
+      background-color: #36175E;
+      color: #FFFFFF;
+      text-align: center;
+      border-radius: 1rem; }
       body > header nav.link a:hover {
-        background-color: #E91E63;
+        background-color: #9768D1;
         color: #FFFFFF; }
+  body > header:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
 
 div.content-container {
-  background-color: #E4E4E8;
-  color: #606777;
-  padding: 1.2em;
   text-align: left; }
-  div.content-container main, div.content-container footer {
+  div.content-container main {
     display: block;
-    background-color: #F2F2F4;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    padding: 1.1rem;
     max-width: 54rem; }
-  div.content-container main h1, div.content-container main h2, div.content-container main h3 {
-    font-weight: bold;
-    text-align: left; }
-  div.content-container main h1 {
-    font-size: 1.4em;
-    margin: 0.4em 0; }
-  div.content-container main h2 {
-    font-size: 1.2em;
-    margin: 0.4em 0; }
-  div.content-container main p {
-    margin: 0.7em 0;
-    line-height: 1.3em; }
-  div.content-container main img {
-    max-width: 100%; }
-  div.content-container main article p.date {
-    margin-top: -0.6em;
-    font-size: 0.8em; }
-  div.content-container main ul {
-    list-style: disc;
-    padding: 0.6em 1.4em; }
-    div.content-container main ul li {
-      margin: 0 0 0.8em 0; }
-  div.content-container main ol {
-    list-style: decimal;
-    line-height: 1.3em;
-    padding: 0.4em 1.4em; }
-    div.content-container main ol.articles {
-      list-style: none;
-      padding: 0.6em 0; }
-      div.content-container main ol.articles li {
-        margin: 0 0 0.8em 0; }
-        div.content-container main ol.articles li h1 {
-          font-size: 1em; }
-        div.content-container main ol.articles li .date {
-          font-style: italic; }
-        div.content-container main ol.articles li .description {
-          text-align: left; }
-  div.content-container main hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #788195; }
-  div.content-container main div.list-navigation a {
-    text-decoration: none; }
-    div.content-container main div.list-navigation a:hover {
-      text-decoration: underline; }
-  div.content-container main div.footnote {
-    font-size: 0.9em; }
-  div.content-container footer {
-    margin-top: 1em;
-    line-height: 1.3em;
-    font-size: 0.7em;
-    text-align: right; }
+    div.content-container main h1, div.content-container main h2, div.content-container main h3 {
+      font-weight: bold;
+      text-align: left; }
+    div.content-container main h1 {
+      font-size: 1.4rem;
+      margin: 1.2rem 0 0.8rem; }
+    div.content-container main h2 {
+      font-size: 1.2rem;
+      margin: 1.2rem 0 0.8rem; }
+    div.content-container main p {
+      margin: 0.8rem 0;
+      line-height: 1.3rem; }
+    div.content-container main img {
+      max-width: 100%; }
+    div.content-container main article {
+      overflow-x: auto; }
+      div.content-container main article p.date {
+        margin-top: -0.6rem;
+        font-size: 0.8rem; }
+    div.content-container main ul {
+      list-style: disc;
+      padding: 0.6rem 1.4rem; }
+      div.content-container main ul li {
+        margin: 0 0 0.8rem 0; }
+    div.content-container main ol {
+      list-style: decimal;
+      line-height: 1.3rem;
+      padding: 0.4rem 1.4rem; }
+      div.content-container main ol.articles {
+        list-style: none;
+        padding: 0.6rem 0; }
+        div.content-container main ol.articles li {
+          margin: 0 0 0.8rem 0; }
+          div.content-container main ol.articles li h2 {
+            font-size: 1rem;
+            margin: 0.4rem 0; }
+          div.content-container main ol.articles li .date {
+            font-style: italic; }
+          div.content-container main ol.articles li .description {
+            text-align: left; }
+    div.content-container main hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #FFFFFF; }
+    div.content-container main div.list-navigation a {
+      text-decoration: none; }
+      div.content-container main div.list-navigation a:hover {
+        text-decoration: underline; }
+    div.content-container main div.footnote {
+      font-size: 0.9rem; }
+
+iframe#pdfjs-cv {
+  width: 100%;
+  max-width: 54rem;
+  height: 35rem; }
+
+footer {
+  padding: 1rem 0;
+  line-height: 1rem;
+  font-size: 0.7rem;
+  text-align: right;
+  max-width: 54rem; }
