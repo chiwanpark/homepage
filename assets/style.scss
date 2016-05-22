@@ -15,6 +15,7 @@ $highlight-color: #9768D1;
 $icon-box-color: #36175E;
 $icon-color: #FFFFFF;
 $background-color: #FFFFFF;
+$line-color: #36175E;
 
 /** Pygments Style **/
 @import "_pygments.scss";
@@ -202,7 +203,8 @@ div.content-container {
       padding: 0.6rem 1.4rem;
 
       li {
-        margin: 0 0 0.8rem 0;
+        margin: 0 0 0.4rem 0;
+        line-height: 1.3rem;
       }
     }
 
@@ -217,6 +219,7 @@ div.content-container {
 
         li {
           margin: 0 0 0.8rem 0;
+          line-height: 1.3rem;
 
           h2 {
             font-size: 1rem;
@@ -238,7 +241,7 @@ div.content-container {
       display: block;
       height: 1px;
       border: 0;
-      border-top: 1px solid $icon-color;
+      border-top: 1px solid $line-color;
     }
 
     div.list-navigation {
@@ -253,6 +256,15 @@ div.content-container {
 
     div.footnote {
       font-size: 0.9rem;
+
+      ol {
+        padding-top: 0;
+        li {
+          p {
+            margin: 0.5rem 0;
+          }
+        }
+      }
     }
   }
 }
