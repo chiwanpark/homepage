@@ -328,7 +328,8 @@ div.content-container {
       list-style: disc;
       padding: 0.6rem 1.4rem; }
       div.content-container main ul li {
-        margin: 0 0 0.8rem 0; }
+        margin: 0 0 0.4rem 0;
+        line-height: 1.3rem; }
     div.content-container main ol {
       list-style: decimal;
       line-height: 1.3rem;
@@ -337,7 +338,8 @@ div.content-container {
         list-style: none;
         padding: 0.6rem 0; }
         div.content-container main ol.articles li {
-          margin: 0 0 0.8rem 0; }
+          margin: 0 0 0.8rem 0;
+          line-height: 1.3rem; }
           div.content-container main ol.articles li h2 {
             font-size: 1rem;
             margin: 0.4rem 0; }
@@ -349,13 +351,17 @@ div.content-container {
       display: block;
       height: 1px;
       border: 0;
-      border-top: 1px solid #FFFFFF; }
+      border-top: 1px solid #36175E; }
     div.content-container main div.list-navigation a {
       text-decoration: none; }
       div.content-container main div.list-navigation a:hover {
         text-decoration: underline; }
     div.content-container main div.footnote {
       font-size: 0.9rem; }
+      div.content-container main div.footnote ol {
+        padding-top: 0; }
+        div.content-container main div.footnote ol li p {
+          margin: 0.5rem 0; }
 
 iframe#pdfjs-cv {
   width: 100%;
