@@ -29,4 +29,4 @@ summary: Office 365 설치할 때 필요한 컴포넌트만 설치하기
 </Configuration>
 ```
 
-그다음, 배포 관련 툴을 [공식 홈페이지](https://www.microsoft.com/en-us/download/details.aspx?id=36778)에서 다운 받는다. 다운 받은 프로그램을 실행하면 압축이 풀리면서 `setup.exe`, `configuration.xml`이 생성된다. 이후 명령 프롬프트에서 `setup.exe /configure setup.xml` 명령을 실행하면 설치가 진행된다.
+그다음, 배포 관련 툴을 [공식 홈페이지](https://www.microsoft.com/en-us/download/details.aspx?id=49117)에서 다운 받는다. 다운 받은 프로그램을 실행하면 압축이 풀리면서 `setup.exe`, `configuration.xml`이 생성된다. 이후 명령 프롬프트에서 `setup.exe /configure setup.xml` 명령을 실행하면 설치가 진행된다.
