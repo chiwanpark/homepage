@@ -5,6 +5,7 @@ title: Chiwan Park
 
 # News
 
+* **Nov 10, 2017** - A demo paper, "[PegasusN: A Scalable and Versatile Graph Mining System](https://datalab.snu.ac.kr/pegasusn)" was accepted to AAAI 2018.
 * **Mar 2, 2016** - I joined [Data Mining Laboratory](http://datalab.snu.ac.kr) at Seoul National University as a master's student.
 * **Feb 26, 2016** - I gave a talk named "[학교에선 알려주지 않는 오픈 소스 이야기](http://j.mp/d2-campus-seminar-4th-park)" at [4th D2 Campus Seminar](http://d2.naver.com/news/2137145), Korea.
 * **Dec 22, 2015** - I gave a talk named "[Introduction to Apache Flink](http://j.mp/ossdevconf-2015-park)" at Open-source Software Developer Center Conference in Korea.
