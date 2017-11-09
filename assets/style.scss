@@ -188,6 +188,8 @@ div.content-container {
 
     img {
       max-width: 100%;
+      display: block;
+      margin: 0.35rem auto;
     }
 
     article {
@@ -212,6 +214,10 @@ div.content-container {
       list-style: decimal;
       line-height: 1.3rem;
       padding: 0.4rem 1.4rem;
+
+      li {
+        margin: 0.5rem 0;
+      }
 
       &.articles {
         list-style: none;
