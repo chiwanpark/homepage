@@ -12,7 +12,8 @@ from threading import Thread
 import click
 import sass
 from jinja2 import Environment, PackageLoader
-from markdown import Markdown
+from markdown import Markdown, Extension
+from markdown.blockprocessors import UListProcessor
 from pytz import timezone
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
@@ -22,9 +23,34 @@ def get_current_dir():
     return os.path.dirname(os.path.abspath(__file__))
 
 
+######################
+# Markdown Extension #
+######################
+
+class TitledListProcessor(UListProcessor):
+    def __init__(self, parser):
+        super().__init__(parser)
+        self.RE = re.compile(r'^[ ]{0,%d}[@][ ]+(.*)' % (self.tab_length - 1))
+        self.CHILD_RE = re.compile(r'^[ ]{0,%d}((\d+\.)|[@])[ ]+(.*)' % (self.tab_length - 1))
+
+    def get_items(self, block):
+        items = super().get_items(block)
+        results = []
+        for item in items:
+            lines = item.split('=')
+            lines[0] = '<h2>%s</h2>' % lines[0]
+            results.append('%s\n%s' % (lines[0], '<br/>'.join(lines[1:])))
+        return results
+
+
+class TitledListExtension(Extension):
+    def extendMarkdown(self, md, md_globals):
+        md.parser.blockprocessors.add('tlist', TitledListProcessor(md.parser), '>ulist')
+
+
 DEST_DIR = os.path.join(get_current_dir(), '_build')
 DEFAULT_TIMEZONE = timezone('Asia/Seoul')
-MARKDOWN = Markdown(extensions=['meta', 'footnotes', 'codehilite(linenums=True)', 'fenced_code'])
+MARKDOWN = Markdown(extensions=['meta', 'footnotes', 'codehilite(linenums=True)', 'fenced_code', TitledListExtension()])
 DATE_FORMAT = '%b %d, %Y'
 GIT_REPOSITORY_URL = 'https://github.com/chiwanpark/chiwanpark.github.io'
 

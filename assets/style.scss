@@ -9,7 +9,7 @@
 
 /** Variables **/
 $header-font: "Lato", sans-serif;
-$body-font: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+$body-font: "Lato", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 $base-font-size: 12pt;
 $base-font-color: #495057;
 $highlight-color: #212529;
@@ -65,6 +65,10 @@ sup {
       text-decoration: underline;
     }
   }
+}
+
+strong {
+  font-weight: bold;
 }
 
 body > header {
@@ -225,6 +229,13 @@ div.content-container {
       li {
         margin: 0 0 0.4rem 0;
         line-height: 1.3rem;
+        
+        h2 {
+          font-size: 1rem;
+          font-weight: bolder;
+          margin: 0;
+          padding: 0;
+        }
       }
     }
 
