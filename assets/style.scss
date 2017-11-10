@@ -1,21 +1,22 @@
 /** Eric Meyer Reset **/
 @import url(//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
 /** Font Awesome **/
-@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css);
-/** Spoqa Han Sans KR **/
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 /** Inconsolata **/
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+/** Lato **/
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,600);
 
 /** Variables **/
-$font-sans-serif: "Spoqa Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+$header-font: "Lato", sans-serif;
+$body-font: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 $base-font-size: 12pt;
-$base-font-color: #190433;
-$highlight-color: #9768D1;
-$icon-box-color: #36175E;
-$icon-color: #FFFFFF;
-$background-color: #FFFFFF;
-$line-color: #36175E;
+$base-font-color: #495057;
+$highlight-color: #212529;
+$icon-box-color: #343a40;
+$icon-color: #ffffff;
+$background-color: #f8f9fa;
+$line-color: $base-font-color;
 
 /** Pygments Style **/
 @import "_pygments.scss";
@@ -32,9 +33,13 @@ html {
 
 body {
   height: 100%;
-  font-family: $font-sans-serif;
+  font-family: $body-font;
   font-weight: 400;
-  padding: 3rem;
+  padding: 1rem;
+
+  @media only all and (min-width: 600px) {
+    padding: 2rem;
+  }
 }
 
 a {
@@ -64,15 +69,29 @@ sup {
 
 body > header {
   max-width: 54rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
+  
+  img#profile {
+    border-radius: 10%;
+    width: 8rem;
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    
+    @media only all and (min-width: 600px) {
+      margin-bottom: 0;
+    }
+  }
 
   h1 {
-    font-weight: lighter;
+    font-family: $header-font;
+    font-weight: 500;
     font-size: 2.5rem;
     margin: 0;
   }
 
   p.description {
+    font-family: $header-font;
     padding: 1rem 0;
     font-size: 1.2rem;
     font-weight: lighter;
@@ -80,7 +99,6 @@ body > header {
 
   nav {
     &.menu {
-      margin-top: 1rem;
 
       @media only all and (min-width: 600px) {
         float: left;
@@ -119,7 +137,6 @@ body > header {
     }
 
     &.link {
-      margin-top: 1rem;
       @media only all and (min-width: 600px) {
         float: right;
       }
@@ -183,7 +200,8 @@ div.content-container {
 
     p {
       margin: 0.8rem 0;
-      line-height: 1.3rem;
+      line-height: 1.5rem;
+      text-align: justify;
     }
 
     img {
