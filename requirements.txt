@@ -4,3 +4,4 @@ pytz==2017.3
 Pygments==2.2.0
 click==6.7
 libsass==0.13.3
+watchdog==0.8.3

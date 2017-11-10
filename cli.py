@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-import http.server
 import os
 import re
 import shutil
 import socketserver
 import subprocess
+import time
 from datetime import datetime
+from http.server import SimpleHTTPRequestHandler
 from threading import Thread
 
 import click
@@ -13,6 +14,8 @@ import sass
 from jinja2 import Environment, PackageLoader
 from markdown import Markdown
 from pytz import timezone
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 
 
 def get_current_dir():
@@ -215,10 +218,18 @@ def build():
         f.write('chiwanpark.com')
 
 
+@cli.command()
+def clean():
+    os.chdir(get_current_dir())
+    if os.path.exists(DEST_DIR):
+        click.echo('[BUILD] Clean destination directory.')
+        shutil.rmtree(DEST_DIR)
+
+
 class HttpdThread(Thread):
     def __init__(self):
         super().__init__()
-        self.httpd = socketserver.TCPServer(('', 8000), http.server.SimpleHTTPRequestHandler, bind_and_activate=False)
+        self.httpd = socketserver.TCPServer(('', 8000), SimpleHTTPRequestHandler, bind_and_activate=False)
 
     def run(self):
         os.chdir(DEST_DIR)
@@ -237,12 +248,30 @@ class HttpdThread(Thread):
         self.httpd.shutdown()
 
 
-@cli.command()
-def clean():
-    os.chdir(get_current_dir())
-    if os.path.exists(DEST_DIR):
-        click.echo('[BUILD] Clean destination directory.')
-        shutil.rmtree(DEST_DIR)
+class RebuildEventHandler(FileSystemEventHandler):
+    def __init__(self, ctx):
+        self.last_build_time = time.time()
+        self.ctx = ctx
+        self.httpd_thread = HttpdThread()
+        self.httpd_thread.start()
+
+    def on_any_event(self, event):
+        updated_time = time.time()
+
+        if updated_time - self.last_build_time > 10:
+            click.echo('[Watchdog] Rebuild homepage automatically')
+            self.ctx.invoke(clean)
+            self.ctx.invoke(build)
+
+            self.last_build_time = time.time()
+
+            self.httpd_thread.shutdown()
+            self.httpd_thread = HttpdThread()
+            self.httpd_thread.start()
+
+    def shutdown(self):
+        if self.httpd_thread.is_alive():
+            self.httpd_thread.shutdown()
 
 
 @cli.command()
@@ -252,16 +281,20 @@ def run(ctx):
     ctx.invoke(clean)
     ctx.invoke(build)
 
-    httpd_thread = HttpdThread()
-    httpd_thread.start()
+    evt_handler = RebuildEventHandler(ctx)
+    paths = [os.path.join(get_current_dir(), subdir) for subdir in ['assets', 'pages', 'templates']]
+    observer = Observer()
+    for path in paths:
+        observer.schedule(evt_handler, path, recursive=True)
+    observer.start()
 
     try:
         while True:
             sleep(1)
     except KeyboardInterrupt:
         click.echo('[RUN] Keyboard Interrupt detected, shutdown.')
-        if httpd_thread.is_alive():
-            httpd_thread.shutdown()
+        evt_handler.shutdown()
+        observer.stop()
 
     ctx.invoke(clean)
 
