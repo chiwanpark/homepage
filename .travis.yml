@@ -11,7 +11,3 @@ install:
 script:
   - python cli.py build
   - bash deploy.sh
-env:
-  global:
-    - secure: fxjEsed50sNAbhekG010Ad7HIJPdWd9W6I+XN8Slavn2e3F3iWf/2Qr3ljZ1wfevJ07LNUzrBjCB5JX8ozdKa62KiZSYtFbg327kkyBgydMUTte6RkXcGpRdfselzP0CRLR0NlOsU9mbJ9lUsAh7Cvm4bGm2zlfrrTNNunUSIFo=
-    - secure: j4XXjTXkt2jybOLqCrUT7bTXWkGyvRoR1IQPdWh/CzUoy45PpJgbOS4lzXCB2KPYwm4coLf86UZp2D9xiejVdVMaHNzc825/+lsLMPddBdSDOD2L5gj/mrnAUeSbVtpMKaiOdlDxvTJIpHMl2cj/INvuKMIWP19kUbnDaPL6dZc=
