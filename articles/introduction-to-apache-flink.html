@@ -38,15 +38,15 @@
 </head>
 <body>
 <header>
+  <img id="profile" src="/assets/profile.jpg"/>
   <h1>Chiwan Park</h1>
 
   <p class="description">
-    A student interested in large-scale graph mining and scalable machine learning
+    A master's student majoring in Computer Science and Engineering
   </p>
 
   <nav class="menu">
     <a href="/"><i class="fa fa-home"></i>Home</a>
-    <a href="/curriculum-vitae.html"><i class="fa fa-user"></i>CV</a>
     <a href="/articles"><i class="fa fa-file-text"></i>Articles</a>
   </nav>
 
@@ -71,7 +71,7 @@
 <p>Flink의 데이터 단위는 DataSet 이며, DataSet을 연산할 수 있는 Operator가 존재한다. 프로그램은 DataSet에 다양한 Operator를 적용해 데이터를 처리하는 형태로 구성된다.</p>
 <p><img alt="Concept of Apache Flink Dataflow" src="/assets/introduction-to-apache-flink-01.png" /></p>
 <p>또한, Map, Reduce 이외에도 Join, CoGroup, Union, Iterate, <strong>Delta Iterate</strong>, Filter, FlatMap, GroupReduce, Project, Aggregate, Distinct, Accumulation 등 다양한 연산을 지원하여 MapReduce 프레임워크 보다 훨씬 쉽게 알고리즘을 구현할 수 있다.</p>
-<p>아래의 소스 코드는 Hadoop 관련 예제에 많이 등장하는 WordCount 예제다. MapReduce 보다 훨씬 간결하게 코드를 작성할 수 있다.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup></p>
+<p>아래의 소스 코드는 Hadoop 관련 예제에 많이 등장하는 WordCount 예제다. MapReduce 보다 훨씬 간결하게 코드를 작성할 수 있다.<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup></p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -80,7 +80,7 @@
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">DataSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">input</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="na">readTextFile</span><span class="o">(</span><span class="n">inputPath</span><span class="o">);</span>
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">DataSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">input</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="na">readTextFile</span><span class="o">(</span><span class="n">inputPath</span><span class="o">);</span>
 
 <span class="n">DataSet</span><span class="o">&lt;</span><span class="n">Tuple2</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">flatMap</span><span class="o">((</span><span class="n">value</span><span class="o">,</span> <span class="n">out</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
    <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">value</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">))</span> <span class="o">{</span>
@@ -105,7 +105,7 @@
 <p>물론 InputFormat, OutputFormat을 직접 만들어 메모리에 저장하거나 할 수도 있긴 하다.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>데이터 처리를 위한 스크립트 언어를 제공하는 <a href="http://pig.apache.org">Apache Pig</a>나 SQL과 비슷한 구문으로 데이터 처리를 수행하도록 도와주는 <a href="http://hive.apache.org">Apache Hive</a> 등이 대표적인 예다.&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>데이터 처리를 위한 스크립트 언어를 제공하는 <a href="http://pig.apache.org">Apache Pig</a>나 SQL과 비슷한 구문으로 데이터 처리를 수행하도록 도와주는 <a href="http://hive.apache.org">Apache Hive</a> 등이 대표적인 예다.&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
 <p><a href="http://spark.apache.org">Apache Spark</a>, <a href="http://tez.apache.org">Apache Tez</a> 등이 대표적인 예다.&#160;<a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
@@ -124,7 +124,7 @@
   <p>rev. <a href="https://github.com/chiwanpark/chiwanpark.github.io/blob/3c7826daefc64828e2174ff94a6310a9f6d1bd5f/pages/articles/introduction-to-apache-flink.md">3c7826d</a></p>
 
   <p>
-    &copy; Copyright 2013-2016 by Chiwan Park.<br/>
+    &copy; Copyright 2013-2017 by Chiwan Park.<br/>
     All contents licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Common
     attribution-noncommercial-sharealike License</a>.
   </p>

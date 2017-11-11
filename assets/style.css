@@ -1,11 +1,11 @@
 /** Eric Meyer Reset **/
 @import url(//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
 /** Font Awesome **/
-@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css);
-/** Spoqa Han Sans KR **/
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 /** Inconsolata **/
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+/** Lato **/
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,600);
 /** Variables **/
 /** Pygments Style **/
 /** Pygments **/
@@ -201,8 +201,8 @@ table.codehilitetable {
     color: #009999; }
 
 html {
-  color: #190433;
-  background-color: #FFFFFF;
+  color: #495057;
+  background-color: #f8f9fa;
   height: 100%;
   font-size: 12pt;
   overflow-x: hidden;
@@ -211,15 +211,18 @@ html {
 
 body {
   height: 100%;
-  font-family: "Spoqa Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "Lato", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-weight: 400;
-  padding: 3rem; }
+  padding: 1rem; }
+  @media only all and (min-width: 600px) {
+    body {
+      padding: 2rem; } }
 
 a {
   text-decoration: underline;
-  color: #190433; }
+  color: #495057; }
   a:hover {
-    color: #9768D1; }
+    color: #212529; }
 
 sup {
   font-size: 0.7rem;
@@ -227,71 +230,81 @@ sup {
   display: inline-block;
   vertical-align: top; }
   sup a {
-    color: #9768D1;
+    color: #212529;
     text-decoration: none; }
     sup a:hover {
       text-decoration: underline; }
 
+strong {
+  font-weight: bold; }
+
 body > header {
   max-width: 54rem;
-  margin-bottom: 3.5rem; }
+  margin-bottom: 2rem; }
+  body > header img#profile {
+    border-radius: 10%;
+    width: 8rem;
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 1rem; }
+    @media only all and (min-width: 600px) {
+      body > header img#profile {
+        margin-bottom: 0; } }
   body > header h1 {
-    font-weight: lighter;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
     font-size: 2.5rem;
     margin: 0; }
   body > header p.description {
+    font-family: "Lato", sans-serif;
     padding: 1rem 0;
     font-size: 1.2rem;
     font-weight: lighter; }
-  body > header nav.menu {
-    margin-top: 1rem; }
-    @media only all and (min-width: 600px) {
-      body > header nav.menu {
-        float: left; }
-        body > header nav.menu a {
-          display: inline !important; } }
-    body > header nav.menu a {
-      display: block;
-      color: #36175E;
-      text-decoration: none;
-      margin: 0.3rem 0.4rem 0.3rem 0;
-      line-height: 2rem; }
-      body > header nav.menu a i {
-        width: 2rem;
-        height: 2rem;
-        text-align: center;
-        line-height: 2rem;
-        margin-right: 0.4rem;
-        background-color: #36175E;
-        color: #FFFFFF;
-        border-radius: 1rem; }
-      body > header nav.menu a:hover {
-        color: #9768D1; }
-        body > header nav.menu a:hover i {
-          color: #FFFFFF;
-          background-color: #9768D1; }
-  body > header nav.link {
-    margin-top: 1rem; }
-    @media only all and (min-width: 600px) {
-      body > header nav.link {
-        float: right; } }
-    body > header nav.link span.text {
-      overflow: hidden;
-      text-indent: -10000rem;
-      display: block; }
-    body > header nav.link a {
-      display: inline-block;
+  @media only all and (min-width: 600px) {
+    body > header nav.menu {
+      float: left; }
+      body > header nav.menu a {
+        display: inline !important; } }
+  body > header nav.menu a {
+    display: block;
+    color: #343a40;
+    text-decoration: none;
+    margin: 0.3rem 0.4rem 0.3rem 0;
+    line-height: 2rem; }
+    body > header nav.menu a i {
       width: 2rem;
       height: 2rem;
-      vertical-align: middle;
-      line-height: 2rem;
-      background-color: #36175E;
-      color: #FFFFFF;
       text-align: center;
+      line-height: 2rem;
+      margin-right: 0.4rem;
+      background-color: #343a40;
+      color: #ffffff;
       border-radius: 1rem; }
-      body > header nav.link a:hover {
-        background-color: #9768D1;
-        color: #FFFFFF; }
+    body > header nav.menu a:hover {
+      color: #212529; }
+      body > header nav.menu a:hover i {
+        color: #FFFFFF;
+        background-color: #212529; }
+  @media only all and (min-width: 600px) {
+    body > header nav.link {
+      float: right; } }
+  body > header nav.link span.text {
+    overflow: hidden;
+    text-indent: -10000rem;
+    display: block; }
+  body > header nav.link a {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    line-height: 2rem;
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 1rem; }
+    body > header nav.link a:hover {
+      background-color: #212529;
+      color: #FFFFFF; }
   body > header:after {
     content: " ";
     display: block;
@@ -316,9 +329,12 @@ div.content-container {
       margin: 1.2rem 0 0.8rem; }
     div.content-container main p {
       margin: 0.8rem 0;
-      line-height: 1.3rem; }
+      line-height: 1.5rem;
+      text-align: justify; }
     div.content-container main img {
-      max-width: 100%; }
+      max-width: 100%;
+      display: block;
+      margin: 0.35rem auto; }
     div.content-container main article {
       overflow-x: auto; }
       div.content-container main article p.date {
@@ -330,10 +346,17 @@ div.content-container {
       div.content-container main ul li {
         margin: 0 0 0.4rem 0;
         line-height: 1.3rem; }
+        div.content-container main ul li h2 {
+          font-size: 1rem;
+          font-weight: bolder;
+          margin: 0;
+          padding: 0; }
     div.content-container main ol {
       list-style: decimal;
       line-height: 1.3rem;
       padding: 0.4rem 1.4rem; }
+      div.content-container main ol li {
+        margin: 0.5rem 0; }
       div.content-container main ol.articles {
         list-style: none;
         padding: 0.6rem 0; }
@@ -351,7 +374,7 @@ div.content-container {
       display: block;
       height: 1px;
       border: 0;
-      border-top: 1px solid #36175E; }
+      border-top: 1px solid #495057; }
     div.content-container main div.list-navigation a {
       text-decoration: none; }
       div.content-container main div.list-navigation a:hover {
