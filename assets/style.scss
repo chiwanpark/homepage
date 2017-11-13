@@ -73,16 +73,21 @@ strong {
 
 body > header {
   max-width: 54rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+  @media only all and (min-width: 600px) {
+    margin-bottom: 2rem;
+  }
   
   img#profile {
     border-radius: 10%;
-    width: 8rem;
+    width: 6rem;
     float: left;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0;
     
     @media only all and (min-width: 600px) {
+      width: 8rem;
+      margin-right: 2rem;
       margin-bottom: 0;
     }
   }
@@ -96,14 +101,18 @@ body > header {
 
   p.description {
     font-family: $header-font;
+    margin-top: 1rem;
     padding: 1rem 0;
     font-size: 1.2rem;
     font-weight: lighter;
+
+    @media only all and (min-width: 361px) {
+      margin-top: 0;
+    }
   }
 
   nav {
     &.menu {
-
       @media only all and (min-width: 600px) {
         float: left;
         a {
@@ -302,12 +311,6 @@ div.content-container {
       }
     }
   }
-}
-
-iframe#pdfjs-cv {
-  width: 100%;
-  max-width: 54rem;
-  height: 35rem;
 }
 
 footer {
