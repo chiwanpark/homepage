@@ -198,7 +198,8 @@ def build_assets(path: str = None):
             dest_path = abspath.replace(base_path, dest_base_path)
             if abspath.split('.')[-1] in ['sass', 'scss']:
                 click.echo('[BUILD] Asset file detected (%s) -> SASS' % abspath)
-                compiled_css = sass.compile(filename=abspath, precision=8, include_paths=[os.path.dirname(abspath)])
+                compiled_css = sass.compile(
+                    filename=abspath, precision=8, include_paths=[os.path.dirname(abspath)], output_style='compressed')
                 dest_path = re.sub(r'(sass|scss)$', 'css', dest_path)
 
                 with open(dest_path, 'w', encoding='utf-8') as f:
