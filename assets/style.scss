@@ -1,7 +1,12 @@
+---
+---
 /** Eric Meyer Reset **/
-@import url(//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
-/** Font Awesome **/
-@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+@import "reset";
+
+/** Font-Awesome **/
+$fa-font-path: "fonts/font-awesome/";
+@import "font-awesome";
+
 /** Inconsolata **/
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 /** Lato **/
@@ -18,8 +23,7 @@ $icon-color: #ffffff;
 $background-color: #f8f9fa;
 $line-color: $base-font-color;
 
-/** Pygments Style **/
-@import "_pygments.scss";
+@import "highlight-theme";
 
 html {
   color: $base-font-color;
@@ -92,7 +96,7 @@ body > header {
     }
   }
 
-  h1 {
+  .name {
     font-family: $header-font;
     font-weight: 500;
     font-size: 2.5rem;
@@ -233,11 +237,15 @@ div.content-container {
 
     ul {
       list-style: disc;
-      padding: 0.6rem 1.4rem;
+      padding: 0rem 1.4rem;
 
       li {
-        margin: 0 0 0.4rem 0;
+        margin: 0 0 0.3rem 0;
         line-height: 1.3rem;
+
+        p {
+          margin: 0;
+        }
         
         h2 {
           font-size: 1rem;
@@ -286,6 +294,24 @@ div.content-container {
       height: 1px;
       border: 0;
       border-top: 1px solid $line-color;
+    }
+
+    div.cv-list {
+      dt {
+        display: list-item;
+        font-weight: bold;
+        list-style-type: disc;
+      }
+
+      dt, dd {
+        margin-left: 1.4rem;
+        line-height: 1.4rem;
+        p {
+          margin: 0.25rem 0 0.75rem 0;
+          white-space: pre;
+          line-height: 1.4rem;
+        }
+      }
     }
 
     div.list-navigation {
