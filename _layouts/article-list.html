@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+  {% assign page.title = "Articles" %}
+  {% include head.html %}
+</head>
+<body>
+{% include navbar.html %}
+<div class="content-container">
+  <main>
+    <h1>Articles</h1>
+    <ol class="articles">
+    {% assign articles = (site.articles | sort: 'date') | reverse %}
+    {% for article in articles %}
+      {% if article.title != "Articles" %}
+        <li class="article-overview">
+          <div class="date">{{ article.date | date: '%b %d, %Y' }}</div>
+          <div class="description">
+            <h2><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h2>
+            <span class="summary">{{ article.summary }}</span>
+          </div>
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ol>
+  </main>
+</div>
+{% include footer.html %}
+
+{% include google-analytics.html %}
+</body>
+</html>
