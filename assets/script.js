@@ -2,6 +2,7 @@
   'use strict';
 
   var internalLinks = [
+    '127.0.0.1',
     'localhost',
     'chiwanpark.com',
     'chiwanpark-status.azurewebsites.net'
@@ -9,7 +10,7 @@
 
   var checkInternalLink = function(link) {
     for (var i = 0, length = internalLinks.length; i < length; ++i) {
-      if (link == internalLinks[i]) {
+      if (link === internalLinks[i]) {
         return true;
       }
     }

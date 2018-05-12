@@ -7,10 +7,8 @@
 $fa-font-path: "fonts/font-awesome/";
 @import "font-awesome";
 
-/** Inconsolata **/
-@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
-/** Lato **/
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,600);
+/** Inconsolata, Lato **/
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700|Lato:300,400,600);
 
 /** Variables **/
 $header-font: "Lato", sans-serif;
@@ -23,7 +21,35 @@ $icon-color: #ffffff;
 $background-color: #f8f9fa;
 $line-color: $base-font-color;
 
-@import "highlight-theme";
+/** highlight.js **/
+.highlight, code {
+  font-family: 'Inconsolata', monospace;
+}
+
+@import "atelier-estuary-light";
+/* for block of numbers */
+td.hljs-ln-numbers {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  text-align: right;
+  color: #ccc;
+  border-right: 1px solid #CCC;
+  vertical-align: top;
+  padding-right: 5px !important;
+
+  /* your custom style here */
+  margin-right: 5px;
+}
+
+/* for block of code */
+td.hljs-ln-code {
+  padding-left: 7px !important;
+}
 
 html {
   color: $base-font-color;
@@ -235,6 +261,14 @@ div.content-container {
       }
     }
 
+    blockquote {
+      border-left: 4px solid $line-color;
+      margin: 0.8rem 0 0.8rem 0.6rem;
+      padding-left: 0.9rem;
+      line-height: 1.5rem;
+      text-align: justify;
+    }
+
     ul {
       list-style: disc;
       padding: 0rem 1.4rem;
@@ -324,16 +358,14 @@ div.content-container {
       }
     }
 
-    div.footnote {
+    div#footnotes {
       font-size: 0.9rem;
+      margin-bottom: 1rem;
 
-      ol {
-        padding-top: 0;
-        li {
-          p {
-            margin: 0.5rem 0;
-          }
-        }
+      div.footnote {
+        margin: 0.5rem 0;
+        line-height: 1.2rem;
+        text-align: justify;
       }
     }
   }

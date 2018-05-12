@@ -33,11 +33,12 @@ plugins:
   - jekyll-feed
   - jekyll-asciidoc
   - jekyll-font-awesome-sass
-highlighter: rouge
 font-awesome:
   assets: true
 asciidoc: {}
-asciidoctor: {}
+asciidoctor:
+  attributes:
+    source-highlighter: highlightjs
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
