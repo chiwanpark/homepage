@@ -31,6 +31,7 @@ collections:
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-git_metadata
   - jekyll-asciidoc
   - jekyll-font-awesome-sass
 font-awesome:
