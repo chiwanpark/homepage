@@ -110,10 +110,14 @@ body > header {
   
   img#profile {
     border-radius: 10%;
-    width: 6rem;
+    width: 5.5rem;
     float: left;
     margin-right: 1rem;
     margin-bottom: 0;
+
+    @media only all and (min-width: 380px) {
+      width: 7rem;
+    }
     
     @media only all and (min-width: 600px) {
       width: 8rem;
@@ -131,13 +135,11 @@ body > header {
 
   p.description {
     font-family: $header-font;
-    margin-top: 1rem;
-    padding: 1rem 0;
     font-size: 1.2rem;
     font-weight: lighter;
 
     @media only all and (min-width: 361px) {
-      margin-top: 0;
+      padding: 0.8rem 0;
     }
   }
 
