@@ -8,7 +8,7 @@ $fa-font-path: "fonts/font-awesome/";
 @import "font-awesome";
 
 /** Inconsolata, Lato **/
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700|Lato:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Lato:300,400,600);
 
 /** Variables **/
 $header-font: "Lato", sans-serif;
@@ -23,7 +23,8 @@ $line-color: $base-font-color;
 
 /** highlight.js **/
 .highlight, code {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.9rem;
 }
 
 @import "atelier-estuary-light";
@@ -110,7 +111,7 @@ body > header {
   
   img#profile {
     border-radius: 10%;
-    width: 5.5rem;
+    width: 5.8rem;
     float: left;
     margin-right: 1rem;
     margin-bottom: 0;
@@ -130,23 +131,28 @@ body > header {
     font-family: $header-font;
     font-weight: 500;
     font-size: 2.5rem;
-    margin: 0;
+    padding-top: 0.2rem;
+    display: block;
   }
 
   p.description {
     font-family: $header-font;
     font-size: 1.2rem;
     font-weight: lighter;
+    display: none;
 
     @media only all and (min-width: 361px) {
       padding: 0.8rem 0;
+      display: block;
     }
   }
 
   nav {
     &.menu {
+      padding-top: 1rem;
       @media only all and (min-width: 600px) {
         float: left;
+        padding-top: 0;
         a {
           display: inline !important;
         }
@@ -273,7 +279,7 @@ div.content-container {
 
     ul {
       list-style: disc;
-      padding: 0rem 1.4rem;
+      padding-left: 1.4rem;
 
       li {
         margin: 0 0 0.3rem 0;
