@@ -45,6 +45,7 @@ asciidoctor:
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude:
+  - README.adoc
   - chiwanpark.github.io.iml
   - .idea/
   - Gemfile
