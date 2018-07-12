@@ -2,8 +2,8 @@
 :page-layout: static
 :page-permalink: /
 
-I'm a software engineer at ART (Advanced Recommendation Technologies) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building machine learning applications for various mobile and web services of Kakao.
-Before joining Kakao ART team, I did some research on large-scale graph processing on distributed systems under guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
+I'm a software engineer at ART (Advanced Recommendation Technologies) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
+Before joining Kakao ART team, I did some research on large-scale graph processing using distributed systems under guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang] at Seoul National University.
 Here is my full link:http://bit.ly/chiwanpark-cv[Curriculum Vitae].
 
 == News
@@ -73,11 +73,11 @@ Seoul National University, Fall 2016
 [.cv-list]
 == Extra Activities
 System Administrator in SNU Data Mining Lab.::
-I manage 3 web servers, 17 machines equipped Hadoop cluster, and 5 GPU-installed machines with LDAP authentication.
+I managed 3 web servers, 17 machines equipped Hadoop cluster, and 5 GPU-installed machines with LDAP authentication.
 Mar. 2016 - Mar. 2018
 
 Homepage Administrator of SNU Data Mining Lab.::
-I manage our lab homepage built on CodeIgniter and PHP.
+I managed our lab homepage built on CodeIgniter and PHP.
 Mar. 2016 - Mar. 2018
 
 Committer of Apache Flink::
