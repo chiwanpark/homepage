@@ -304,6 +304,13 @@ div.content-container {
   }
 }
 
+div.ad-container {
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 1rem;
+  max-width: $content-width;
+}
+
 footer {
   margin: 0 auto;
   padding: 1rem;
