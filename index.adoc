@@ -2,9 +2,12 @@
 :page-layout: static
 :page-permalink: /
 
-I'm a software engineer at ART (Advanced Recommendation Technologies) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
+I'm a software engineer at ART (Advanced Recommendation Technology) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
 Before joining Kakao ART team, I did some research on large-scale graph processing using distributed systems under guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang] at Seoul National University.
 Here is my full link:http://bit.ly/chiwanpark-cv[Curriculum Vitae].
+
+Outside of paid works, I enjoy developing various softwares. I have contributed to some open-source software projects such as link:https://flink.apache.org/[Apache Flink], and link:https://github.com/atlassian/commonmark-java[commonmark-java].
+You can see my activities about open-source software in link:https://github.com/chiwanpark[Github].
 
 == News
 * **Apr. 30, 2018** - I joined ART team at Kakao Corp. as a software engineer.
@@ -41,45 +44,3 @@ A Distributed Vertex Rearrangement Algorithm for Compressing and Mining Big Grap
 Namyong Park, Chiwan Park, and U Kang
 Journal of KIISE, Vol. 43, No. 10, pp. 1131-1143, 2016.
 link:https://datalab.snu.ac.kr/dslashburn/dslashburn.pdf[[paper]] link:https://datalab.snu.ac.kr/dslashburn/[[homepage (code, dataset)]]
-
-[.cv-list]
-== Projects
-Recommender System on Videos of oksusu application::
-Keywords: Multi-model Recommender System, Deep Learning, Word2Vec
-Jul. 2017 - Feb. 2018
-SK Telecom Media IT Lab., Seoul, Korea
-
-Development of Distributed Machine Learning Algorithms::
-Keywords: Apache Spark, Distributed DBSCAN, Linear Discriminant Analysis, Incremental PCA
-Apr. 2016 - Dec. 2016
-SK Telecom Big Data Tech Lab., Seongnam, Korea
-
-High Performance Big Data Analytics Platform Performance Acceleration Technologies Development::
-Keywords: Apache Hadoop, Apache Spark, Distributed Graph Processing, Matrix-Vector Multiplication
-Mar. 2016 - Mar. 2018
-UNIST, Ulsan, Korea
-
-[.cv-list]
-== Teaching Experiences
-Teaching Assistant of Basic Math for Big Data::
-Big Data Institute in Seoul National University, Summer 2017
-
-Teaching Assistant of Introduction to Data Mining::
-Seoul National University, Spring 2017
-
-Teaching Assistant of Data Structures::
-Seoul National University, Fall 2016
-
-[.cv-list]
-== Extra Activities
-System Administrator in SNU Data Mining Lab.::
-I managed 3 web servers, 17 machines equipped Hadoop cluster, and 5 GPU-installed machines with LDAP authentication.
-Mar. 2016 - Mar. 2018
-
-Homepage Administrator of SNU Data Mining Lab.::
-I managed our lab homepage built on CodeIgniter and PHP.
-Mar. 2016 - Mar. 2018
-
-Committer of Apache Flink::
-I have contributed to Apache Flink, a scalable distributed data processing framework, as a committer.
-Nov. 2014 - Present
