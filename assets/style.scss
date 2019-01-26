@@ -12,13 +12,16 @@ $fa-font-path: "fonts/font-awesome/";
 
 /** Variables **/
 $header-font: "Lato", sans-serif;
-$body-font: "Lato", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+$body-font: "Lato", "NanumBarunGothic", "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 $base-font-size: 12pt;
 $base-font-color: #495057;
-$highlight-color: #212529;
+$hover-color: #f76707;
 $icon-box-color: #343a40;
 $icon-color: #ffffff;
-$background-color: #f8f9fa;
+$background-color: #ffffff;
+$header-color: #f8f9fa;
+$header-line-color: #dee2e6;
+$content-width: 740px;
 $line-color: $base-font-color;
 
 /** highlight.js **/
@@ -27,7 +30,7 @@ $line-color: $base-font-color;
   font-size: 0.9rem;
 }
 
-@import "atelier-estuary-light";
+@import "github-gist";
 /* for block of numbers */
 td.hljs-ln-numbers {
   -webkit-touch-callout: none;
@@ -66,10 +69,67 @@ body {
   height: 100%;
   font-family: $body-font;
   font-weight: 400;
-  padding: 1rem;
+  padding: 0;
+  margin: 0;
+}
 
-  @media only all and (min-width: 600px) {
-    padding: 2rem;
+body > header {
+  background-color: $header-color;
+  padding: 3rem 2rem 1rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid $header-line-color;
+
+  & > img.profile {
+    width: 160px;
+    border: 1px solid $base-font-color;
+    border-radius: 50%;
+  }
+
+  & > .name {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  & > nav {
+    margin: 1rem 0;
+
+    a {
+      margin: 0.3rem 0.4rem 0.3rem 0;
+      text-decoration: none;
+      line-height: 2rem;
+
+      i.fa {
+        line-height: 2rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: $icon-box-color;
+        color: $icon-color;
+      }
+
+      &:hover {
+        i.fa {
+          background-color: $hover-color;
+        }
+      }
+
+      span.text {
+        overflow: hidden;
+        text-indent: -10000rem;
+        display: inline-block;
+        width: 0;
+        height: 0;
+      }
+
+      @media only all and (min-width: 600px) {
+        span.text {
+          display: inline !important;
+          margin-left: 0.2rem;
+        }
+      }
+    }
   }
 }
 
@@ -78,7 +138,7 @@ a {
   color: $base-font-color;
 
   &:hover {
-    color: $highlight-color;
+    color: $hover-color;
   }
 }
 
@@ -89,7 +149,7 @@ sup {
   vertical-align: top;
 
   a {
-    color: $highlight-color;
+    color: $hover-color;
     text-decoration: none;
 
     &:hover {
@@ -99,143 +159,17 @@ sup {
 }
 
 strong {
-  font-weight: bold;
-}
-
-body > header {
-  max-width: 54rem;
-  margin-bottom: 0.5rem;
-  @media only all and (min-width: 600px) {
-    margin-bottom: 2rem;
-  }
-  
-  img#profile {
-    border-radius: 10%;
-    width: 5.8rem;
-    float: left;
-    margin-right: 1rem;
-    margin-bottom: 0;
-
-    @media only all and (min-width: 380px) {
-      width: 7rem;
-    }
-    
-    @media only all and (min-width: 600px) {
-      width: 8rem;
-      margin-right: 2rem;
-      margin-bottom: 0;
-    }
-  }
-
-  .name {
-    font-family: $header-font;
-    font-weight: 500;
-    font-size: 2.5rem;
-    padding-top: 0.2rem;
-    display: block;
-  }
-
-  p.description {
-    font-family: $header-font;
-    font-size: 1.2rem;
-    font-weight: lighter;
-    display: none;
-
-    @media only all and (min-width: 361px) {
-      padding: 0.8rem 0;
-      display: block;
-    }
-  }
-
-  nav {
-    &.menu {
-      padding-top: 1rem;
-      @media only all and (min-width: 600px) {
-        float: left;
-        padding-top: 0;
-        a {
-          display: inline !important;
-        }
-      }
-
-      a {
-        display: block;
-        color: $icon-box-color;
-        text-decoration: none;
-        margin: 0.3rem 0.4rem 0.3rem 0;
-        line-height: 2rem;
-
-        i {
-          width: 2rem;
-          height: 2rem;
-          text-align: center;
-          line-height: 2rem;
-          margin-right: 0.4rem;
-          background-color: $icon-box-color;
-          color: $icon-color;
-          border-radius: 1rem;
-        }
-
-        &:hover {
-          color: $highlight-color;
-
-          i {
-            color: #FFFFFF;
-            background-color: $highlight-color;
-          }
-        }
-      }
-    }
-
-    &.link {
-      @media only all and (min-width: 600px) {
-        float: right;
-      }
-
-      span.text {
-        overflow: hidden;
-        text-indent: -10000rem;
-        display: block;
-      }
-
-      a {
-        display: inline-block;
-        width: 2rem;
-        height: 2rem;
-        vertical-align: middle;
-        line-height: 2rem;
-        background-color: $icon-box-color;
-        color: $icon-color;
-        text-align: center;
-        border-radius: 1rem;
-
-        &:hover {
-          background-color: $highlight-color;
-          color: #FFFFFF;
-        }
-      }
-    }
-  }
-
-  &:after {
-    content: " ";
-    display: block;
-    height: 0;
-    clear: both;
-    overflow: hidden;
-    visibility: hidden;
-  }
+  font-weight: 600;
 }
 
 div.content-container {
-  text-align: left;
+  margin: 0 auto;
+  max-width: $content-width;
+  padding: 1rem;
 
   main {
-    display: block;
-    max-width: 54rem;
-
     h1, h2, h3 {
-      font-weight: bold;
+      font-weight: 600;
       text-align: left;
     }
 
@@ -250,9 +184,9 @@ div.content-container {
     }
 
     p {
-      margin: 0.8rem 0;
-      line-height: 1.5rem;
       text-align: justify;
+      line-height: 1.4rem;
+      margin: 1rem 0;
     }
 
     img {
@@ -263,6 +197,7 @@ div.content-container {
 
     article {
       overflow-x: auto;
+
       p.date {
         margin-top: -0.6rem;
         font-size: 0.8rem;
@@ -283,24 +218,22 @@ div.content-container {
 
       li {
         margin: 0 0 0.3rem 0;
-        line-height: 1.3rem;
+
+        h2 {
+          font-size: 1rem;
+          font-weight: 600;
+          margin: 0;
+          padding: 0;
+        }
 
         p {
           margin: 0;
-        }
-        
-        h2 {
-          font-size: 1rem;
-          font-weight: bolder;
-          margin: 0;
-          padding: 0;
         }
       }
     }
 
     ol {
       list-style: decimal;
-      line-height: 1.3rem;
       padding: 0.4rem 1.4rem;
 
       li {
@@ -312,19 +245,18 @@ div.content-container {
         padding: 0.6rem 0;
 
         li {
-          margin: 0 0 0.8rem 0;
-          line-height: 1.3rem;
+          margin-bottom: 1.2rem;
 
           h2 {
             font-size: 1rem;
             margin: 0.4rem 0;
           }
 
-          .date {
+          & > .date {
             font-style: italic;
           }
 
-          .description {
+          & > .description {
             text-align: left;
           }
         }
@@ -335,33 +267,22 @@ div.content-container {
       display: block;
       height: 1px;
       border: 0;
-      border-top: 1px solid $line-color;
+      border-top: 1px dotted $line-color;
     }
 
     div.cv-list {
       dt {
         display: list-item;
-        font-weight: bold;
+        font-weight: 600;
         list-style-type: disc;
       }
 
       dt, dd {
         margin-left: 1.4rem;
-        line-height: 1.4rem;
+
         p {
           margin: 0.25rem 0 0.75rem 0;
           white-space: pre-wrap;
-          line-height: 1.4rem;
-        }
-      }
-    }
-
-    div.list-navigation {
-      a {
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
         }
       }
     }
@@ -376,19 +297,21 @@ div.content-container {
         text-align: justify;
       }
     }
+
+    div.list-navigation a span.text {
+      margin-left: 0.2rem;
+    }
   }
 }
 
-div.ad-container {
-  text-align: left;
-  max-width: 54rem;
-  margin-top: 1rem;
-}
-
 footer {
-  padding: 1rem 0;
-  line-height: 1rem;
-  font-size: 0.7rem;
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: $content-width;
   text-align: right;
-  max-width: 54rem;
+  font-size: 0.7rem;
+
+  & > p {
+    line-height: 1rem;
+  }
 }
