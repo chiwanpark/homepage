@@ -19,6 +19,7 @@ gem "ffi", "~> 1.9.24"
 group :jekyll_plugins do
   gem "jekyll-font-awesome-sass"
   gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-sitemap", "~> 1.2.0"
   gem "jekyll-git_metadata"
   gem "jekyll-asciidoc", "~> 2.1"
 end

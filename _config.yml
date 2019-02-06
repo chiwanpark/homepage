@@ -14,16 +14,15 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Chiwan Park
+author: Chiwan Park
 email: chiwanpark@icloud.com
-description: >-
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
 baseurl: ""
 url: "https://chiwanpark.com"
 
 # Collections
 collections:
+  posts:
+    output: false
   articles:
     output: true
     permalink: /:collection/:path.html
@@ -40,6 +39,13 @@ asciidoc: {}
 asciidoctor:
   attributes:
     source-highlighter: highlightjs
+feed:
+  collections:
+    articles:
+      path: "/feed.xml"
+    posts:
+      path: "/feed-dummy.xml" # prevent create RSS feed from posts collection
+sitemap: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
