@@ -1,0 +1,24 @@
+= Sierra Wireless EM7455 on Thinkpad T480s
+:page-layout: article
+:page-date: 2018-03-09 00:00:00 +0900
+:page-summary: Thinkpad T480s + Arch Linux 조합에서 LTE를 사용하기 위한 고군분투기
+
+== 참 쉬운(?) Thinkpad에서 LTE 사용하기
+Thinkpad는 고급 비즈니스 노트북을 표방하는 것에 걸맞게 다른 노트북 라인업에서 잘 제공하지 않는 다양한 모듈을 추가로 설치할 수 있게 옵션을 제공한다.
+LTE 모듈 역시 그 중 하나로, 노트북에 장착시 USIM 카드를 노트북에 끼워 어디서든 LTE를 통해 노트북을 인터넷에 연결시켜준다.
+LTE 모듈은 Thinkpad CTO 구매시 옵션으로 선택할 수 있으며, 장착하면 WiFi AP가 없는 곳에서도 인터넷을 할 수 있다.
+
+== 문제점
+이렇게 간단하게 끝나면 이 글을 쓸 필요가 없없을 것이다.
+나는 Thinkpad T480s에 Arch Linux를 설치하여 메인 노트북으로 사용하고 있다.
+국내에서 구매한다고 할 때, T480s에 옵션으로 추가 할 수 있는 LTE 모듈은 Fibocom L850-GL이다.
+안타깝게도 이 모델은 Linux 지원이 되지 않는다.
+그렇다고 Linux 지원이 되는 아무 LTE 모듈을 설치할 수는 없는게 추가 장착된 모듈의 경우 부팅 시점에 FRU (Field Replacement Unit) 번호를 UEFI가 체크하고 화이트리스트에 등록된 모듈이 아닌 경우 부팅이 되지 않는다.
+T480s의 화이트리스트에 등록되어 있으면서 Linux 지원이 된다고 알려진 Fibocom L830-EB은 Lenovo 호환 모듈을 국내에서 구매하기 너무 어렵고, 지원하는 LTE 밴드도 대부분 유럽/아프리카에서 사용하는 밴드라 선뜻 시도해보기가 망설여졌다.
+
+== 레딧에 올라온 글
+사실상 LTE 사용을 포기하고 있던 와중에 link:https://www.reddit.com/r/thinkpad/comments/a3yd2j/sierra_wireless_em7455_seems_working_with_my/[레딧에서 X1 Carbon 6세대에 이전 세대 LTE 모듈을 설치할 수 있다는 글]을 보게 되었다.
+글 작성자는 X1 Carbon 6세대에 이전 세대용 Sierra Wireless EM7455를 설치해 LTE를 사용했고, 댓글에 다른 사람들이 같은 회사의 LTE 모듈인 EM7345, EM7565 또한 작동한다는 것을 확인시켜주었다.
+X1 Carbon 6세대는 T480s와 같은 세대이고 구성에 비슷한 부분이 많아 T480s에서도 같은 방법으로 LTE를 사용할 수 있을 것이라는 생각이 들었다.
+검색을 조금 더 해본 후에 가격이 저렴한 편인 Thinkpad용 Sierra Wireless EM7455 중고를 이베이에서 구매했다.
+위에 언급한 레딧 글에서 적용한 방법은 UEFI의 화이트리스트 체크를 우회하는 방법이라 더 저렴한 HP/DELL 호환 EM7455를 구매해도 괜찮았지만 혹시 안될 경우 구매한 LTE 모듈을 다시 방출해야하기 때문에 Thinkpad와 호환되는 EM7455 모듈로 구매했다.
