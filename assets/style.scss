@@ -7,12 +7,13 @@
 $fa-font-path: "fonts/font-awesome/";
 @import "font-awesome";
 
-/** Inconsolata, Lato **/
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Lato:300,400,600);
+/** external fonts **/
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Mukta:400,700');
+@import url('https://cdn.jsdelivr.net/npm/typeface-nanum-barun-gothic@1.0.0/nanumbarungothic.min.css');
 
 /** Variables **/
-$header-font: "Lato", sans-serif;
-$body-font: "Lato", "NanumBarunGothic", "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+$header-font: 'Mukta', sans-serif;
+$body-font: 'Mukta', 'Nanum Barun Gothic', sans-serif;
 $base-font-size: 12pt;
 $base-font-color: #495057;
 $hover-color: #f76707;
@@ -26,8 +27,8 @@ $line-color: $base-font-color;
 
 /** highlight.js **/
 .highlight, code {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 0.9rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.95rem;
 }
 
 @import "github-gist";
@@ -88,7 +89,7 @@ body > header {
   & > .name {
     display: block;
     margin: 0.5rem 0;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 2rem;
   }
 
@@ -159,7 +160,7 @@ sup {
 }
 
 strong {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 div.content-container {
@@ -169,24 +170,30 @@ div.content-container {
 
   main {
     h1, h2, h3 {
-      font-weight: 600;
+      font-weight: 700;
       text-align: left;
     }
 
     h1 {
       font-size: 1.4rem;
-      margin: 1.2rem 0 0.8rem;
+      margin: 1.2rem 0 0.5rem;
     }
 
     h2 {
       font-size: 1.2rem;
-      margin: 1.2rem 0 0.8rem;
+      margin: 1.2rem 0 0.5rem;
     }
 
     p {
       text-align: justify;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
       line-height: 1.4rem;
-      margin: 1rem 0;
+      margin-bottom: 1rem;
+      font-feature-settings: normal;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
 
     img {
@@ -221,7 +228,7 @@ div.content-container {
 
         h2 {
           font-size: 1rem;
-          font-weight: 600;
+          font-weight: 700;
           margin: 0;
           padding: 0;
         }
@@ -273,8 +280,9 @@ div.content-container {
     div.cv-list {
       dt {
         display: list-item;
-        font-weight: 600;
+        font-weight: 700;
         list-style-type: disc;
+        line-height: 1.2rem;
       }
 
       dt, dd {
@@ -319,6 +327,6 @@ footer {
   font-size: 0.7rem;
 
   & > p {
-    line-height: 1rem;
+    line-height: 0.95rem;
   }
 }
