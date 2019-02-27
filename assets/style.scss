@@ -205,6 +205,7 @@ div.content-container {
     div.imageblock {
       & > div.title {
         text-align: center;
+        margin: 0.3rem 0 0.7rem 0;
       }
     }
 
@@ -291,7 +292,11 @@ div.content-container {
       border: 2px solid #fa5252;
       border-radius: 5px;
       background-color: #fff5f5;
-      padding: 0 0.6rem;
+      padding: 0.6rem;
+
+      p {
+        margin: 0;
+      }
     }
 
     div.cv-list {
