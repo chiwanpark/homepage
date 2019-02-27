@@ -12,7 +12,14 @@
       'use strict';
 
       hljs.initHighlightingOnLoad();
-      hljs.initLineNumbersOnLoad();
+      var renderLineNumber = function() {
+        var blocks = document.querySelectorAll('code.hljs');
+        for (var i = 0; i < blocks.length; ++i) {
+          if (blocks[i].dataset.lang && blocks[i].dataset.lang != 'shell') {
+            hljs.lineNumbersBlock(blocks[i]);
+          }
+        }
+      };
 
       var renderLaTeX = function() {
         window.renderMathInElement(document.getElementById('article-content'), {
@@ -26,6 +33,7 @@
       };
 
       window.addEventListener('load', renderLaTeX, false);
+      window.addEventListener('load', renderLineNumber, false);
     })();
   </script>
 </head>
