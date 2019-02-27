@@ -1,24 +1,210 @@
 = Sierra Wireless EM7455 on Thinkpad T480s
 :page-layout: article
-:page-date: 2018-03-09 00:00:00 +0900
+:page-date: 2018-02-28 00:00:00 +0900
 :page-summary: Thinkpad T480s + Arch Linux 조합에서 LTE를 사용하기 위한 고군분투기
+
+[.disclaimer]
+Disclaimer: 이 글에서 소개하는 방법으로 LTE 모듈을 장착하다가 노트북이나 LTE 모듈에 문제가 발생할 수 있습니다.
+그 책임은 제가 지지 않으며, 이 점 유의하시고 글을 읽어주시기 바랍니다.
 
 == 참 쉬운(?) Thinkpad에서 LTE 사용하기
 Thinkpad는 고급 비즈니스 노트북을 표방하는 것에 걸맞게 다른 노트북 라인업에서 잘 제공하지 않는 다양한 모듈을 추가로 설치할 수 있게 옵션을 제공한다.
-LTE 모듈 역시 그 중 하나로, 노트북에 장착시 USIM 카드를 노트북에 끼워 어디서든 LTE를 통해 노트북을 인터넷에 연결시켜준다.
-LTE 모듈은 Thinkpad CTO 구매시 옵션으로 선택할 수 있으며, 장착하면 WiFi AP가 없는 곳에서도 인터넷을 할 수 있다.
+LTE 모듈 역시 그중 하나로, 노트북에 USIM 카드와 함께 장착하면 어디서든 LTE를 통해 노트북으로 인터넷을 사용할 수 있다.
+LTE 모듈은 Thinkpad CTO 구매 시 옵션으로 선택할 수 있으며, 이 글을 쓰는 2019년 2월에는 LTE 모듈 추가 옵션은 약 10만원 정도의 금액이 필요하다.
 
 == 문제점
-이렇게 간단하게 끝나면 이 글을 쓸 필요가 없없을 것이다.
-나는 Thinkpad T480s에 Arch Linux를 설치하여 메인 노트북으로 사용하고 있다.
-국내에서 구매한다고 할 때, T480s에 옵션으로 추가 할 수 있는 LTE 모듈은 Fibocom L850-GL이다.
-안타깝게도 이 모델은 Linux 지원이 되지 않는다.
-그렇다고 Linux 지원이 되는 아무 LTE 모듈을 설치할 수는 없는게 추가 장착된 모듈의 경우 부팅 시점에 FRU (Field Replacement Unit) 번호를 UEFI가 체크하고 화이트리스트에 등록된 모듈이 아닌 경우 부팅이 되지 않는다.
-T480s의 화이트리스트에 등록되어 있으면서 Linux 지원이 된다고 알려진 Fibocom L830-EB은 Lenovo 호환 모듈을 국내에서 구매하기 너무 어렵고, 지원하는 LTE 밴드도 대부분 유럽/아프리카에서 사용하는 밴드라 선뜻 시도해보기가 망설여졌다.
+이렇게 간단하게 끝나면 이 글을 쓸 필요가 없었을 것이다.
+앞서 얘기한 CTO 옵션을 통한 LTE 모듈 설치는 Windows 10을 사용하고 있을 때 가능한 것이고, 나처럼 T480s에 Arch Linux를 설치해 쓰는 경우는 LTE 모듈 설치 과정이 복잡해진다.
+레노버 공식 홈페이지를 통해서 구매한다고 할 때, T480s에 CTO 옵션으로 추가할 수 있는 LTE 모듈은 Fibocom L850-GL이라는 모델이다.
+안타깝게도 이 모델은 Linux driver가 없어 Linux 환경에서 사용할 수 없다.
+그렇다고 Linux driver 지원이 되는 아무 LTE 모듈을 설치할 수는 없는 게 추가 장착된 모듈의 경우 부팅 시점에 FRU (Field Replacement Unit) 번호를 UEFI가 확인하고 화이트리스트에 등록된 모듈이 아닌 경우 부팅이 되지 않는다.
+T480s의 화이트리스트에 등록되어 있으면서 Linux 지원이 된다고 알려진 LTE 모듈(Fibocom L830-EB)도 있긴 한데, 해당 모듈을 국내에서 구매하기 너무 어렵고 모듈이 지원하는 LTE 밴드도 대부분 유럽/아프리카에서 사용하는 밴드라 선뜻 시도해보기가 망설여졌다.
 
 == 레딧에 올라온 글
 사실상 LTE 사용을 포기하고 있던 와중에 link:https://www.reddit.com/r/thinkpad/comments/a3yd2j/sierra_wireless_em7455_seems_working_with_my/[레딧에서 X1 Carbon 6세대에 이전 세대 LTE 모듈을 설치할 수 있다는 글]을 보게 되었다.
 글 작성자는 X1 Carbon 6세대에 이전 세대용 Sierra Wireless EM7455를 설치해 LTE를 사용했고, 댓글에 다른 사람들이 같은 회사의 LTE 모듈인 EM7345, EM7565 또한 작동한다는 것을 확인시켜주었다.
 X1 Carbon 6세대는 T480s와 같은 세대이고 구성에 비슷한 부분이 많아 T480s에서도 같은 방법으로 LTE를 사용할 수 있을 것이라는 생각이 들었다.
 검색을 조금 더 해본 후에 가격이 저렴한 편인 Thinkpad용 Sierra Wireless EM7455 중고를 이베이에서 구매했다.
-위에 언급한 레딧 글에서 적용한 방법은 UEFI의 화이트리스트 체크를 우회하는 방법이라 더 저렴한 HP/DELL 호환 EM7455를 구매해도 괜찮았지만 혹시 안될 경우 구매한 LTE 모듈을 다시 방출해야하기 때문에 Thinkpad와 호환되는 EM7455 모듈로 구매했다.
+위에 언급한 레딧 글에서 적용한 방법은 UEFI의 화이트리스트 체크를 우회하는 방법이라 더 저렴한 HP/DELL 호환 EM7455를 구매해도 괜찮았지만, 혹시 안될 경우 구매한 LTE 모듈을 다시 방출해야 하므로 Thinkpad와 호환되는 EM7455 모듈로 구매했다.
+
+== LTE 모듈 설치 및 UEFI 화이트리스트 우회 방법
+X1 Carbon 6세대와 T480s의 UEFI 화이트리스트를 우회하는 아이디어는 간단하다.
+LTE 모뎀은 USB 방식으로 시스템과 통신하는데, 모뎀이 USB에 등록되는 시간을 의도적으로 지연시켜 UEFI가 화이트리스트를 확인하는 시점에 LTE 모뎀을 찾지 못하도록 만드는 것이다.
+부팅이 이후 USB에 등록이 되어도 시스템이 LTE 모뎀을 자동으로 인식하므로 LTE 사용에는 별문제가 없다.
+그리고 두 노트북 모두 장착된 부품의 화이트리스트 체크를 cold boot 상황footnote:[컴퓨터가 꺼져있는 상황에서 부팅이 진행되는 경우를 말한다.]에서만 수행하고, warm boot 상황footnote:[cold boot와는 반대로 컴퓨터가 완전히 꺼져있지 않은 상태(sleep mode, hibernate)에서 부팅이 진행되는 경우를 말한다.]에서는 수행하지 않기 때문에, 지연 역시 cold boot 상황에서만 일어나도록 설정해두면 된다.
+앞서 살펴본 내용을 바탕으로 LTE 모듈을 T480s에 설치하는 방법을 정리하면 아래와 같다.
+
+1. 노트북을 부팅시킨다.
+2. 부팅이 완료되면 노트북을 절전 상태로 전환한다.
+3. 노트북 하판 분해해, LTE 모듈을 장착한다. 하판 분해는 link:https://www.youtube.com/watch?v=UHBuyu_Dy3k[이 동영상]에 잘 나와 있고, LTE 모듈 설치는 link:https://ruinses.tistory.com/1354[이 글]footnote:[링크된 글은 이전 세대 모델인 T470s에 LTE 모듈을 설치하는 글이지만, LTE 모듈 설치 과정은 큰 차이가 없고, 무엇보다 EM7455는 이전 세대용 LTE 모듈이라 동일하게 설치가 가능하다.]을 보면 도움이 된다.
+4. 노트북을 열어 절전 상태에서 빠져나온다.
+5. LTE 모듈이 인식되었는지 확인해본다.
++
+[source,shell]
+----
+# lsusb
+<...>
+Bus 001 Device 008: ID 1199:9079 Sierra Wireless, Inc. 
+<...>
+----
+6. ModemManager 서비스를 중지한다.
++
+[source,shell]
+----
+# systemctl stop ModemManager
+----
+7. AT 명령어를 쓸 수 있도록, USB 설정을 바꾼다. (LTE 모뎀을 가리키는 파일 위치는 다를 수 있다.)
++
+[source,shell]
+----
+# qmicli -d /dev/cdc-wdm0 --dms-swi-set-usb-composition=8
+----
+8. LTE 모뎀을 재부팅 시킨다.
++
+[source,shell]
+----
+# qmicli -d /dev/cdc-wdm0 --dms-set-operating-mode=offline
+# qmicli -d /dev/cdc-wdm0 --dms-set-operating-mode=reset
+----
+9. LTE 모뎀이 정상적으로 부팅이 되었는지 확인한다.
++
+[source,shell]
+----
+# qmicli -d /dev/cdc-wdm0 --dms-swi-get-usb-composition
+[/dev/cdc-wdm0] Successfully retrieved USB compositions:
+            USB composition 6: DM, NMEA, AT, QMI
+        [*] USB composition 8: DM, NMEA, AT, MBIM
+            USB composition 9: MBIM
+----
+10. LTE 모뎀이 USB serial port에 잘 등록되어있는지 확인한다.
+    다른 USB serial 장치가 없다면, 총 3개의 장치(`ttyUSB0`, `ttyUSB1`, `ttyUSB2`)가 보여야 한다.
++
+[source,shell]
+----
+# ls -l /dev/ttyUSB*
+crw-rw---- 1 root uucp 188, 0 Feb 27 00:17 /dev/ttyUSB0
+crw-rw---- 1 root uucp 188, 1 Feb 27 00:17 /dev/ttyUSB1
+crw-rw---- 1 root uucp 188, 2 Feb 27 00:18 /dev/ttyUSB2
+----
+11. `/dev/ttyUSB2` 장치에 터미널 에뮬레이터를 통해 접속한다.
+    여기서는 GNU screen을 사용해 접속했다.
+    `screen` 명령어를 실행해도 화면에는 변화가 없고 빈 커서가 입력을 기다리고 있을 것이다.
++
+[source,shell]
+----
+# screen /dev/ttyUSB2 115200
+----
+12. USB 등록 지연을 위한 AT 명령어를 하나씩 입력한다. (아래 기술된 명령어 중 사용자가 입력하는 명령어는 첫 줄뿐이고, 나머지는 명령어 결과로 출력된 것임을 유의하자.)
+  a. 입력하는 AT 명령어가 화면에 보이도록 echo 기능을 켠다.
++
+[source,shell]
+----
+ATE1
+OK
+----
+  b. 모든 AT 명령을 쓸 수 있도록 잠겨있는 기능을 해제한다.
++
+[source,shell]
+----
+AT!ENTERCND="A710"
+OK
+----
+  c. USB 등록 지연을 설정한다. (숫자 2는 앞서 언급한 cold boot 시에만 지연을 하고, warm boot 시에는 지연을 하지 않도록 설정하는 것이다. 두 경우 모두 지연시키려면 2 대신 0을 기재하면 된다.)
++
+[source,shell]
+----
+AT!CUSTOM="FASTENUMEN",2
+OK
+----
+  d. 설정이 잘 되었는지 확인한다.
++
+[source,shell]
+----
+AT!CUSTOM?
+!CUSTOM: 
+             GPSENABLE          0x01
+             GPSSEL             0x01
+             IPV6ENABLE         0x01
+             SIMLPM             0x01
+             FASTENUMEN         0x02
+             SINGLEAPNSWITCH    0x01
+
+
+OK
+----
+  e. USB 등록 지연을 활성화하면 UEFI 펌웨어가 LTE 모듈의 존재를 모르게 되고 무선 장비 목록에서도 빠져있어 가끔 LTE 모듈이 비행기 모드로 전환되는 버그가 있다.
+     이를 방지하기 위해 M.2 슬롯의 `W_DISABLE` 핀을 무시하는 옵션을 설정한다.
++
+[source,shell]
+----
+AT!PCOFFEN=2
+OK
+----
+  f. 설정이 잘 되었는지 확인한다.
++
+[source,shell]
+----
+AT!PCOFFEN?
+2
+
+OK
+----
+  g. 모뎀을 재부팅 한다.
++
+[source,shell]
+----
+AT!RESET
+OK
+----
+13. 모뎀 재부팅 명령을 날리고, 30초에서 1분 정도 기다리면 터미널 연결이 끊어진다.
+    이후, 노트북 재부팅을 하며 UEFI 오류 없이 부팅이 잘 되는지 확인한다.
+
+== LTE 개통 및 인터넷 설정
+LTE 모듈이 설치가 완료되어 인식하는 데 문제가 없으면, 통신사에서 LTE 유심을 개통 받아 끼우면 LTE를 사용할 수 있다.
+우리나라도 요즘은 단말기 자급제가 시행 되어 IMEI 없이도 유심 단독 개통이 가능하다.
+이론적으로는 그런데 실제로 유심 단독 개통을 시도하면 난색을 보이는 경우가 많아, 기기 IMEI를 들고 가는 것이 편하다.
+기기 IMEI는 LTE 모듈에 기재되어 있기도 하지만, 터미널 명령어나 ModemManager GUI에서도 확인할 수 있다.
+여기서는 터미널 명령어로 IMEI를 확인하는 방법을 소개한다.
+
+1. 먼저 시스템에 설치된 LTE 모듈의 번호가 몇번인지 확인한다.
+   `Modem` 키워드 뒤에 오는 숫자가 LTE 모듈의 번호이다. (여기서는 0번)
++
+[source,shell]
+----
+$ mmcli -L
+    /org/freedesktop/ModemManager1/Modem/0 [Sierra Wireless, <...> 
+----
+2. LTE 모듈의 정보를 출력해 IMEI를 확인한다.
+   IMEI는 `equipment id` 항목 옆에 있는 15자리 숫자이다.
++
+[source,shell]
+----
+$ mmcli -m 0
+<...>
+  Hardware |         manufacturer: Sierra Wireless, Incorporated
+           |                model: Sierra Wireless EM7455 Qualcomm <...>
+           |             revision: SWI9X30C_02.24.03.00
+           |         h/w revision: EM7455
+           |            supported: gsm-umts, lte
+           |              current: gsm-umts, lte
+           |         equipment id: xxxxxxxxxxxxxxxxxxxx
+<...>
+----
+
+이렇게 알아낸 IMEI를 가지고 SKT 지점에 방문해 데이터 함께쓰기 USIM을 발급받았다.
+USIM을 설치한 뒤, APN을 바르게 설정해주면 LTE 네트워크에 연결할 수 있다.
+SKT의 경우 발급 받은 USIM이 지원하는 디바이스에 따라 APN 설정을 다르게 해야하는데, 노트북의 경우 `lte-internet.sktelecom.com` 으로 설정해주면 잘 작동했다. 
+
+.SKT LTE에 연결된 모습
+image::/assets/sierra-wireless-em7455-on-thinkpad-t480s-01.png[alt=SKT LTE에 연결된 모습,width=60%]
+
+== LTE 사용 테스트
+LTE에 연결한 후, speedtest.net 사이트를 통해 업로드/다운로드 속도 측정을 수행해봤다.
+다운로드의 경우 약 25Mbps, 업로드의 경우 약 18Mbps의 속도가 나왔다.
+같은 장소에서 스마트폰으로 측정한 속도보다 다소 느리지만, 주로 쓰는 용도에 큰 불편함이 없어서 일단은 이대로 사용하기로 했다.
+
+.speedtest.net 테스트 결과
+image::/assets/sierra-wireless-em7455-on-thinkpad-t480s-02.png[alt=speedtest.net 테스트 결과. 다운로드 약 25Mbps, 업로드 약 18Mbps의 속도를 보여준다.]
+
+속도 테스트 이외에 회사 VPN이나 동영상 시청 등 일반적인 노트북을 사용하는 용도로 장시간 테스트를 해보았는데, 별다른 문제 없이 LTE를 사용할 수 있었다.
+다만, 모회선의 데이터가 넉넉한 편은 아니라, 며칠 사용해 본 뒤 모회선의 요금제를 적당히 조절 할 예정이다.
