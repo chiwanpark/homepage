@@ -2,7 +2,7 @@
 :page-layout: static
 :page-permalink: /
 
-I'm a software engineer at ART (Advanced Recommendation Technology) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
+I'm a machine learning engineer at ART (Advanced Recommendation Technology) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
 Before joining Kakao ART team, I did some research on large-scale graph processing using distributed systems under guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang] at Seoul National University.
 Here is my full link:http://bit.ly/chiwanpark-cv[Curriculum Vitae].
 
