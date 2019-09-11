@@ -7,10 +7,6 @@
 $fa-font-path: "fonts/font-awesome/";
 @import "font-awesome";
 
-/** external fonts **/
-@import url('https://fonts.googleapis.com/css?family=Inconsolata|Mukta:400,700');
-@import url('https://cdn.jsdelivr.net/npm/typeface-nanum-barun-gothic@1.0.0/nanumbarungothic.min.css');
-
 /** Variables **/
 $header-font: 'Mukta', sans-serif;
 $body-font: 'Mukta', 'Nanum Barun Gothic', sans-serif;
@@ -24,6 +20,8 @@ $header-color: #f8f9fa;
 $header-line-color: #dee2e6;
 $content-width: 740px;
 $line-color: $base-font-color;
+$content-line-height: 1.5rem;
+$blockquote-line-height: 1.5rem;
 
 /** highlight.js **/
 .highlight, code {
@@ -166,7 +164,11 @@ strong {
 div.content-container {
   margin: 0 auto;
   max-width: $content-width;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
+
+  @media only all and (min-width: 768px) {
+    padding: 1rem 0;
+  }
 
   main {
     h1, h2, h3 {
@@ -176,7 +178,7 @@ div.content-container {
 
     h1 {
       font-size: 1.4rem;
-      margin: 1.2rem 0 0.5rem;
+      margin: 0 0 0.5rem;
     }
 
     h2 {
@@ -189,7 +191,7 @@ div.content-container {
       word-break: keep-all;
       overflow-wrap: break-word;
       word-wrap: break-word;
-      line-height: 1.4rem;
+      line-height: $content-line-height;
       margin-bottom: 1rem;
       font-feature-settings: normal;
       text-rendering: optimizeLegibility;
@@ -222,7 +224,7 @@ div.content-container {
       border-left: 4px solid $line-color;
       margin: 0.8rem 0 0.8rem 0.6rem;
       padding-left: 0.9rem;
-      line-height: 1.5rem;
+      line-height: $blockquote-line-height;
       text-align: justify;
     }
 
@@ -276,6 +278,10 @@ div.content-container {
 
           & > .description {
             text-align: left;
+
+            span.summary {
+              line-height: $content-line-height;
+            }
           }
         }
       }
