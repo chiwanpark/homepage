@@ -10,12 +10,11 @@ Outside of paid works, I enjoy developing various softwares. I have contributed 
 You can see my activities about open-source software in link:https://github.com/chiwanpark[Github].
 
 == News
+* **Jan. 24, 2020** - A paper, "FlexGraph: Flexible partitioning and storage for scalable graph mining" was published to PLoS ONE.
 * **Aug. 30, 2019** - I gave a talk named "link:http://j.mp/chiwanpark-ifkakao2019[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://if.kakao.com[if (kakao)dev 2019].
 * **Apr. 30, 2018** - I joined ART team of Kakao Corp. as a software engineer.
 * **Nov. 10, 2017** - A demo paper, "PegasusN: A Scalable and Versatile Graph Mining System" was accepted to AAAI 2018.
 * **Mar. 2, 2016** - I joined Data Mining Laboratory at Seoul National University as a master's student.
-* **Feb. 26, 2016** - I gave a talk named "link:http://j.mp/d2-campus-seminar-4th-park[학교에선 알려주지 않는 오픈 소스 이야기]"
-  at link:http://d2.naver.com/news/2137145[NAVER 4th D2 Campus Seminar], Korea.
 
 [.cv-list]
 == Education
@@ -29,6 +28,11 @@ Yonsei University, Seoul, Korea
 
 [.cv-list]
 == Publications
+FlexGraph: Flexible partitioning and storage for scalable graph mining::
+Chiwan Park, Ha-Myung Park, and U Kang.
+PLoS ONE 15(1): e0227032
+link:https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0227032[[paper\]] link:https://github.com/snudatalab/FlexGraph[[github\]]
+
 PegasusN: A Scalable and Versatile Graph Mining System::
 Ha-Myung Park, Chiwan Park, and U Kang.
 Thirty-Second AAAI Conference on Artificial Intelligence (AAAI) 2018, New Orleans, Lousiana, USA.
