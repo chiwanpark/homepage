@@ -39,11 +39,6 @@ Thirty-Second AAAI Conference on Artificial Intelligence (AAAI) 2018, New Orlean
 (Demo Paper)
 link:https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/16474/16451[[paper\]] link:https://datalab.snu.ac.kr/pegasusn[[homepage (code)\]]
 
-PMV: Pre-partitioned Generalized Matrix-Vector Multiplication for Scalable Graph Mining::
-Chiwan Park, Ha-Myung Park, Minji Yoon, and U Kang.
-arXiv:1709.09099 [cs.DC] Sep. 2017.
-link:https://arxiv.org/abs/1709.09099[[paper\]]
-
 A Distributed Vertex Rearrangement Algorithm for Compressing and Mining Big Graphs::
 Namyong Park, Chiwan Park, and U Kang
 Journal of KIISE, Vol. 43, No. 10, pp. 1131-1143, 2016.
