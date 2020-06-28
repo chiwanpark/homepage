@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Chiwan Park
 author: Chiwan Park
-email: chiwanpark@icloud.com
+email: chiwanpark@hotmail.com
 baseurl: ""
 url: "https://chiwanpark.com"
 
@@ -52,8 +52,6 @@ sitemap: true
 # to override the default setting.
 exclude:
   - README.adoc
-  - chiwanpark.github.io.iml
-  - .idea/
   - Gemfile
   - Gemfile.lock
   - vendor/bundle/
