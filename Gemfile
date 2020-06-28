@@ -8,8 +8,8 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.8.4"
-gem "ffi", "~> 1.9.24"
+gem "jekyll", "~> 3.8.7"
+gem "ffi", "~> 1.13.1"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
@@ -17,11 +17,11 @@ gem "ffi", "~> 1.9.24"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-font-awesome-sass"
-  gem "jekyll-feed", "~> 0.6"
-  gem "jekyll-sitemap", "~> 1.2.0"
-  gem "jekyll-git_metadata"
-  gem "jekyll-asciidoc", "~> 2.1"
+  gem "jekyll-font-awesome-sass", "~> 0.1.1"
+  gem "jekyll-feed", "~> 0.14.0"
+  gem "jekyll-sitemap", "~> 1.4.0"
+  gem "jekyll-git_metadata", "~> 0.2.0"
+  gem "jekyll-asciidoc", "~> 3.0.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
