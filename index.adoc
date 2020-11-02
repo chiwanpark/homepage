@@ -11,7 +11,7 @@ You can see my activities about open-source software in link:https://github.com/
 
 == News
 * **Jan. 24, 2020** - A paper, "FlexGraph: Flexible partitioning and storage for scalable graph mining" was published to PLoS ONE.
-* **Aug. 30, 2019** - I gave a talk named "link:http://j.mp/chiwanpark-ifkakao2019[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://if.kakao.com[if (kakao)dev 2019].
+* **Aug. 30, 2019** - I gave a talk named "link:https://if.kakao.com/2019/program?sessionId=dce0dd84-d054-4b80-8013-b3d58f61bbe8[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://if.kakao.com[if (kakao)dev 2019].
 * **Apr. 30, 2018** - I joined ART team of Kakao Corp. as a software engineer.
 * **Nov. 10, 2017** - A demo paper, "PegasusN: A Scalable and Versatile Graph Mining System" was accepted to AAAI 2018.
 * **Mar. 2, 2016** - I joined Data Mining Laboratory at Seoul National University as a master's student.
@@ -29,20 +29,16 @@ Yonsei University, Seoul, Korea
 [.cv-list]
 == Publications
 FlexGraph: Flexible partitioning and storage for scalable graph mining::
-Chiwan Park, Ha-Myung Park, and U Kang.
-PLoS ONE 15(1): e0227032
-link:https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0227032[[paper\]] link:https://github.com/snudatalab/FlexGraph[[github\]]
+*Chiwan Park*, Ha-Myung Park, and U Kang
+PLoS ONE 15(1): e0227032 [link:https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0227032[paper] | link:https://github.com/snudatalab/FlexGraph[github]]
 
 PegasusN: A Scalable and Versatile Graph Mining System::
-Ha-Myung Park, Chiwan Park, and U Kang.
-Thirty-Second AAAI Conference on Artificial Intelligence (AAAI) 2018, New Orleans, Lousiana, USA.
-(Demo Paper)
-link:https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/16474/16451[[paper\]] link:https://datalab.snu.ac.kr/pegasusn[[homepage (code)\]]
+Ha-Myung Park, *Chiwan Park*, and U Kang
+link:https://aaai.org/Conferences/AAAI-18/[AAAI 2018] (demo paper) [link:https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/16474/16451[paper] | link:https://datalab.snu.ac.kr/pegasusn[homepage]]
 
 A Distributed Vertex Rearrangement Algorithm for Compressing and Mining Big Graphs::
-Namyong Park, Chiwan Park, and U Kang
-Journal of KIISE, Vol. 43, No. 10, pp. 1131-1143, 2016.
-link:https://datalab.snu.ac.kr/dslashburn/dslashburn.pdf[[paper\]] link:https://datalab.snu.ac.kr/dslashburn/[[homepage (code, dataset)\]]
+Namyong Park, *Chiwan Park*, and U Kang
+Journal of KIISE (Vol. 43, 2016, domestic) [link:https://datalab.snu.ac.kr/dslashburn/dslashburn.pdf[paper] | link:https://datalab.snu.ac.kr/dslashburn/[homepage]]
 
 [.experience]
 == Experience
