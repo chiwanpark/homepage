@@ -3,7 +3,7 @@
 :page-permalink: /
 
 I'm a research engineer at ART (Advanced Recommendation Technology) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
-My research interests include graph-based recommendation models, and interpretable user representation learning for recommender systems.
+My research interests include graph-based recommendation models, large-scale graph processing systems, and interpretable user representation learning for recommender systems.
 I received M.Sc. in Computer Science and Engineering at Seoul National University, where I did some research on large-scale graph processing using distributed systems under guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
 Here is my full link:http://bit.ly/chiwanpark-cv[Curriculum Vitae].
 
@@ -13,7 +13,7 @@ You can see my activities about open-source software in link:https://github.com/
 == News
 * **Jan. 24, 2020** - A paper, "FlexGraph: Flexible partitioning and storage for scalable graph mining" was published to PLoS ONE.
 * **Aug. 30, 2019** - I gave a talk named "link:https://if.kakao.com/2019/program?sessionId=dce0dd84-d054-4b80-8013-b3d58f61bbe8[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://if.kakao.com/2019[if (kakao)dev 2019].
-* **Apr. 30, 2018** - I joined ART team of Kakao Corp. as a software engineer.
+* **Apr. 30, 2018** - I joined ART team of Kakao Corp. as a research engineer.
 * **Nov. 10, 2017** - A demo paper, "PegasusN: A Scalable and Versatile Graph Mining System" was accepted to AAAI 2018.
 * **Mar. 2, 2016** - I joined Data Mining Laboratory at Seoul National University as a master's student.
 
