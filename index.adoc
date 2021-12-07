@@ -2,7 +2,7 @@
 :page-layout: static
 :page-permalink: /
 
-I'm a machine learning engineer at ART (Advanced Recommendation Technology) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
+I'm a research engineer at ART (Advanced Recommendation Technology) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
 My research interests include graph-based recommendation models, and interpretable user representation learning for recommender systems.
 I received M.Sc. in Computer Science and Engineering at Seoul National University, where I did some research on large-scale graph processing using distributed systems under guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
 Here is my full link:http://bit.ly/chiwanpark-cv[Curriculum Vitae].
