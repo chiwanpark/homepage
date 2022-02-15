@@ -1,4 +1,5 @@
 = SW Maestro 2차 중간 평가
+:page-lang: ko
 :page-layout: article
 :page-date: 2013-06-03 00:00:00 +0900
 :page-summary: SW Maestro 중간 평가 중 의미있었던 의견

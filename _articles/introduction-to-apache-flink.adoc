@@ -1,4 +1,5 @@
 = Introduction to Apache Flink
+:page-lang: ko
 :page-layout: article
 :page-date: 2014-12-01 00:00:00 +0900
 :page-summary: A platform for efficient, distributed, general-purpose data processing.
