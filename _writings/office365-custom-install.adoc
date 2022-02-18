@@ -1,6 +1,6 @@
 = Office 365 Custom Install
 :page-lang: ko
-:page-layout: article
+:page-layout: writing
 :page-date: 2015-05-02 00:00:00 +0900
 :page-summary: Office 365 설치할 때 필요한 컴포넌트만 설치하기
 

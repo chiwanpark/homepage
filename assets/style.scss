@@ -1,37 +1,41 @@
 ---
 ---
-/** Eric Meyer Reset **/
-@import "reset";
-
-/** Variables **/
-$body-font: 'Mukta', 'Nanum Barun Gothic', sans-serif;
-$base-font-size: 12pt;
-$base-font-color: #495057;
-$hover-color: #f76707;
-$icon-box-color: #343a40;
-$icon-color: #ffffff;
-$background-color: #ffffff;
-$header-color: #f8f9fa;
-$header-line-color: #dee2e6;
-$content-width: 740px;
-$line-color: $base-font-color;
-$content-line-height: 1.5rem;
-$blockquote-line-height: 1.5rem;
-
-/** highlight.js **/
+// font
+$body-font: 'Pretendard', sans-serif;
+$code-font: 'Cascade Code';
 @font-face {
-  font-family: 'Cascade Code';
+  font-family: $code-font;
   font-weight: 400;
   src: url(/assets/CascadiaCode.woff2) format('woff2');
 }
 
+// layout
+$content-width: 900px;
+
+// color
+$text-color: #343a40;
+$highlight-color: #a61e4d;
+$background-color: #ffffff;
+$quote-color: #495057;
+$line-section-color: #dee2e6;
+
+@import "reset";
+@import "github-gist";
+
 .highlight, code {
-  font-family: 'Cascade Code', monospace;
+  font-family: $code-font, monospace;
   font-size: 0.8rem;
 }
 
-@import "github-gist";
-/* for block of numbers */
+.highlight {
+  border: 1px solid $line-section-color;
+  border-radius: 3px;
+
+  .hljs {
+    padding: 0 0.5em;
+  }
+}
+
 td.hljs-ln-numbers {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -41,8 +45,8 @@ td.hljs-ln-numbers {
   user-select: none;
 
   text-align: right;
-  color: #ccc;
-  border-right: 1px solid #CCC;
+  color: #cccccc;
+  border-right: 1px solid #cccccc;
   vertical-align: top;
   padding-right: 5px !important;
 
@@ -56,354 +60,292 @@ td.hljs-ln-code {
 }
 
 html {
-  color: $base-font-color;
-  background-color: $background-color;
+  color: $text-color;
+  background-color: #ffffff;
   height: 100%;
-  font-size: $base-font-size;
+  font-size: 16px;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  height: 100%;
   font-family: $body-font;
   font-weight: 400;
   font-display: swap;
   padding: 0;
   margin: 0;
+  line-height: 1.6rem;
+  border-top: 3px solid $highlight-color;
 }
 
-body > header {
-  background-color: $header-color;
-  padding: 3rem 2rem 1rem 2rem;
-  text-align: center;
-  border-bottom: 1px solid $header-line-color;
+div.header-container {
+  header {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $line-section-color;
 
-  & > img.profile {
-    width: 160px;
-    border: 1px solid $base-font-color;
-    border-radius: 50%;
-  }
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
 
-  & > .name {
-    display: block;
-    margin: 0.5rem 0;
-    font-weight: 700;
-    font-size: 2rem;
-  }
-
-  & > nav {
-    margin: 1rem 0;
-
-    a {
-      margin: 0.3rem 0.4rem 0.3rem 0;
-      text-decoration: none;
-      line-height: 2rem;
-
-      i.fa, i.fab, i.fas {
-        line-height: 2rem;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        background-color: $icon-box-color;
-        color: $icon-color;
-      }
-
-      &:hover {
-        i.fa {
-          background-color: $hover-color;
-        }
-      }
-
-      span.text {
-        overflow: hidden;
-        text-indent: -10000rem;
+    nav.menu {
+      text-align: center;
+      a {
         display: inline-block;
-        width: 0;
-        height: 0;
-      }
+        margin: 0 0.5rem;
+        padding: 0.5rem 0.25rem;
+        color: $text-color;
+        font-weight: 600;
+        border-bottom: 3px solid $background-color;
+        text-decoration: none;
+        font-size: 0.9rem;
 
-      @media only all and (min-width: 600px) {
-        span.text {
-          display: inline !important;
-          margin-left: 0.2rem;
+        &.active, &:hover {
+          color: $highlight-color;
+          border-bottom: 3px solid $highlight-color;
         }
       }
     }
+  }
+}
+
+div.content-container {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+div.profile {
+  display: flex;
+  margin-bottom: 1rem;
+
+  div.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    h1 {
+      font-weight: 800;
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+  }
+
+  img {
+    max-width: 7.5rem;
+    margin-right: 1rem;
+    border-radius: 4px;
   }
 }
 
 a {
-  text-decoration: underline;
-  color: $base-font-color;
+  color: $highlight-color;
+  text-decoration: none;
 
   &:hover {
-    color: $hover-color;
+    text-decoration: underline;
   }
 }
 
-sup {
-  font-size: 0.7rem;
-  margin-top: -5px;
-  display: inline-block;
-  vertical-align: top;
+main {
+  div.sect1 {
+    margin-bottom: 1rem;
+  }
 
-  a {
-    color: $hover-color;
-    text-decoration: none;
+  h1 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
 
-    &:hover {
-      text-decoration: underline;
+  h2 {
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-weight: 700;
+  }
+
+  p {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-feature-settings: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  div.paragraph, div.olist, div.imageblock, div.listingblock, div.quoteblock {
+    margin: 0.25rem 0 1rem 0;
+  }
+
+  blockquote {
+    border-left: 3px solid $quote-color;
+    padding-left: 1rem;
+  }
+
+  div.imageblock {
+    text-align: center;
+    div.title {
+      font-size: 0.95rem;
+      margin-top: 0;
+      line-height: 1rem;
     }
   }
-}
 
-strong {
-  font-weight: 700;
-}
-
-div.content-container {
-  margin: 0 auto;
-  max-width: $content-width;
-  padding: 1rem 1.5rem;
-
-  @media only all and (min-width: 768px) {
-    padding: 1rem 0;
+  img {
+    max-width: 100%;
   }
 
-  main {
-    h1, h2, h3 {
+  strong {
+    font-weight: 600;
+  }
+
+  ul {
+    li {
+      list-style: disc;
+    }
+    margin-left: 1rem;
+  }
+
+  ol {
+    margin-left: 1rem;
+    &.arabic {
+      list-style: decimal;
+    }
+    &.loweralpha {
+      list-style: lower-alpha;
+    }
+  }
+
+  dl {
+    dt {
+      display: list-item;
+      list-style: disc;
       font-weight: 700;
-      text-align: left;
     }
+    dd {
+      p {
+        white-space: pre-wrap;
+        strong {
+          font-weight: 400;
+          text-decoration: underline;
+        }
+      }
+      margin-bottom: 0.5rem;
+    }
+    margin-left: 1rem;
+  }
 
-    h1 {
-      font-size: 1.4rem;
-      margin: 0 0 0.5rem;
+  article {
+    header {
+      margin-bottom: 1rem;
+
+      h1 {
+        margin-bottom: 0;
+      }
+      p {
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+      }
     }
 
     h2 {
-      font-size: 1.2rem;
-      margin: 1.2rem 0 0.5rem;
+      margin-bottom: 0;
     }
+  }
 
-    p {
-      text-align: justify;
-      word-break: keep-all;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      line-height: $content-line-height;
-      margin-bottom: 1rem;
-      font-feature-settings: normal;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
+  sup.footnote {
+    font-size: 0.7rem;
+    vertical-align: super;
+  }
+
+  div#footnotes {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    a {
+      font-family: $code-font;
     }
+  }
+}
 
-    img {
-      max-width: 100%;
-      display: block;
-      margin: 0.35rem auto;
-    }
-
-    div.imageblock {
-      & > div.title {
-        text-align: center;
-        margin: 0.3rem 0 0.7rem 0;
-      }
-    }
-
-    article {
-      overflow-x: auto;
-
-      p.date {
-        margin-top: -0.6rem;
-        font-size: 0.8rem;
-      }
-    }
-
-    blockquote {
-      border-left: 4px solid $line-color;
-      margin: 0.8rem 0 0.8rem 0.6rem;
-      padding-left: 0.9rem;
-      line-height: $blockquote-line-height;
-      text-align: justify;
-    }
-
-    ul {
-      list-style: disc;
-      padding-left: 1.4rem;
-
-      li {
-        margin: 0 0 0.3rem 0;
-
-        h2 {
-          font-size: 1rem;
-          font-weight: 700;
-          margin: 0;
-          padding: 0;
-        }
-
-        p {
-          margin: 0;
-        }
-      }
-    }
-
-    ol {
-      list-style: decimal;
-      padding-left: 1.4rem;
-
-      li {
-        margin: 0.5rem 0;
-
-        p {
-          margin: 0;
-        }
-      }
-
-      &.articles {
-        list-style: none;
-        padding: 0.6rem 0;
-
-        li {
-          margin-bottom: 1.2rem;
-
-          h2 {
-            font-size: 1rem;
-            margin: 0.4rem 0;
-          }
-
-          & > .date {
-            font-style: italic;
-          }
-
-          & > .description {
-            text-align: left;
-
-            span.summary {
-              line-height: $content-line-height;
-            }
-          }
-        }
-      }
-    }
-
-    hr {
-      display: block;
-      height: 1px;
-      border: 0;
-      border-top: 1px dotted $line-color;
-    }
-
-    div.disclaimer {
-      border: 2px solid #fa5252;
-      border-radius: 5px;
-      background-color: #fff5f5;
-      padding: 0.6rem;
-
+div.experience {
+  ul {
+    li {
+      margin-bottom: 0.5rem;
       p {
+        font-weight: 600;
+      }
+      ul {
+        margin-left: 0;
+        li {
+          list-style: none;
+          p {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+div.biography {
+  h2 {
+    display: none;
+  }
+}
+
+ol.writings {
+  margin: 1rem 0 0 0;
+
+  li {
+    div.date {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+    div.description {
+      h2 {
+        font-weight: 600;
+        font-size: 1rem;
         margin: 0;
       }
-    }
-
-    div.cv-list, div.experience {
-      dt {
-        display: list-item;
-        font-weight: 700;
-        list-style-type: disc;
-        line-height: 1.2rem;
-      }
-
-      dt, dd {
-        margin-left: 1.4rem;
-
-        p {
-          margin: 0.25rem 0 0.75rem 0;
-          white-space: pre-wrap;
-        }
-      }
-    }
-
-    div.experience {
-      dd {
-        ul li {
-          @media all and (min-width: 700px) {
-            min-height: 7rem;
-          }
-
-          > p {
-            font-weight: 700;
-          }
-
-          ul {
-            padding-left: 0;
-
-            li {
-              list-style-type: none;
-              margin-left: 0;
-              min-height: 0;
-
-              p {
-                font-weight: 400;
-              }
-            }
-          }
-        }
-
-        p {
-          margin: 0.25rem 0;
-          white-space: normal;
-
-          .image {
-            display: none;
-            @media all and (min-width: 700px) {
-              display: inline-block;
-              float: right;
-              margin-left: 1rem; 
-              img {
-                max-width: 7rem;
-                margin: 0;
-                border-radius: 10px;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    div#footnotes {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-
-      div.footnote {
-        margin: 0.5rem 0;
-        line-height: 1.2rem;
-        text-align: justify;
-      }
-    }
-
-    div.list-navigation a span.text {
-      margin-left: 0.2rem;
     }
   }
 }
 
 div.ad-container {
   text-align: left;
-  margin: 0 auto;
-  margin-top: 1rem;
+  margin: 0 auto 1rem auto;
   max-width: $content-width;
 }
 
-footer {
-  margin: 0 auto;
-  padding: 1rem;
-  max-width: $content-width;
-  text-align: right;
-  font-size: 0.7rem;
-
-  & > p {
-    line-height: 0.95rem;
+@media(min-width: 800px) {
+  div.ad-container ins {
+    max-height: 90px;
   }
+}
+
+footer {
+  border-top: 1px solid $line-section-color;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  line-height: 1rem;
+  max-width: $content-width;
+  font-size: 0.75rem;
+  text-align: right;
 }

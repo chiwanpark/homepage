@@ -1,0 +1,3 @@
+= Writings
+:page-layout: writing-list
+:page-draft: true

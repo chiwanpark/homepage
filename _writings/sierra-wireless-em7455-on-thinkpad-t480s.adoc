@@ -1,6 +1,6 @@
 = Sierra Wireless EM7455 on Thinkpad T480s
 :page-lang: ko
-:page-layout: article
+:page-layout: writing
 :page-date: 2019-02-28 00:00:00 +0900
 :page-summary: Thinkpad T480s + Arch Linux 조합에서 LTE를 사용하기 위한 고군분투기
 

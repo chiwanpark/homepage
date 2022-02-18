@@ -1,18 +1,9 @@
-<header>
-  <img class="profile" src="/assets/profile.jpg"/>
-  {% if page.permalink != "/" %}
-    <span class="name">Chiwan Park</span>
-  {% else %}
-    <h1 class="name">Chiwan Park</h1>
-  {% endif %}
-
-  <p class="description">
-    Research Engineer @ Kakao Corporation
-  </p>
-
-  <nav class="menu">
-    <a href="/"><i class="fas fa-home"></i><span class="text">Home</span></a>
-    <a href="/articles"><i class="fas fa-file-alt"></i><span class="text">Articles</span></a>
-    <a href="/feed.xml"><i class ="fas fa-rss-square"></i><span class="text">Feed</span></a>
-  </nav>
-</header>
+<div class="header-container">
+  <header>
+    <h1>Chiwan Park</h1>
+    <nav class="menu">
+      <a href="/" class="{% if page.permalink == '/' %}active{% endif %}">Home</a>
+      <a href="/writings/" class="{% if page.path contains '_writings' %}active{% endif %}">Writings</a>
+    </nav>
+  </header>
+</div>

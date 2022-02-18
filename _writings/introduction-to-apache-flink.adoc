@@ -1,6 +1,6 @@
 = Introduction to Apache Flink
 :page-lang: ko
-:page-layout: article
+:page-layout: writing
 :page-date: 2014-12-01 00:00:00 +0900
 :page-summary: A platform for efficient, distributed, general-purpose data processing.
 
@@ -12,7 +12,7 @@ Apache Flink는 MapReduce 프레임워크를 쓰지 않는 독자적인 데이�
 
 Flink의 데이터 단위는 DataSet 이며, DataSet을 연산할 수 있는 Operator가 존재한다. 프로그램은 DataSet에 다양한 Operator를 적용해 데이터를 처리하는 형태로 구성된다.
 
-image:/assets/introduction-to-apache-flink-01.png[Concept of Apache Flink Dataflow]
+image::/assets/introduction-to-apache-flink-01.png[alt=Concept of Apache Flink Dataflow]
 
 또한, Map, Reduce 이외에도 Join, CoGroup, Union, Iterate, **Delta Iterate**, Filter, FlatMap, GroupReduce, Project, Aggregate, Distinct, Accumulation 등 다양한 연산을 지원하여 MapReduce 프레임워크 보다 훨씬 쉽게 알고리즘을 구현할 수 있다.
 

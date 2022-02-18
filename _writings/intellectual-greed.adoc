@@ -1,6 +1,6 @@
 = 지적 욕심
 :page-lang: ko
-:page-layout: article
+:page-layout: writing 
 :page-date: 2013-01-31 00:00:00 +0900
 :page-summary: 시험 기간에는 공부만 빼고는 모든게 재밌다.
 

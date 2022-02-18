@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 <head>
-  {% assign page.title = "Articles" %}
+  {% assign page.title = "Posts" %}
   {% include head.html %}
 </head>
 <body>
 {% include navbar.html %}
 <div class="content-container">
   <main>
-    <h1>Articles (in Korean)</h1>
+    <h1>Writings (in Korean)</h1>
     <p>제가 국문으로 작성한 글을 모아두었습니다. 모든 글은 저의 개인적인 의견이며, 제가 소속된 단체나 근무하고 있는 회사와는 상관이 없습니다.</p>
-    <ol class="articles">
-    {% assign articles = site.articles | sort: 'date' | reverse %}
-    {% for article in articles %}
-      {% if article.title != "Articles" %}
-        <li class="article-overview">
-          <div class="date">{{ article.date | date: '%b %d, %Y' }}</div>
+    <ol class="writings">
+    {% assign writings = site.writings | sort: 'date' | reverse %}
+    {% for writing in writings %}
+      {% if writing.title != "Writings" %}
+        <li class="writing-overview">
+          <div class="date">{{ writing.date | date: '%b %d, %Y' }}</div>
           <div class="description">
-            <h2><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h2>
-            <span class="summary">{{ article.summary }}</span>
+            <h2><a href="{{ writing.url | relative_url }}">{{ writing.title }}</a></h2>
+            <span class="summary">{{ writing.summary }}</span>
           </div>
         </li>
       {% endif %}

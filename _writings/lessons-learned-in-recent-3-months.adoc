@@ -1,6 +1,6 @@
 = Lessons learned in recent 3 months
 :page-lang: ko
-:page-layout: article
+:page-layout: writing
 :page-date: 2013-09-29 00:00:00 +0900
 :page-summary: 최근 3개월간 참여했던 프로젝트에서 답답하다고 느낀 점
 

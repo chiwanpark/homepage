@@ -1,6 +1,6 @@
 = 데이터 관리
 :page-lang: ko
-:page-layout: article
+:page-layout: writing
 :page-date: 2013-02-09 00:00:00 +0900
 :page-summary: 기록 덕후의 데이터 저장 관리 방법
 

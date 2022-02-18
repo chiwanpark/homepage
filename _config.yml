@@ -8,7 +8,7 @@ url: "https://chiwanpark.com"
 collections:
   posts:
     output: false
-  articles:
+  writings:
     output: true
     permalink: /:collection/:path.html
 
@@ -17,15 +17,13 @@ plugins:
   - jekyll-feed
   - jekyll-git_metadata
   - jekyll-asciidoc
-font-awesome:
-  assets: true
 asciidoc: {}
 asciidoctor:
   attributes:
     source-highlighter: highlightjs
 feed:
   collections:
-    articles:
+    writings:
       path: "/feed.xml"
     posts:
       path: "/feed-dummy.xml" # prevent create RSS feed from posts collection
