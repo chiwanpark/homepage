@@ -107,6 +107,15 @@ div.header-container {
         text-decoration: none;
         font-size: 0.9rem;
 
+        svg {
+          width: 1.25rem;
+        }
+
+        svg, span {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
         &.active, &:hover {
           color: $highlight-color;
           border-bottom: 3px solid $highlight-color;
@@ -346,6 +355,25 @@ div.ad-container > ins.ad-responsive {
   div.ad-container > ins.ad-responsive {
     width: 728px;
     height: 90px;
+  }
+}
+
+div.list-navigation {
+  a {
+    display: inline-block;
+    border-bottom: 1px solid $background-color;
+  }
+  a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid $highlight-color;
+  }
+  svg, span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  svg {
+    width: 1.25rem;
   }
 }
 
