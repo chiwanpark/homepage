@@ -13,11 +13,13 @@ $code-font: 'Cascade Code';
 $content-width: 900px;
 
 // color
-$text-color: #343a40;
-$highlight-color: #a61e4d;
+@import "open-color";
+$text-color: $oc-gray-8;
+$highlight-color: $oc-pink-9;
 $background-color: #ffffff;
-$quote-color: #495057;
-$line-section-color: #dee2e6;
+$quote-color: $oc-gray-7;
+$code-number-color: $oc-gray-5;
+$line-section-color: $oc-gray-3; 
 
 @import "reset";
 @import "github-gist";
@@ -30,6 +32,7 @@ $line-section-color: #dee2e6;
 .highlight {
   border: 1px solid $line-section-color;
   border-radius: 3px;
+  line-height: 1.4rem;
 
   .hljs {
     padding: 0 0.5em;
@@ -45,8 +48,8 @@ td.hljs-ln-numbers {
   user-select: none;
 
   text-align: right;
-  color: #cccccc;
-  border-right: 1px solid #cccccc;
+  color: $code-number-color;
+  border-right: 1px solid $line-section-color;
   vertical-align: top;
   padding-right: 5px !important;
 
@@ -61,7 +64,7 @@ td.hljs-ln-code {
 
 html {
   color: $text-color;
-  background-color: #ffffff;
+  background-color: $background-color;
   height: 100%;
   font-size: 16px;
   overflow-x: hidden;
@@ -99,7 +102,7 @@ div.header-container {
       text-align: center;
       a {
         display: inline-block;
-        margin: 0 0.5rem;
+        margin: 0 0.25rem;
         padding: 0.5rem 0.25rem;
         color: $text-color;
         font-weight: 600;
