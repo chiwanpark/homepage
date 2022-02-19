@@ -202,7 +202,7 @@ USIM을 설치한 뒤, APN을 바르게 설정해주면 LTE 네트워크에 연�
 SKT의 경우 발급 받은 USIM이 지원하는 디바이스에 따라 APN 설정을 다르게 해야하는데, 노트북의 경우 `lte-internet.sktelecom.com` 으로 설정해주면 잘 작동했다. 
 
 .SKT LTE에 연결된 모습
-image::/assets/sierra-wireless-em7455-on-thinkpad-t480s-01.png[alt=SKT LTE에 연결된 모습,width=60%]
+image::/assets/sierra-wireless-em7455-on-thinkpad-t480s-01.png[alt=SKT LTE에 연결된 모습,width=500px]
 
 == LTE 사용 테스트
 LTE에 연결한 후, speedtest.net 사이트를 통해 업로드/다운로드 속도 측정을 수행해봤다.
