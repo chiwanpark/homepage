@@ -1,3 +1,3 @@
 = chiwanpark.com
 
-image::https://www.netlify.com/img/global/badges/netlify-color-accent.svg[link=https://app.netlify.com/sites/chiwanpark/deploys]
+image::https://api.netlify.com/api/v1/badges/5ea4c23b-c8ff-46db-9406-d9f7ad311bbd/deploy-status[link=https://app.netlify.com/sites/chiwanpark/deploys]
