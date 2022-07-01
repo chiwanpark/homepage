@@ -15,7 +15,7 @@
 [.biography]
 == Biography
 I'm a research engineer at ART (Advanced Recommendation Technology) team of link:http://www.kakaocorp.com[Kakao Corporation] where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
-My research interests include graph-based recommendation models, large-scale graph processing systems, and interpretable user representation learning for recommender systems.
+My research interests include graph-based recommendation models, large-scale graph processing systems, and interpretable representation learning for recommender systems.
 I received M.Sc. in Computer Science and Engineering at Seoul National University, where I did some research on large-scale graph processing using distributed systems under guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
 Here is a full link:https://bit.ly/chiwanpark-cv[Curriculum Vitae].
 
@@ -23,11 +23,11 @@ Outside of paid works, I enjoy developing various softwares. I have contributed 
 You can see my activities about open-source software in link:https://github.com/chiwanpark[Github].
 
 == News
+* **Jun. 30, 2022** - I gave a talk named "link:https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems[Challenges in Real-world Recommender Systems]" at link:https://www.kiise.or.kr/conference/main/getContent.do?CC=KCC&CS=2022&PARENT_ID=011600&content_no=1595[KCC 2022].
 * **Dec. 27, 2021** - I wrote a blog post named "link:https://tech.kakao.com/2021/12/27/content-based-filtering-in-kakao/[카카오 AI추천 : 카카오의 콘텐츠 기반 필터링]" to kakao Tech blog (in Korean).
 * **Jan. 24, 2020** - A paper, "FlexGraph: Flexible partitioning and storage for scalable graph mining" was published to PLoS ONE.
 * **Aug. 30, 2019** - I gave a talk named "link:https://if.kakao.com/2019/program?sessionId=dce0dd84-d054-4b80-8013-b3d58f61bbe8[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://if.kakao.com/2019[if (kakao)dev 2019].
 * **Apr. 30, 2018** - I joined ART team of Kakao Corp. as a research engineer.
-* **Nov. 10, 2017** - A demo paper, "PegasusN: A Scalable and Versatile Graph Mining System" was accepted to AAAI 2018.
 
 [.cv-list]
 == Education
