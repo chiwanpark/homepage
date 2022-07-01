@@ -55,13 +55,13 @@ Journal of KIISE (Vol. 43, 2016, domestic) [link:https://datalab.snu.ac.kr/dslas
 
 [.experience]
 == Experience
-Kakao Advanced Recommendation Technology Team (Apr. 2018 - Now)::
++++Kakao R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Advanced Recommendation Technology Team (May. 2021 - Now)+++::
 * Recommender Systems for Audio-only Social Network Service
-** link:https://mm.xyz[mm] is an audio-only social network service. Users can talk with each other by joining a chat room and follow others to talk privately. I develop personalized recommender systems on whom to follow and which audio chat room to join based on graph-based recommendation models. Several methods such as graph pruning and regularization are applied to the models to improve recommendation quality.
+** mm is an audio-only social network service. Users can talk with each other by joining a chat room and follow others to talk privately. I develop personalized recommender systems on whom to follow and which audio chat room to join based on graph-based recommendation models. Several methods such as graph pruning and regularization are applied to the models to improve recommendation quality.
 * Product Recommender System for Gift
 ** link:https://gift.kakao.com[Kakaotalk Gift] is an e-Commerce platform to send gifts through Kakaotalk, a well-known messaging platform in Korea. Choosing gifts depends on multiple contexts like a relationship between sender and receiver, demographical information, and product popularity. I am developing a recommender system based on neural networks, graph embedding, and collaborative filtering to consider the contexts.
 * Recommender Systems for Digital Comics
-** link:https://page.kakao.com[Kakaopage] and link:https://piccoma.com[Piccoma] are digital comics platforms served in Korea and Japan, respectively. I am mainly working with combining content-based representation learning and collaborative filtering for cold-start items. I focus on recommender systems as a user-targeted marketing tool for new comics and optimize the first conversion rate.
+** link:https://webtoon.kakao.com[Kakao Webtoon] and link:https://piccoma.com[Piccoma] are digital comics platforms served in Korea and Japan, respectively. I am mainly working with combining content-based representation learning and collaborative filtering for cold-start items. I focus on recommender systems as a user-targeted marketing tool for new comics and optimize the first conversion rate.
 * Large-scale Machine Learning Applications for e-Commerce Platform
 ** link:https://shoppinghow.kakao.com[shoppinghow by kakaocommerce] is an e-Commerce platform like eBay and Amazon. Users can search for the products on the platform. I develop and maintain several machine learning applications for product categorization and product matching based on neural networks and graph algorithms. Various parallel computing techniques are applied to the models to handle web-scale data.
 
