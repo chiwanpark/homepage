@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/articles/*"
+  to = "/writings/:splat"
+  status = 301
+  force = true
