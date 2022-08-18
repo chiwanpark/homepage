@@ -24,11 +24,11 @@ I have contributed to some open-source software projects such as link:https://fl
 You can see my activities about open-source software in link:https://github.com/chiwanpark[Github].
 
 == News
+* **Aug. 1, 2022** - A paper, "Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022" is accepted to RecSys Challenge Workshop 2022.
 * **Jun. 30, 2022** - I gave a talk named "link:https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems[Challenges in Real-world Recommender Systems]" at link:https://www.kiise.or.kr/conference/main/getContent.do?CC=KCC&CS=2022&PARENT_ID=011600&content_no=1595[KCC 2022].
 * **Dec. 27, 2021** - I wrote a blog post named "link:https://tech.kakao.com/2021/12/27/content-based-filtering-in-kakao/[카카오 AI추천 : 카카오의 콘텐츠 기반 필터링]" to kakao Tech blog (in Korean).
-* **Jan. 24, 2020** - A paper, "FlexGraph: Flexible partitioning and storage for scalable graph mining" was published to PLoS ONE.
+* **Jan. 24, 2020** - A paper, "FlexGraph: Flexible partitioning and storage for scalable graph mining" is accepted to PLoS ONE.
 * **Aug. 30, 2019** - I gave a talk named "link:https://if.kakao.com/2019/program?sessionId=dce0dd84-d054-4b80-8013-b3d58f61bbe8[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://if.kakao.com/2019[if (kakao)dev 2019].
-* **Apr. 30, 2018** - I joined ART team of Kakao Corp. as a research engineer.
 
 [.cv-list]
 == Education
@@ -42,6 +42,10 @@ Yonsei University, Seoul, Korea
 
 [.cv-list]
 == Publications
+Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022::
+Hyunsung Lee, Sungwook Yoo, Andrew Yang, Wonjun Jang, and *Chiwan Park*
+link:https://recsys.acm.org/recsys22/challenge/[RecSys Challenge Workshop] at ACM RecSys 2022 [link:https://github.com/kakao/kakao-recoteam-recsys-2022-challenge[github]]
+
 FlexGraph: Flexible partitioning and storage for scalable graph mining::
 *Chiwan Park*, Ha-Myung Park, and U Kang
 PLoS ONE 15(1): e0227032 [link:https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0227032[paper] | link:https://github.com/snudatalab/FlexGraph[github]]
