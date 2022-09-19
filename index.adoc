@@ -44,7 +44,7 @@ Yonsei University, Seoul, Korea
 == Publications
 Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022::
 Hyunsung Lee, Sungwook Yoo, Andrew Yang, Wonjun Jang, and *Chiwan Park*
-link:https://recsys.acm.org/recsys22/challenge/[RecSys Challenge Workshop] at ACM RecSys 2022 [link:https://github.com/kakao/kakao-recoteam-recsys-2022-challenge[github]]
+link:https://recsys.acm.org/recsys22/challenge/[RecSys Challenge Workshop] at ACM RecSys 2022 [link:https://dl.acm.org/doi/10.1145/3556702.3556851[paper] | link:https://github.com/kakao/kakao-recoteam-recsys-2022-challenge[github]]
 
 FlexGraph: Flexible partitioning and storage for scalable graph mining::
 *Chiwan Park*, Ha-Myung Park, and U Kang
