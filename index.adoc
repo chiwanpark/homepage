@@ -29,7 +29,7 @@ You can see my hobby development activities on link:https://github.com/chiwanpar
 * **Jun. 30, 2022** - I gave a talk named "link:https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems[Challenges in Real-world Recommender Systems]" at link:https://www.kiise.or.kr/conference/main/getContent.do?CC=KCC&CS=2022&PARENT_ID=011600&content_no=1595[KCC 2022].
 * **Dec. 27, 2021** - I wrote a blog post named "link:https://tech.kakao.com/2021/12/27/content-based-filtering-in-kakao/[카카오 AI추천 : 카카오의 콘텐츠 기반 필터링]" to kakao Tech blog (in Korean).
 * **Jan. 24, 2020** - A paper, "FlexGraph: Flexible partitioning and storage for scalable graph mining" is accepted to PLoS ONE.
-* **Aug. 30, 2019** - I gave a talk named "link:https://if.kakao.com/2019/program?sessionId=dce0dd84-d054-4b80-8013-b3d58f61bbe8[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://if.kakao.com/2019[if (kakao)dev 2019].
+* **Aug. 30, 2019** - I gave a talk named "link:https://elseif.kakao.com/2019/program?sessionId=dce0dd84-d054-4b80-8013-b3d58f61bbe8[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://elseif.kakao.com/2019[if (kakao)dev 2019].
 
 [.cv-list]
 == Education
