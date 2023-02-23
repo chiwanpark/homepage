@@ -33,13 +33,14 @@ You can see my hobby development activities on link:https://github.com/chiwanpar
 
 [.cv-list]
 == Education
-Master of Science in Computer Science and Engineering:: 
-Mar. 2016 - Feb. 2018
-Seoul National University, Seoul, Korea
+Seoul National University (Mar. 2016 - Feb. 2018)::
+M.Sc. in Computer Science and Engineering
+Thesis: Pre-partitioned Matrix-Vector Multiplication for Scalable Graph Mining
+Advisor: link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang]
 
-+++Bachelor of Science in Earth System Sciences<br/>Bachelor of Engineering in Computer Science (double major)+++::
-Mar. 2010 - Feb. 2016
-Yonsei University, Seoul, Korea
+Yonsei University (Mar. 2010 - Feb. 2016)::
+B.Sc. in Earth System Sciences
+B.Eng. in Computer Science and Engineering (double major)
 
 [.cv-list]
 == Publications
