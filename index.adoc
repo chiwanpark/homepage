@@ -35,7 +35,7 @@ You can see my hobby development activities on link:https://github.com/chiwanpar
 == Education
 Seoul National University (Mar. 2016 - Feb. 2018)::
 M.Sc. in Computer Science and Engineering
-Thesis: Pre-partitioned Matrix-Vector Multiplication for Scalable Graph Mining
+Thesis: link:https://snu-primo.hosted.exlibrisgroup.com/permalink/f/1l6eo7m/82SNU_INST21605864260002591[Pre-partitioned Matrix-Vector Multiplication for Scalable Graph Mining]
 Advisor: link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang]
 
 Yonsei University (Mar. 2010 - Feb. 2016)::
