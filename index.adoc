@@ -7,19 +7,19 @@
   <img src="/assets/profile.jpg" alt="Profile image of Chiwan Park" />
   <div class="text">
     <h1>Chiwan Park</h1>
-    <p>Research Engineer @ Kakao Corporation</p>
+    <p>Applied Machine Learning Engineer @ Kakao Corporation</p>
   </div>
 </div>
 ++++
 
 [.biography]
 == Biography
-I'm a research engineer at the link:https://github.com/kakao/recoteam[ART (Advanced Recommendation Technology)] team of link:http://www.kakaocorp.com[Kakao Corporation], where I'm building recommender systems and machine learning applications for various mobile and web services of Kakao.
-My research interests include interpretable learning for recommender systems, scalable representation learning for user modeling, and large-scale graph processing systems.
-I received my M.Sc. in Computer Science and Engineering at Seoul National University, where I worked on large-scale graph processing using distributed systems under the guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
-Here is a full link:https://bit.ly/chiwanpark-cv[Curriculum Vitae].
+I'm an Applied Machine Learning Engineer at the AI Vertical Solution of link:http://www.kakaocorp.com[Kakao Corporation], where I'm building machine learning applications for various mobile and web services of Kakao.
+My research interests include applications of large-scale language-vision models, conversational recommender systems, and machine learning on graphs.
+I hold an M.Sc. in Computer Science and Engineering at Seoul National University, where I conducted research on large-scale graph processing using distributed systems under the guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
+For more details about my research achievements, please refer to my full link:https://bit.ly/chiwanpark-cv[Curriculum Vitae].
 
-Just for fun, I have developed data-related products.
+In my free time, I have developed data-related products.
 link:https://solvesql.com[SolveSQL], a web-based SQL learning platform for data analysts, is publicly available.
 I have contributed to open-source data processing tools such as link:https://flink.apache.org/[Apache Flink], link:https://sqoop.apache.org/[Apache Sqoop], and link:https://mrql.apache.org/[Apache MRQL].
 You can see my hobby development activities on link:https://github.com/chiwanpark[Github].
@@ -62,15 +62,16 @@ Journal of KIISE (Vol. 43, 2016, domestic) [link:https://datalab.snu.ac.kr/dslas
 
 [.experience]
 == Experience
-+++Kakao R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Advanced Recommendation Technology Team (May. 2021 - Now)+++::
-* Recommender Systems for Audio-only Social Network Service
-** link:https://www.kakaocorp.com/page/detail/9462[mm] is an audio-only social network service. Users can talk with each other by joining a chat room. They also can follow others and invite them to talk privately. I develop personalized recommender systems on whom to follow and which audio chat room to join based on graph-based recommendation models. Several methods, such as graph pruning and regularization, are applied to the models to improve recommendation quality.
-* Product Recommender Systems for Gift
-** link:https://gift.kakao.com[Kakaotalk Gift] is an e-Commerce platform to send gifts through Kakaotalk, a well-known messaging platform in Korea. Choosing gifts depends on multiple contexts like a relationship between sender and receiver, demographical information, and product popularity. To consider the contexts, I am developing a recommender system based on neural networks, graph embedding, and collaborative filtering.
-* Recommender Systems for Digital Comic Service
-** link:https://webtoon.kakao.com[Kakao Webtoon] and link:https://piccoma.com[Piccoma] are digital comic platforms served in Korea and Japan, respectively. I mainly work on combining content-based representation learning and collaborative filtering for cold-start items. Our recommender systems are treated as a user-targeted marketing tool for new comics and optimize the first conversion rate.
-* Large-scale Machine Learning Applications for e-Commerce Platform
-** link:https://shoppinghow.kakao.com[shoppinghow] is an e-Commerce platform like eBay and Amazon. Users can search for the products and compare their prices. I develop and maintain several machine learning applications for product categorization and product matching based on neural networks and graph algorithms. Various parallel computing techniques are applied to the models to handle billion-scale data.
++++Kakao AI Vertical Solution Unit (Apr. 2024 - Now)+++::
+To be announced.
+
++++Kakao R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)+++::
+As the unit lead of a research unit within the Kakao ART Team, I managed a group of 10+ individuals responsible for developing and maintaining recommender systems across various Kakao services, including social networking, digital comics, e-commerce, and news platforms. My key experiences and contributions include:
+1. Developing a lightweight user representation model for link:https://daum.net[Daum], a popular news portal service with 10 million users, by leveraging important keywords from user-read articles to capture evolving user interests. The output of model served as a context input feature for bandit models, enhancing news recommendation quality.
+1. Building personalized recommender systems for link:https://www.kakaocorp.com/page/detail/9462[mm], an audio-only social network services like Clubhouse. I employed graph-based recommendation models, incorporating techniques like graph pruning and regularization to optimize performance.
+1. Combining content-based representation learning and collaborative filtering to address cold-start issues for new comics on link:https://webtoon.kakao.com[Kakao Webtoon] and link:https://piccoma.com[Piccoma] in Korea and Japan. The recommender systems served as a user-targeted marketing tools, optimizing the first conversion rate.
+1. Creating a context-aware recommender system for link:https://gift.kakao.com[Kakaotalk Gift], an e-commerce platform for sending gifts throught Kakaotalk messenger. The system considered multiple contexts such as demographics, product popularity, and user history including clicked and purchased items, by integrating text and image embedding along with collaborative filtering techniques.
+1. Developing and maintaining machine learning applications for link:https://shoppinghow.kakao.com[shoppinghow], an e-commerce platform similar to eBay and Amazon. I implemented product categorization and matching systems using Transformers and graph algorithms, applying parallel computing techniques to handling billion-scale data efficiently.
 
 [.contacts]
 == Contacts
