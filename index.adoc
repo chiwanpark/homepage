@@ -62,10 +62,10 @@ Journal of KIISE (Vol. 43, 2016, domestic) [link:https://datalab.snu.ac.kr/dslas
 
 [.experience]
 == Experience
-+++Kakao AI Vertical Solution Unit (Apr. 2024 - Now)+++::
++++Kakao Corp. AI Vertical Solution Unit (Apr. 2024 - Now)+++::
 To be announced.
 
-+++Kakao R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)+++::
++++Kakao Corp. R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Corp. Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)+++::
 As the unit lead of a research unit within the Kakao ART Team, I managed a group of 10+ individuals responsible for developing and maintaining recommender systems across various Kakao services, including social networking, digital comics, e-commerce, and news platforms. My key experiences and contributions include:
 1. Developing a lightweight user representation model for link:https://daum.net[Daum], a popular news portal service with 10 million users, by leveraging important keywords from user-read articles to capture evolving user interests. The output of model served as a context input feature for bandit models, enhancing news recommendation quality.
 1. Building personalized recommender systems for link:https://www.kakaocorp.com/page/detail/9462[mm], an audio-only social network services like Clubhouse. I employed graph-based recommendation models, incorporating techniques like graph pruning and regularization to optimize performance.
