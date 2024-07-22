@@ -14,7 +14,7 @@
 
 [.biography]
 == Biography
-I'm an Applied Machine Learning Engineer at the AI Vertical Solution of link:http://www.kakaocorp.com[Kakao Corporation], where I'm building machine learning applications for various mobile and web services of Kakao.
+I'm an Applied Machine Learning Engineer at the AI Alignment Unit of link:http://www.kakaocorp.com[Kakao Corporation], where I'm building machine learning applications for various mobile and web services of Kakao.
 My research interests include applications of large-scale language-vision models, conversational recommender systems, and machine learning on graphs.
 I hold an M.Sc. in Computer Science and Engineering at Seoul National University, where I conducted research on large-scale graph processing using distributed systems under the guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
 For more details about my research achievements, please refer to my full link:https://bit.ly/chiwanpark-cv[Curriculum Vitae].
@@ -62,7 +62,7 @@ Journal of KIISE (Vol. 43, 2016, domestic) [link:https://datalab.snu.ac.kr/dslas
 
 [.experience]
 == Experience
-+++Kakao Corp. AI Vertical Solution Unit (Apr. 2024 - Now)+++::
++++Kakao Corp. AI Alignment Unit (Apr. 2024 - Now)+++::
 To be described.
 
 +++Kakao Corp. R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Corp. Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)+++::
