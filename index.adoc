@@ -14,15 +14,15 @@
 
 [.biography]
 == Biography
-I'm an Applied Machine Learning Engineer at the AI Alignment Unit of link:http://www.kakaocorp.com[Kakao Corporation], where I'm building machine learning applications for various mobile and web services of Kakao.
-My research interests include applications of large-scale language-vision models, conversational recommender systems, and machine learning on graphs.
-I hold an M.Sc. in Computer Science and Engineering at Seoul National University, where I conducted research on large-scale graph processing using distributed systems under the guidance of link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
-For more details about my research achievements, please refer to my full link:https://bit.ly/chiwanpark-cv[Curriculum Vitae].
+I am an Applied Machine Learning Engineer at the AI Alignment Unit of link:http://www.kakaocorp.com[Kakao Corporation], where I develop machine learning applications for Kakao's various mobile and web services.
+My research centers on fast inference of large language models, their practical applications, and conversational recommender systems.
+I hold an M.Sc. in Computer Science and Engineering at Seoul National University, where I researched large-scale graph processing using distributed systems under link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang]'s supervision.
+For a comprehensive overview of my research and achievements, please refer to my full link:https://bit.ly/chiwanpark-cv[Curriculum Vitae].
 
-In my free time, I have developed data-related products.
-link:https://solvesql.com[SolveSQL], a web-based SQL learning platform for data analysts, is publicly available.
-I have contributed to open-source data processing tools such as link:https://flink.apache.org/[Apache Flink], link:https://sqoop.apache.org/[Apache Sqoop], and link:https://mrql.apache.org/[Apache MRQL].
-You can see my hobby development activities on link:https://github.com/chiwanpark[Github].
+Beyond my professional work, I am passionate about building data-related products.
+I created link:https://solvesql.com[SolveSQL], a web-based SQL learning platform designed for data analysts.
+I also actively contribute to several open-source machine learning libraries and data processing frameworks including link:https://github.com/axolotl-ai-cloud/axolotl/[Axolotl], link:https://github.com/linkedin/Liger-Kernel/[Liger Kernel], and link:https://flink.apache.org/[Apache Flink].
+My personal projects are available on link:https://github.com/chiwanpark[my GitHub Profile].
 
 == News
 * **Aug. 1, 2022** - A paper, "Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022" is accepted to RecSys Challenge Workshop 2022.
@@ -66,12 +66,12 @@ Journal of KIISE (Vol. 43, 2016, domestic) [link:https://datalab.snu.ac.kr/dslas
 To be described.
 
 +++Kakao Corp. R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Corp. Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)+++::
-As the unit lead of a research unit within the Kakao ART Team, I managed a group of 10+ individuals responsible for developing and maintaining recommender systems across various Kakao services, including social networking, digital comics, e-commerce, and news platforms. My key experiences and contributions include:
-1. Developing a lightweight user representation model for link:https://daum.net[Daum], a popular news portal service with 10 million users, by leveraging important keywords from user-read articles to capture evolving user interests. The output of model served as a context input feature for bandit models, enhancing news recommendation quality.
-2. Building personalized recommender systems for link:https://www.kakaocorp.com/page/detail/9462[mm], an audio-only social network services like Clubhouse. I employed graph-based recommendation models, incorporating techniques like graph pruning and regularization to optimize performance.
-3. Combining content-based representation learning and collaborative filtering to address cold-start issues for new comics on link:https://webtoon.kakao.com[Kakao Webtoon] and link:https://piccoma.com[Piccoma] in Korea and Japan. The recommender systems served as a user-targeted marketing tools, optimizing the first conversion rate.
-4. Creating a context-aware recommender system for link:https://gift.kakao.com[Kakaotalk Gift], an e-commerce platform for sending gifts throught Kakaotalk messenger. The system considered multiple contexts such as demographics, product popularity, and user history including clicked and purchased items, by integrating text and image embedding along with collaborative filtering techniques.
-5. Developing and maintaining machine learning applications for link:https://shoppinghow.kakao.com[shoppinghow], an e-commerce platform similar to eBay and Amazon. I implemented product categorization and matching systems using Transformers and graph algorithms, applying parallel computing techniques to handling billion-scale data efficiently.
+As unit lead within the Kakao ART Team, I managed a research unit of over 10 members, responsible for developing and maintaining recommender systems across various Kakao services, including social networking, digital comics, e-commerce, and news platforms. Some key contributions include:
+1. Developed a lightweight user representation model for link:https://daum.net[Daum], a popular news portal with 10 million users, by leveraging topic keywords from articles to capture evolving user interests. This model served as a context input feature for bandit models, enhancing news recommendation quality.
+2. Built personalized recommender systems for link:https://www.kakaocorp.com/page/detail/9462[mm], an audio-only social network service like Clubhouse. I employed graph-based recommendation models, incorporating techniques like graph pruning and regularization to optimize performance.
+3. Addressed cold-start issues for new comics on link:https://webtoon.kakao.com[Kakao Webtoon] and link:https://piccoma.com[Piccoma] by combining content-based representation learning and collaborative filtering. These recommender systems served as user-targeted marketing tools, optimizing the first conversion rate.
+4. Created a context-aware recommender system for link:https://gift.kakao.com[Kakaotalk Gift], an e-commerce feature within Kakaotalk Messenger. The system considered multiple contexts such as demographics, product popularity, and user history including clicked and purchased items, by integrating text and image embedding alongside collaborative filtering techniques.
+5. Developed and maintained machine learning applications for link:https://shoppinghow.kakao.com[shoppinghow], an eBay/Amazon-like e-commerce platform. I implemented product categorization and matching systems using Transformers and graph algorithms, applying parallel computing techniques to efficiently handle billion-scale data.
 
 [.contacts]
 == Contacts
