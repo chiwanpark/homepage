@@ -9,4 +9,4 @@ group :jekyll_plugins do
   gem "jekyll-asciidoc", "~> 3.0.0"
 end
 
-gem "webrick", "~> 1.7"
+gem "webrick", "~> 1.8"
