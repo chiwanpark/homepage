@@ -15,7 +15,7 @@
 [.biography]
 == Biography
 I am an Applied Machine Learning Engineer at the AI Alignment Unit of link:http://www.kakaocorp.com[Kakao Corporation], where I develop machine learning applications for Kakao's various mobile and web services.
-My research centers on fast inference of large language models, their practical applications, and conversational recommender systems.
+My research centers on fast inference of large language models, conversational recommender systems, and machine learning on graphs.
 I hold an M.Sc. in Computer Science and Engineering at Seoul National University, where I researched large-scale graph processing using distributed systems under link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang]'s supervision.
 For a comprehensive overview of my research and achievements, please refer to my full link:https://bit.ly/chiwanpark-cv[Curriculum Vitae].
 
