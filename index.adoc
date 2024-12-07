@@ -25,11 +25,11 @@ I also actively contribute to several open-source machine learning libraries and
 My personal projects are available on link:https://github.com/chiwanpark[my GitHub Profile].
 
 == News
+* **Dec. 5, 2024** - I was mentioned in a link:https://www.linkedin.com/blog/engineering/open-source/liger-kernel-open-source-ecosystem-for-efficient-llm-training[LinkedIn blog post] about my contributions to Liger Kernel, a GPU kernel library that enhances the training efficiency of LLMs.
 * **Aug. 1, 2022** - A paper, "Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022" is accepted to RecSys Challenge Workshop 2022.
 * **Jun. 30, 2022** - I gave a talk named "link:https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems[Challenges in Real-world Recommender Systems]" at link:https://www.kiise.or.kr/conference/main/getContent.do?CC=KCC&CS=2022&PARENT_ID=011600&content_no=1595[KCC 2022].
 * **Dec. 27, 2021** - I wrote a blog post named "link:https://tech.kakao.com/2021/12/27/content-based-filtering-in-kakao/[카카오 AI추천 : 카카오의 콘텐츠 기반 필터링]" to kakao Tech blog (in Korean).
 * **Jan. 24, 2020** - A paper, "FlexGraph: Flexible partitioning and storage for scalable graph mining" is accepted to PLoS ONE.
-* **Aug. 30, 2019** - I gave a talk named "link:https://elseif.kakao.com/2019/program?sessionId=dce0dd84-d054-4b80-8013-b3d58f61bbe8[상품 카탈로그 자동 생성 ML 모델 소개]" at link:https://elseif.kakao.com/2019[if (kakao)dev 2019].
 
 [.cv-list]
 == Education
