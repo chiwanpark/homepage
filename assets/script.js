@@ -5,7 +5,7 @@
     '127.0.0.1',
     'localhost',
     'chiwanpark.com',
-    'chiwanpark-status.azurewebsites.net'
+    "workbench.lan",
   ];
 
   var checkInternalLink = function(link) {
