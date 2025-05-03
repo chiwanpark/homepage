@@ -63,7 +63,9 @@ Journal of KIISE (Vol. 43, 2016, domestic) [link:https://datalab.snu.ac.kr/dslas
 [.experience]
 == Experience
 +++Kakao Corp. AI Alignment Unit (Apr. 2024 - Now)+++::
-To be described.
+I am currently involved in building https://mate.kakao.com[AI Mate], a conversational agent designed to deliver personalized recommendations and assistance across various Kakao services. My contributions focus on developing a production-grade Korean conversational agent, where my key contributions include:
+1. Implemented a versatile inference system capable of leveraging multiple backend engines, including vLLM, SGLang, and TensorRT-LLM. This allows us to efficiently serve a diverse range of LLMs, utilizing the optimal engine for each specific model's requirements.
+2. Designed a fine-tuning techique specifically for multi-agent scenarios. This method enables the creation and operation of multiple distinct agents from a single base language model, crucially ensuring they function without interfering with one another.
 
 +++Kakao Corp. R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Corp. Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)+++::
 As unit lead within the Kakao ART Team, I managed a research unit of over 10 members, responsible for developing and maintaining recommender systems across various Kakao services, including social networking, digital comics, e-commerce, and news platforms. Some key contributions include:
