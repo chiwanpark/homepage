@@ -1,0 +1,49 @@
+= 2025-05-03
+:page-lang: ko
+:page-layout: brief
+:page-date: 2025-05-03 00:00:00 +0900
+:page-summary: Gemma 3 / Qwen 3
+
+== https://arxiv.org/abs/2503.19786[Gemma 3 Technical Report]
+* 모델 크기는 1B, 4B, 12B, 27B이고, 1B 제외한 나머지 모델은 SigLIP 비전 타워를 붙여서 VLM 형태로 공개
+* Gemma 2에 있던 Logit soft-capping을 제거하는 대신 QK-norm을 사용
+** Gemma 2에서 추론 속도, 학습 속도 모두 손해본게 이만저만이 아니라 늦게라도 사라진게 다행
+* Local attention과 global attention을 5:1 비율로 섞어서 사용
+* 토크나이저는 Gemini 2.0 토크나이저를 사용 (SentencePiece)
+* 학습은 Gemini 2.0 모델을 teacher로 사용하는 knowledge distillation 방식
+* 학습 데이터는 27B 모델에 14T 토큰 사용, 12B 모델에 12T 토큰 사용, 4B 모델에 4T 토큰 사용, 1B 모델에 2T 토큰 사용
+* 학습 완료된 이후에 QAT (Quantization Aware Training) 적용한 체크포인트도 공개
+** QAT는 5000 step 동안 진행하고, non-quantized와 quantized의 probability distribution을 맞추는 방식
+* Post-training은 knowledge distillation + RL 방식으로 진행
+** Teacher 모델이 Gemini 2.0인지는 기재되어있진 않음 (a large IT teacher)
+** RL objective는 helpfulness, math, coding, reasoning, instruction-following, multilingual abilities에 초점을 맞춤
+*** Human feedback으로 학습한 reward model과 code execution을 사용
+
+== https://qwenlm.github.io/blog/qwen3/[Qwen3: Think Deeper, Act Faster]
+
+* Dense 모델은 0.6B, 1.7B, 4B, 8B, 14B, 32B / MoE 모델은 30B-A3B, 235B-A22B
+** Dense 32B, MoE 235B-A22B는 pre-trained checkpoint 없이 instruct-tuned checkpoint만 공개
+*** 비슷한 성능의 고급 모델 만들기 좋은 재료는 주지 않으려는 듯
+* 여러 메트릭에서 굉장히 우수한 성능을 보임
+** MoE 235B-A22B는 DeepSeek-R1 보다 낫고 Gemini 2.5 Pro에 살짝 밀리는 모습
+** Dense 32B는 DeepSeek-R1과 메트릭마다 엎치락 뒤치락 하는 모습
+** MoE 30B-A3B가 DeepSeek-V3과 Qwen2.5-72B-Instruct를 여러 메트릭에서 앞서는 결과를 보임
+** 메트릭 해킹이 살짝 의심되는 부분도 있음 (Qwen 3 32B > Qwen 2.5 72B ...?)
+* Hybrid Thinking 이란 이름으로 thinking process를 조절할 수 있는 기능을 제공
+** Non-thinking 모드에서는 `<think></think>` 태그를 모델 응답 앞부분에 넣어서 thinking을 넘어가도록 세팅하는 구조
+* Qwen 2/2.5 대비 지원하는 언어가 매우 늘어남
+** Cohere도 그렇고, 지나치게 multilingual한 모델은 체감 성능이 좋지 못했던 경우가 많았어서 실사용에 걱정이 되긴 함
+* 학습은 3단계로 진행
+** 1단계: 4K 길이 데이터를 30T 토큰 분량을 학습
+** 2단계: Knowledge-intensive (STEM, coding, and reasoning) 데이터 비중을 늘려 학습 (5T 토큰)
+** 3단계: 32K 길이 고퀄리티 데이터로 추가 학습
+* Post-training은 모델마다 다르게 진행
+** MoE 235B-A22B와 Dense 32B는 4단계로 나눠 진행
+*** Long-CoT Cold Start (SFT) -> Reasoning RL -> Thinking Mode Fusion -> General RL
+** 이외 모델은 MoE 235B-A22B, Dense 32B 모델을 teacher로 사용해서 knowledge distillation 방식으로 진행
+
+== 단상
+* 당연하지만 Google도 Alibaba도 자신들의 베스트 모델은 공개하지 않음
+* Logit distillation은 이제 sLM 만들 때 거의 표준처럼 사용되는 기법이 되었음
+* Gemma 3, Qwen 3 모두 RL에 reward model을 적극적으로 사용하고 의존해서 post-training을 진행
+** 괜찮은 reward model을 갖는게 중요해진 것 같다. 리소스가 적은 상황에서는 어떻게 해야할까?
