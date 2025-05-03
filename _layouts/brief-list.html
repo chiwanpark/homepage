@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+  {% assign page.title = "Briefs" %}
+  {% include head.html %}
+</head>
+<body>
+{% include navbar.html %}
+<div class="content-container">
+  <main>
+    <h1>Briefs (in Korean)</h1>
+    <p>최근 읽은 논문이나 연구 자료를 짧게 리뷰해 모아둔 페이지 입니다. 논문 내용을 자세히 정리하기 보다는 핵심만 요약해두는 방식으로 기록합니다.  모든 글은 저의 개인적인 의견이며, 제가 소속된 단체나 근무하고 있는 회사와는 상관이 없습니다.</p>
+    <ol class="briefs">
+    {% assign briefs = site.briefs | sort: 'date' | reverse %}
+    {% for brief in briefs %}
+      {% if brief.title != "Briefs" %}
+        <li class="brief-overview">
+          <div class="date"></div>
+          <div class="description">
+            <h2><a href="{{ brief.url | relative_url }}">{{ brief.date | date: '%b %d, %Y' }}</a></h2>
+            <span class="summary">{{ brief.summary }}</span>
+          </div>
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ol>
+  </main>
+</div>
+{% include footer.html %}
+
+{% include google-analytics.html %}
+</body>
+</html>

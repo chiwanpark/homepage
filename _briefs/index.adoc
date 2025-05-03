@@ -1,0 +1,3 @@
+= Briefs
+:page-layout: brief-list
+:page-draft: true

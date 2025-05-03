@@ -11,6 +11,9 @@ collections:
   writings:
     output: true
     permalink: /:collection/:path.html
+  briefs:
+    output: true
+    permalink: /:collection/:path.html
 
 # Build settings
 plugins:
