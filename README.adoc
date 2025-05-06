@@ -1,3 +1,8 @@
 = chiwanpark.com
 
 image::https://api.netlify.com/api/v1/badges/5ea4c23b-c8ff-46db-9406-d9f7ad311bbd/deploy-status[link=https://app.netlify.com/sites/chiwanpark/deploys]
+
+== Development
+
+* The only requirement is https://github.com/rbenv/rbenv[rbenv].
+* To run the server, run `bundler exec jekyll serve -H 0.0.0.0 -P 4000` in the root directory.
