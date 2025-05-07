@@ -1,0 +1,22 @@
+= 2025-05-10
+:page-lang: ko
+:page-layout: brief
+:page-date: 2025-05-10 00:00:00 +0900
+:page-summary: NVIDIA CLIMB
+
+== https://arxiv.org/abs/2504.13161[CLIMB: CLustering-based Iterative Data Mixture Bootstrapping for Language Model Pre-training]
+* Pre-training 할 때 중요한 것은 크게 데이터 품질(quality)과 구성(mixture)인데, 클러스터링을 활용해서 최적의 구성을 찾아나가는 방법을 제안
+* 3단계로 나눠서 진행
+** Data Preprocessing: 데이터 임베딩 추출 및 클러스터링 수행
+*** 임베딩 모델은 https://huggingface.co/NovaSearch/stella_en_400M_v5[textstella_en_400M_v5], 클러스터링은 K-Means, K=1000으로 수행 후 거리 1.5 이하의 클러스터를 하나로 묶음
+*** Fineweb-like 데이터 필터링도 수행함 (Nemotron-340B -> FastText 품질 평가 모델, 3점 이상)
+**** 평가 모델이 품질, 광고 여부, 정보성 여부, 교육적인 가치 4개 항목을 평가
+**** Nemotron-340B는 4개를 한번에 평가하고, FastText는 모델 1개가 1개 항목을 평가
+** Mixture Bootstrapping: 클러스터링된 데이터에서 샘플링 수행 후 작은 모델(proxy model) 학습해 성능 평가, 이를 바탕으로 샘플링 비율에 대한 성능 예측 모델 학습
+*** 작은 모델은 62M, 350M 사용했고 예측 모델은 LightGBM 사용 (max-depth = 4, min-samples-per-leaf = 5)
+*** 2번 과정을 비율 바꿔가면서 반복함
+**** 비율을 어떻게 바꿔야할지도 중요한데, alternative 방식을 적용
+***** 예측 모델 사용해서 상위 K개의 비율 샘플링 후 학습 수행
+***** 예측 모델을 학습 결과를 사용해서 업데이트 후 다음 샘플링에 활용 (단, 이미 시도해본 비율은 제외)
+***** 위 두 과정을 budget이 허용하는 한 반복
+** Optimal Mixture Weights: 성능 예측기를 사용해서 최적의 샘플링 비율을 찾고, 이를 바탕으로 대규모 모델 학습
