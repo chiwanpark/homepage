@@ -17,7 +17,7 @@
 I am an Applied Machine Learning Engineer at the AI Alignment Unit of link:http://www.kakaocorp.com[Kakao Corporation], where I develop machine learning applications for Kakao's various mobile and web services.
 My research centers on conversational agents and machine learning on graphs.
 I hold an M.Sc. in Computer Science and Engineering at Seoul National University, where I researched large-scale graph processing using distributed systems under link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang]'s supervision.
-For a comprehensive overview of my research and achievements, please refer to my full link:https://bit.ly/chiwanpark-cv[Curriculum Vitae].
+For a comprehensive overview of my research and achievements, please refer to my full link:https://tinyurl.com/chiwanpark-cv[Curriculum Vitae].
 
 Beyond my professional work, I am passionate about building data-related products.
 I created link:https://solvesql.com[SolveSQL], a web-based SQL learning platform designed for data analysts.
