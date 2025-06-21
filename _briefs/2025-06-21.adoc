@@ -1,0 +1,48 @@
+= 2025-06-21
+:page-lang: ko
+:page-layout: brief
+:page-date: 2025-06-21 00:00:00 +0900
+:page-summary: NVIDIA CLIMB / Minitron
+
+== https://arxiv.org/abs/2504.13161[CLIMB: CLustering-based Iterative Data Mixture Bootstrapping for Language Model Pre-training]
+* Pre-training 할 때 중요한 것은 크게 데이터 품질(quality)과 구성(mixture)인데, 클러스터링을 활용해서 최적의 구성을 찾아나가는 방법을 제안
+* Data Preprocessing: 데이터 임베딩 추출 및 클러스터링 수행
+** 임베딩 모델은 https://huggingface.co/NovaSearch/stella_en_400M_v5[textstella_en_400M_v5], 클러스터링은 K-Means, K=1000으로 수행 후 거리 1.5 이하의 클러스터를 하나로 묶음
+** Fineweb-like 데이터 필터링도 수행함 (Nemotron-340B -> FastText 품질 평가 모델, 3점 이상)
+*** 평가 모델이 품질, 광고 여부, 정보성 여부, 교육적인 가치 4개 항목을 평가
+*** Nemotron-340B는 4개를 한번에 평가하고, FastText는 모델 1개가 1개 항목을 평가
+* Mixture Bootstrapping: 클러스터링된 데이터에서 샘플링 수행 후 작은 모델(proxy model) 학습해 성능 평가, 이를 바탕으로 샘플링 비율에 대한 성능 예측 모델 학습
+** 작은 모델은 62M, 350M 사용했고 예측 모델은 LightGBM 사용 (max-depth = 4, min-samples-per-leaf = 5)
+** 2번 과정을 비율 바꿔가면서 반복함
+*** 비율을 어떻게 바꿔야할지도 중요한데, alternative 방식을 적용
+**** 예측 모델 사용해서 상위 K개의 비율 샘플링 후 학습 수행
+**** 예측 모델을 학습 결과를 사용해서 업데이트 후 다음 샘플링에 활용 (단, 이미 시도해본 비율은 제외)
+**** 위 두 과정을 budget이 허용하는 한 반복
+* Optimal Mixture Weights: 성능 예측기를 사용해서 최적의 샘플링 비율을 찾고, 이를 바탕으로 대규모 모델 학습
+
+== https://arxiv.org/abs/2408.11796[LLM Pruning and Distillation in Practice: The Minitron Approach]
+* Llama 3.1 8B와 Mistral NeMo 12B를 각각 4B, 8B로 distillation 한 내용
+* Teacher correction, Pruning, Distillation 세 가지 테크닉을 사용
+* Teacher correction: teacher model을 distillation에서 사용하려는 데이터셋으로 fine-tuning 수행
+** Teacher model을 학습시킬 때의 데이터셋이 없기 때문에 distillation에 사용할 데이터셋을 학습시키자는 아이디어
+** 127B 토큰 데이터셋으로 사용
+*** Pre-training에 일반적으로 trillion-scale의 데이터셋이 사용되는 것에 비하면 작은 편이나 그래도 매우 큰 수준
+*** Specific language ability 개선 목적으로 학습 돌리는 크기
+** Teacher correction의 유무에 따라 LM loss가 5% 이상 차이 발생
+* Pruning: depth, width (neuron, attention head, embedding dimension) pruning with 1K samples
+** Width pruning은 activation 기준으로 각 element의 순위를 매긴 뒤, 하위 순위를 제거
+** Depth pruning 할 때는 downstream task performance (Winogrande) 사용
+*** LM loss과 Block Importance는 매우 강한 상관관계가 있었고 과거에 사용된 이력이 있어 고려되었지만 downstream task performance와는 차이가 있었음
+*** 어떤 레이어를 삭제할 지 후보를 고를 때는 특정 레이어 이후 $N$개의 레이어를 삭제하는 방식으로 진행 (전부 다하려면 $2^{|L|}$ 조합이라 비현실적이긴 함)
+** 같은 파라미터 수를 유지하는 세팅에서는 width pruning이 depth pruning보다 성능이 좋았음
+* Distillation: teacher model의 logits을 사용해서 pruned student model 학습 (KL-divergence)
+* 리소스: 32 DGX H100 Nodes (256 GPUs) 사용
+
+== 단상
+* 최근 NVIDIA에서 적용하기 좋아보이는 연구가 여럿 나오고 있음
+** 듣기로는 고객사의 시나리오를 바탕으로 연구를 진행한다던데 실제로도 유용해 보이는 문제를 다루는 것으로 보임
+* (Minitron은 비용 절약임에 포커스한 연구임에도) 스타트업에서 실험해보기에는 여전히 큰 리소스가 필요함
+** H100 256장이면 저렴한 클라우드를 써도 7일 기준 1.5억 이상 필요
+** 그렇기 때문에라도 sLM 관련 연구가 계속 발전할 것으로 보임
+* CLIMB으로 데이터를 줄이고 Minitron 방법을 적용해보는 것도 좋아보임
+** High-quality 데이터셋이 학습 효율이 좋다는 여러 연구가 이미 있으니 더 적은 데이터로도 가능하지 않을까?
