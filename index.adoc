@@ -46,7 +46,7 @@ B.Eng. in Computer Science and Engineering (double major)
 == Publications
 A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs::
 *Chiwan Park*\*, Wonjun Jang*, Daeryong Kim*, Aelim Ahn, Kichang Yang, Woosung Hwang, Jihyeon Roh, Hyerin Park, Hyosun Wang, Min Seok Kim, and Jihoon Kang
-link:https://2025.aclweb.org/[ACL 2025 (Industry Track)] [link:https://arxiv.org/abs/2505.23006[paper]]
+link:https://2025.aclweb.org/[ACL 2025 (Industry Track)] [link:https://aclanthology.org/2025.acl-industry.107/[paper]]
 
 Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022::
 Hyunsung Lee, Sungwook Yoo, Andrew Yang, Wonjun Jang, and *Chiwan Park*
