@@ -25,11 +25,11 @@ I also actively contribute to several open-source machine learning libraries and
 My personal projects are available on link:https://github.com/chiwanpark[my GitHub Profile].
 
 == News
+* **Oct 18, 2025** - A blog post about Tensor-wise LLM Quantization with TensorRT-LLM was posted to link:https://developer.nvidia.com/ko-kr/blog/nvidia-quantization-technology-and-tensorrt-llmbased-service-optimization/[NVIDIA Technical Blog (in Korean)].
 * **May 9, 2025** - A paper, "A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs" was accepted to link:https://2025.aclweb.org/[ACL 2025 (Industry Track)].
 * **Dec. 5, 2024** - I was mentioned in a link:https://www.linkedin.com/blog/engineering/open-source/liger-kernel-open-source-ecosystem-for-efficient-llm-training[LinkedIn blog post] about my contributions to Liger Kernel, a GPU kernel library that enhances the training efficiency of LLMs.
 * **Aug. 1, 2022** - A paper, "Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022" was accepted to RecSys Challenge Workshop 2022.
 * **Jun. 30, 2022** - I gave a talk named "link:https://speakerdeck.com/chiwanpark/challenges-in-real-world-recommender-systems[Challenges in Real-world Recommender Systems]" at link:https://www.kiise.or.kr/conference/main/getContent.do?CC=KCC&CS=2022&PARENT_ID=011600&content_no=1595[KCC 2022].
-* **Dec. 27, 2021** - I wrote a blog post named "link:https://tech.kakao.com/2021/12/27/content-based-filtering-in-kakao/[카카오 AI추천 : 카카오의 콘텐츠 기반 필터링]" to kakao Tech blog (in Korean).
 
 [.cv-list]
 == Education
