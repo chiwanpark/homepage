@@ -1,8 +1,69 @@
 ---
 ---
 // font
-@import "//cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css";
-$body-font: 'Pretendard', sans-serif;
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-1Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-2ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Presentation';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+$body-font: 'Presentation', sans-serif;
 $code-font: 'Cascade Code';
 @font-face {
   font-family: $code-font;
@@ -75,7 +136,7 @@ html {
 
 body {
   font-family: $body-font;
-  font-weight: 400;
+  font-weight: 500;
   font-display: swap;
   padding: 0;
   margin: 0;
@@ -97,7 +158,7 @@ div.header-container {
     h1 {
       min-width: 9rem;
       font-size: 1.2rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     nav.menu {
@@ -158,7 +219,7 @@ div.profile {
     align-content: center;
 
     h1 {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1.6rem;
       margin-bottom: 0.25rem;
     }
@@ -269,7 +330,7 @@ main {
       p {
         white-space: pre-wrap;
         strong {
-          font-weight: 400;
+          font-weight: 500;
           text-decoration: underline;
         }
       }
@@ -315,14 +376,14 @@ div.experience {
     li {
       margin-bottom: 0.5rem;
       p {
-        font-weight: 600;
+        font-weight: 700;
       }
       ul {
         margin-left: 0;
         li {
           list-style: none;
           p {
-            font-weight: 400;
+            font-weight: 500;
           }
         }
       }
@@ -346,8 +407,8 @@ ol.writings, ol.briefs {
     }
     div.description {
       h2 {
-        font-weight: 600;
-        font-size: 1rem;
+        font-weight: 700;
+        font-size: 1.1rem;
         margin: 0;
       }
     }
