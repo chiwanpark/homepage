@@ -14,7 +14,7 @@
 
 [.biography]
 == Biography
-I am a machine learning engineer in the Hyperscale AI Model team at link:https://navercloudcorp.com[NAVER Cloud], working on large language models for enhancing various capabilities such as instruction following, agentic behavior, reasoning, and safety alignment.
+I am a machine learning engineer in the Hyperscale AI Model Team at link:https://navercloudcorp.com[NAVER Cloud], working on large language models for enhancing various capabilities such as instruction following, agentic behavior, reasoning, and safety alignment.
 Prior to NAVER Cloud, I worked as an applied machine learning engineer at link:http://www.kakaocorp.com[Kakao] (2018-2025).
 I hold an M.Sc. in Computer Science and Engineering from Seoul National University, where I researched large-scale graph processing using distributed systems under link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
 For a comprehensive overview of my research and achievements, please see my full link:https://tinyurl.com/chiwanpark-cv[Curriculum Vitae].
@@ -75,7 +75,7 @@ I was involved in building https://mate.kakao.com[AI Mate], a conversational age
 2. Performing extensive evaluations of various LLMs in terms of their agentic capabilities in real-world scenarios, including task accuracy, output format adherence, and response quality. This evaluation process was crucial for selecting the most suitable models for our conversational agent.
 3. Designing a fine-tuning technique specifically for multi-agent scenarios. This method enabled the creation and operation of multiple distinct agents from a single base language model, crucially ensuring they function without interfering with one another.
 
-+++Kakao R&D Center (Apr. 2018 - May. 2021)<br/>Kakao Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)+++::
++++Kakao Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)<br/>Kakao R&D Center (Apr. 2018 - May. 2021)+++::
 As unit lead within the Kakao ART Team, I managed a research unit of over 10 members, responsible for developing and maintaining recommender systems across various Kakao services, including social networking, digital comics, e-commerce, and news platforms. My key contributions included:
 1. Developing a lightweight user representation model for link:https://daum.net[Daum], a popular news portal with 10 million users, by leveraging topic keywords from articles to capture evolving user interests. This model served as a context input feature for bandit models, enhancing news recommendation quality.
 2. Building personalized recommender systems for link:https://www.kakaocorp.com/page/detail/9462[mm], an audio-only social network service. I employed graph-based recommendation models, incorporating techniques like graph pruning and regularization to optimize performance.
