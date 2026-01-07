@@ -82,6 +82,7 @@ $background-color: #ffffff;
 $quote-color: $oc-gray-7;
 $code-number-color: $oc-gray-5;
 $line-section-color: $oc-gray-3; 
+$profile-border-color: $oc-gray-4;
 
 @import "reset";
 @import "github-gist";
@@ -233,6 +234,7 @@ div.profile {
   img {
     max-width: 7.5rem;
     margin-right: 1rem;
+    border: 1px solid $profile-border-color;
     border-radius: 4px;
     align-self: flex-start;
   }
