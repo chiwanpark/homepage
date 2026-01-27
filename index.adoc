@@ -25,6 +25,7 @@ I also actively contribute to open-source machine learning libraries and data pr
 My personal projects are available on link:https://github.com/chiwanpark[my GitHub Profile].
 
 == News
+* **Jan. 27, 2026** - A paper, "OrchestrationBench: LLM-Driven Agentic Planning and Tool Use in Multi-Domain Scenarios" was accepted to link:https://iclr.cc/Conferences/2026[ICLR 2026].
 * **Dec. 22, 2025** - I joined NAVER Cloud as a Machine Learning Engineer.
 * **Oct. 18, 2025** - A blog post about Tensor-wise LLM Quantization with TensorRT-LLM was posted to the link:https://developer.nvidia.com/ko-kr/blog/nvidia-quantization-technology-and-tensorrt-llmbased-service-optimization/[NVIDIA Technical Blog (in Korean)].
 * **May 9, 2025** - A paper, "A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs" was accepted to link:https://2025.aclweb.org/[ACL 2025 (Industry Track)].
@@ -44,6 +45,10 @@ B.Eng. in Computer Science and Engineering (double major)
 
 [.cv-list]
 == Publications
+OrchestrationBench: LLM-Driven Agentic Planning and Tool Use in Multi-Domain Scenarios::
+Aelim Ahn, Sooyeon Lee, Hyosun Wang, *Chiwan Park*, Daeryong Kim, Jihyeon Roh, Kichang Yang, Wonjun Jang, Hwang Woosung, Min Seok Kim, Jihoon Kang
+link:https://iclr.cc/Conferences/2026[ICLR 2026]
+
 A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs::
 *Chiwan Park*\*, Wonjun Jang*, Daeryong Kim*, Aelim Ahn, Kichang Yang, Woosung Hwang, Jihyeon Roh, Hyerin Park, Hyosun Wang, Min Seok Kim, and Jihoon Kang
 link:https://2025.aclweb.org/[ACL 2025 (Industry Track)] [link:https://aclanthology.org/2025.acl-industry.107/[paper]]
