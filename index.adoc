@@ -46,7 +46,7 @@ B.Eng. in Computer Science and Engineering (double major)
 == Publications
 OrchestrationBench: LLM-Driven Agentic Planning and Tool Use in Multi-Domain Scenarios::
 Aelim Ahn, Sooyeon Lee, Hyosun Wang, *Chiwan Park*, Daeryong Kim, Jihyeon Roh, Kichang Yang, Wonjun Jang, Hwang Woosung, Min Seok Kim, and Jihoon Kang
-link:https://iclr.cc/Conferences/2026[ICLR 2026] [link:https://github.com/kakao/OrchestrationBench[github]]
+link:https://iclr.cc/Conferences/2026[ICLR 2026] [link:https://openreview.net/forum?id=Oljnxmf4pc[paper] | link:https://github.com/kakao/OrchestrationBench[github]]
 
 A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs::
 *Chiwan Park*\*, Wonjun Jang*, Daeryong Kim*, Aelim Ahn, Kichang Yang, Woosung Hwang, Jihyeon Roh, Hyerin Park, Hyosun Wang, Min Seok Kim, and Jihoon Kang
