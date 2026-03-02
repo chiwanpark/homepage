@@ -21,7 +21,7 @@ For a comprehensive overview of my research and achievements, please see my full
 
 Beyond my professional work, I am passionate about building data-related products.
 For instance, I created link:https://solvesql.com[SolveSQL], a web-based SQL learning platform designed for data analysts.
-I also actively contribute to open-source machine learning libraries and data processing frameworks including link:https://github.com/axolotl-ai-cloud/axolotl/[Axolotl], link:https://github.com/linkedin/Liger-Kernel/[Liger Kernel], and link:https://flink.apache.org/[Apache Flink].
+I also contribute to open-source machine learning libraries and data processing frameworks including link:https://github.com/axolotl-ai-cloud/axolotl/[Axolotl], link:https://github.com/linkedin/Liger-Kernel/[Liger Kernel], and link:https://flink.apache.org/[Apache Flink].
 My personal projects are available on link:https://github.com/chiwanpark[my GitHub Profile].
 
 == News
@@ -45,7 +45,7 @@ B.Eng. in Computer Science and Engineering (double major)
 [.cv-list]
 == Publications
 OrchestrationBench: LLM-Driven Agentic Planning and Tool Use in Multi-Domain Scenarios::
-Aelim Ahn, Sooyeon Lee, Hyosun Wang, *Chiwan Park*, Daeryong Kim, Jihyeon Roh, Kichang Yang, Wonjun Jang, Hwang Woosung, Min Seok Kim, Jihoon Kang
+Aelim Ahn, Sooyeon Lee, Hyosun Wang, *Chiwan Park*, Daeryong Kim, Jihyeon Roh, Kichang Yang, Wonjun Jang, Hwang Woosung, Min Seok Kim, and Jihoon Kang
 link:https://iclr.cc/Conferences/2026[ICLR 2026] [link:https://github.com/kakao/OrchestrationBench[github]]
 
 A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs::
