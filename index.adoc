@@ -14,21 +14,21 @@
 
 [.biography]
 == Biography
-I am a machine learning engineer in the Hyperscale AI Model Team at link:https://navercloudcorp.com[NAVER Cloud], working on large language models for enhancing various capabilities such as instruction following, agentic behavior, reasoning, and safety alignment.
-Prior to NAVER Cloud, I worked as an applied machine learning engineer at link:http://www.kakaocorp.com[Kakao] (2018-2025).
+I am a machine learning engineer in the Hyperscale AI Model Team at link:https://navercloudcorp.com[NAVER Cloud], working on large language models, with a focus on agentic coding, instruction following, and reasoning.
+Prior to NAVER Cloud, I worked as an applied machine learning engineer at link:https://www.kakaocorp.com[Kakao] (2018-2025).
 I hold an M.Sc. in Computer Science and Engineering from Seoul National University, where I researched large-scale graph processing using distributed systems under link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang].
 For a comprehensive overview of my research and achievements, please see my full link:https://tinyurl.com/chiwanpark-cv[Curriculum Vitae].
 
 Beyond my professional work, I am passionate about building data-related products.
 For instance, I created link:https://solvesql.com[SolveSQL], a web-based SQL learning platform designed for data analysts.
-I also contribute to open-source machine learning libraries and data processing frameworks including link:https://github.com/axolotl-ai-cloud/axolotl/[Axolotl], link:https://github.com/linkedin/Liger-Kernel/[Liger Kernel], and link:https://flink.apache.org/[Apache Flink].
+I also contribute to open-source machine learning libraries and data processing frameworks, including link:https://github.com/axolotl-ai-cloud/axolotl[Axolotl], link:https://github.com/linkedin/Liger-Kernel[Liger Kernel], and link:https://flink.apache.org/[Apache Flink].
 My personal projects are available on link:https://github.com/chiwanpark[my GitHub Profile].
 
 == News
-* **Jan. 27, 2026** - A paper, "OrchestrationBench: LLM-Driven Agentic Planning and Tool Use in Multi-Domain Scenarios" was accepted to link:https://iclr.cc/Conferences/2026[ICLR 2026].
+* **Jan. 27, 2026** - Our paper "OrchestrationBench: LLM-Driven Agentic Planning and Tool Use in Multi-Domain Scenarios" was accepted to link:https://iclr.cc/Conferences/2026[ICLR 2026].
 * **Dec. 22, 2025** - I joined NAVER Cloud as a Machine Learning Engineer.
-* **Oct. 18, 2025** - A blog post about Tensor-wise LLM Quantization with TensorRT-LLM was posted to the link:https://developer.nvidia.com/ko-kr/blog/nvidia-quantization-technology-and-tensorrt-llmbased-service-optimization/[NVIDIA Technical Blog (in Korean)].
-* **May 9, 2025** - A paper, "A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs" was accepted to link:https://2025.aclweb.org/[ACL 2025 (Industry Track)].
+* **Oct. 18, 2025** - A blog post about per-tensor LLM quantization with TensorRT-LLM was published on the link:https://developer.nvidia.com/ko-kr/blog/nvidia-quantization-technology-and-tensorrt-llmbased-service-optimization/[NVIDIA Technical Blog (in Korean)].
+* **May 9, 2025** - Our paper "A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs" was accepted to link:https://2025.aclweb.org/[ACL 2025 (Industry Track)].
 * **Dec. 5, 2024** - I was mentioned in a link:https://www.linkedin.com/blog/engineering/open-source/liger-kernel-open-source-ecosystem-for-efficient-llm-training[LinkedIn blog post] about my contributions to Liger Kernel, a GPU kernel library that enhances the training efficiency of LLMs.
 
 [.cv-list]
@@ -41,7 +41,7 @@ Advisor: link:https://datalab.snu.ac.kr/~ukang/[Prof. U Kang]
 Yonsei University (Mar. 2010 - Feb. 2016)::
 B.Sc. in Earth System Sciences
 B.Eng. in Computer Science and Engineering (double major)
- 
+
 [.cv-list]
 == Publications
 OrchestrationBench: LLM-Driven Agentic Planning and Tool Use in Multi-Domain Scenarios::
@@ -50,7 +50,7 @@ link:https://iclr.cc/Conferences/2026[ICLR 2026] [link:https://openreview.net/fo
 
 A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs::
 *Chiwan Park*\*, Wonjun Jang*, Daeryong Kim*, Aelim Ahn, Kichang Yang, Woosung Hwang, Jihyeon Roh, Hyerin Park, Hyosun Wang, Min Seok Kim, and Jihoon Kang
-link:https://2025.aclweb.org/[ACL 2025 (Industry Track)] [link:https://aclanthology.org/2025.acl-industry.107/[paper]]
+link:https://2025.aclweb.org/[ACL 2025 (Industry Track)] [link:https://aclanthology.org/2025.acl-industry.107/[paper]] (* equal contribution)
 
 Simple and Efficient Recommendation Strategy for Warm/Cold Sessions for RecSys Challenge 2022::
 Hyunsung Lee, Sungwook Yoo, Andrew Yang, Wonjun Jang, and *Chiwan Park*
@@ -58,7 +58,7 @@ link:https://recsys.acm.org/recsys22/challenge/[RecSys Challenge Workshop] at AC
 
 FlexGraph: Flexible partitioning and storage for scalable graph mining::
 *Chiwan Park*, Ha-Myung Park, and U Kang
-PLoS ONE 15(1): e0227032 [link:https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0227032[paper] | link:https://github.com/snudatalab/FlexGraph[github]]
+PLoS ONE 15(1): e0227032, 2020 [link:https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0227032[paper] | link:https://github.com/snudatalab/FlexGraph[github]]
 
 PegasusN: A Scalable and Versatile Graph Mining System::
 Ha-Myung Park, *Chiwan Park*, and U Kang
@@ -66,26 +66,26 @@ link:https://aaai.org/Conferences/AAAI-18/[AAAI 2018] (demo paper) [link:https:/
 
 A Distributed Vertex Rearrangement Algorithm for Compressing and Mining Big Graphs::
 Namyong Park, *Chiwan Park*, and U Kang
-Journal of KIISE (Vol. 43, 2016, domestic) [link:https://datalab.snu.ac.kr/dslashburn/dslashburn.pdf[paper] | link:https://datalab.snu.ac.kr/dslashburn/[homepage]]
+Journal of KIISE (Vol. 43, 2016, Korean domestic journal) [link:https://datalab.snu.ac.kr/dslashburn/dslashburn.pdf[paper] | link:https://datalab.snu.ac.kr/dslashburn/[homepage]]
 
 [.experience]
 == Experience
 +++NAVER Cloud Hyperscale AI Model Team (Dec. 2025 - Present)+++::
-To be updated soon.
+I contribute to the next generation of link:https://clova.ai/en/hyperclova[HyperCLOVA X], a top-tier Korean large language model developed by Team NAVER. My work focuses on developing various reinforcement learning environments for software development tasks, including web frontend, terminal use, and long-running coding tasks.
 
 +++Kakao AI Alignment Unit (Apr. 2024 - Dec. 2025)+++::
-I was involved in building https://mate.kakao.com[AI Mate], a conversational agent designed to deliver personalized recommendations and assistance across various Kakao services. My work focused on developing a production-grade Korean conversational agent, where my key contributions included:
+I was involved in building models for link:https://kanana.kakao.com[Kanana in KakaoTalk], a conversational agent designed to deliver personalized recommendations and assistance across various Kakao services. My work focused on developing a production-grade Korean conversational agent, where my key contributions included:
 1. Implementing a versatile inference system capable of leveraging multiple backend engines, including vLLM, SGLang, and TensorRT-LLM. This allowed us to efficiently serve a diverse range of LLMs, utilizing the optimal engine for each specific model's requirements.
 2. Performing extensive evaluations of various LLMs in terms of their agentic capabilities in real-world scenarios, including task accuracy, output format adherence, and response quality. This evaluation process was crucial for selecting the most suitable models for our conversational agent.
 3. Designing a fine-tuning technique specifically for multi-agent scenarios. This method enabled the creation and operation of multiple distinct agents from a single base language model, crucially ensuring they function without interfering with one another.
 
-+++Kakao Advanced Recommendation Technology (ART) Team (May. 2021 - Mar. 2024)<br/>Kakao R&D Center (Apr. 2018 - May. 2021)+++::
-As unit lead within the Kakao ART Team, I managed a research unit of over 10 members, responsible for developing and maintaining recommender systems across various Kakao services, including social networking, digital comics, e-commerce, and news platforms. My key contributions included:
++++Kakao Advanced Recommendation Technology (ART) Team (May 2021 - Mar. 2024)<br/>Kakao R&D Center (Apr. 2018 - May 2021)+++::
+As a machine learning engineer at the Kakao R&D Center and later a unit lead of over 10 members within the Kakao ART Team, I developed and maintained recommender systems across various Kakao services, including social networking, digital comics, e-commerce, and news platforms. My key contributions included:
 1. Developing a lightweight user representation model for link:https://daum.net[Daum], a popular news portal with 10 million users, by leveraging topic keywords from articles to capture evolving user interests. This model served as a context input feature for bandit models, enhancing news recommendation quality.
 2. Building personalized recommender systems for link:https://www.kakaocorp.com/page/detail/9462[mm], an audio-only social network service. I employed graph-based recommendation models, incorporating techniques like graph pruning and regularization to optimize performance.
 3. Addressing cold-start issues for new comics on link:https://webtoon.kakao.com[Kakao Webtoon] and link:https://piccoma.com[Piccoma] by combining content-based representation learning and collaborative filtering. These recommender systems served as user-targeted marketing tools, optimizing the first conversion rate.
 4. Creating a context-aware recommender system for link:https://gift.kakao.com[KakaoTalk Gift], an e-commerce feature within the KakaoTalk Messenger app. The system considered multiple contexts such as demographics, product popularity, and user history (including clicked and purchased items), by integrating text and image embeddings alongside collaborative filtering techniques.
-5. Developing and maintaining machine learning applications for link:https://shoppinghow.kakao.com[Shopping How], an eBay/Amazon-like e-commerce platform. I implemented product categorization and matching systems using Transformers and graph algorithms, applying parallel computing techniques to efficiently handle billion-scale data.
+5. Developing and maintaining machine learning applications for link:https://shoppinghow.kakao.com[Shopping How], one of the largest shopping price-comparison platforms in Korea. I implemented product categorization and matching systems using Transformers and graph algorithms, applying parallel computing techniques to efficiently handle billion-scale data.
 
 [.contacts]
 == Contacts
