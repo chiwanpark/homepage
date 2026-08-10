@@ -1,5 +1,9 @@
 ---
 ---
+@use "open-color" as *;
+@use "reset";
+@use "github-gist";
+
 // font
 @font-face {
     font-family: 'Presentation';
@@ -75,7 +79,6 @@ $code-font: 'Cascade Code';
 $content-width: 900px;
 
 // color
-@import "open-color";
 $text-color: $oc-gray-8;
 $highlight-color: $oc-pink-9;
 $background-color: #ffffff;
@@ -83,9 +86,6 @@ $quote-color: $oc-gray-7;
 $code-number-color: $oc-gray-5;
 $line-section-color: $oc-gray-3; 
 $profile-border-color: $oc-gray-4;
-
-@import "reset";
-@import "github-gist";
 
 .highlight, code {
   font-family: $code-font, monospace;
